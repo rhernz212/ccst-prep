@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cert Prep
 
-## Getting Started
+A study/practice-exam site for IT certifications, currently covering Cisco's CCST Networking exam. Landing page → pick a certification → five tabs: Study Material, Practice Quizzes, Subnetting, CLI Practice, and a Full Practice Exam.
 
-First, run the development server:
+## Stack
+
+Next.js 16 (App Router) + TypeScript + Tailwind CSS v4, with Supabase for auth and Postgres.
+
+## First-time setup
+
+1. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+2. **Create a Supabase project** at [supabase.com](https://supabase.com), then copy `.env.local.example` to `.env.local` and fill in the three values from Project Settings → API.
+
+3. **Apply the database schema.** Run every file in `supabase/migrations/` in order via the Supabase SQL Editor (or `supabase db push` if you're linked to the project via the CLI).
+
+4. **Seed content.** The book content for CCST Networking is already ingested into `content/exams/ccst-networking/` and committed to the repo — you don't need to re-run ingestion unless the source book changes. Seed the structural data (chapters, sections, blueprint, questions) into Supabase:
+
+   ```bash
+   npm run seed:db
+   ```
+
+5. **Run the dev server**
+
+   ```bash
+   npm run dev
+   ```
+
+## Content ingestion (only needed if the source book changes)
+
+`scripts/ingest/ingest-ccst-networking.ts` parses the source EPUB (extracted XHTML) into `content/exams/ccst-networking/`: per-chapter JSON, a question bank (`questions.json`), and the exam blueprint (`blueprint.json`). It also copies referenced images into `public/content/ccst-networking/images/`.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run ingest:ccst -- --source "<path to extracted epub OPS folder>"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then re-run `npm run seed:db` to push the updated content into Supabase (idempotent — safe to re-run).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tests
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Pure domain logic (subnetting calculator, CLI command simulator, exam question selection/scoring) has unit tests:
 
-## Learn More
+```bash
+npm test
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Project layout
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `app/` — routes. `app/exams/[examSlug]/` holds the five tabs, generalized by exam slug rather than hardcoded to one certification.
+- `lib/domain/` — framework-agnostic, unit-tested logic (subnetting, CLI simulator, exam selection/scoring) with no React/Next/Supabase imports.
+- `lib/content/` — reads ingested content JSON. `content-reader.ts` has no bundler-specific guards (usable from plain Node scripts); `exam-content.ts` re-exports it behind a `server-only` guard for use in the app.
+- `lib/supabase/` — client/server/admin Supabase client factories and the session-refresh helper used by `proxy.ts`.
+- `scripts/ingest/` — the EPUB→JSON parsing pipeline and the DB seeding script.
+- `supabase/migrations/` — schema, in order.

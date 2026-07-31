@@ -31,7 +31,9 @@ export default async function ChapterPage({
       />
       <article className="prose prose-slate max-w-none prose-img:rounded-md prose-img:border prose-img:border-gray-200">
         <div className="mb-1 text-sm font-medium text-blue-600">Chapter {chapter.number}</div>
-        <h1>{chapter.title}</h1>
+        {/* h2, not h1 — the exam layout's <h1>{exam.title}</h1> is the page's
+            true top-level heading; every other tab's page heading is an h2. */}
+        <h2 className="text-3xl">{chapter.title}</h2>
         <SectionRenderer html={chapter.introHtml} />
         {chapter.sections.map((section) => {
           const sectionDbId = dbRefs?.sectionIdByAnchor.get(section.anchorId);
