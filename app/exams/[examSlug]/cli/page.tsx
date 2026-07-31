@@ -1,10 +1,10 @@
-import { ComingSoon } from "@/components/ui/ComingSoon";
+import { CliPracticePanel } from "@/components/cli/CliPracticePanel";
 
 export default function CliPracticePage() {
   return (
-    <ComingSoon
-      title="CLI Practice"
-      description="A simulated terminal for practicing commands like ipconfig and ping is coming soon."
-    />
+    <div>
+      <h2 className="mb-4 text-xl font-semibold text-gray-900">CLI Practice</h2>
+      <CliPracticePanel />
+    </div>
   );
 }
