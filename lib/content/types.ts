@@ -1,3 +1,12 @@
+export interface ExamMeta {
+  slug: string;
+  title: string;
+  vendor: string;
+  examCode: string;
+  timeLimitMinutes: number;
+  questionCount: number;
+}
+
 export interface ChapterSection {
   anchorId: string;
   title: string;

@@ -25,3 +25,44 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Book-specific structural classes preserved through ingestion sanitization
+   (see scripts/ingest/sanitize.ts). The book's original stylesheet is not
+   reused, so these re-create the visual intent with Tailwind Typography. */
+.prose .feature3 {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #2563eb;
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+.prose .feature3 .top,
+.prose .feature3 .bottom {
+  display: none;
+}
+.prose .figureLabel {
+  color: #2563eb;
+  letter-spacing: 0.02em;
+}
+.prose img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.prose ol.upper-alpha {
+  list-style-type: upper-alpha;
+}
+.prose ul.square,
+.prose ul.square1 {
+  list-style-type: square;
+}
+.prose ul.check {
+  list-style: none;
+  padding-left: 0;
+}
+.prose ul.check > li::before {
+  content: "\2713  ";
+  color: #16a34a;
+  font-weight: bold;
+}
