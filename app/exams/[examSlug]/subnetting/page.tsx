@@ -1,10 +1,11 @@
-import { ComingSoon } from "@/components/ui/ComingSoon";
+import { SubnetCalculatorForm } from "@/components/subnetting/SubnetCalculatorForm";
+import { SubnetPracticeCard } from "@/components/subnetting/SubnetPracticeCard";
 
 export default function SubnettingPage() {
   return (
-    <ComingSoon
-      title="Subnetting"
-      description="An IPv4 subnet calculator and generated practice problems are coming soon."
-    />
+    <div className="space-y-8">
+      <SubnetCalculatorForm />
+      <SubnetPracticeCard />
+    </div>
   );
 }
