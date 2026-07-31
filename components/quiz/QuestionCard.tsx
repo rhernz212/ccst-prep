@@ -25,7 +25,12 @@ export function QuestionCard({
   choices: QuizChoice[];
   isMultiSelect: boolean;
   selectedIds: string[];
-  onChange: (ids: string[]) => void;
+  /**
+   * Optional so read-only review usage (e.g. exam results, rendered from a
+   * Server Component) never needs to pass a function prop — functions can't
+   * cross the server->client props boundary.
+   */
+  onChange?: (ids: string[]) => void;
   review?: ReviewInfo;
 }) {
   return (
@@ -42,7 +47,7 @@ export function QuestionCard({
         choices={choices}
         isMultiSelect={isMultiSelect}
         selectedIds={selectedIds}
-        onChange={onChange}
+        onChange={onChange ?? (() => {})}
         disabled={!!review}
         correctChoiceIds={review?.correctChoiceIds}
       />

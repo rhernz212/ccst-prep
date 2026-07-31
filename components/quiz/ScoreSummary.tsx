@@ -66,7 +66,6 @@ export function ScoreSummary({
               choices={q.choices}
               isMultiSelect={q.isMultiSelect}
               selectedIds={answers[q.id] ?? []}
-              onChange={() => {}}
               review={{
                 isCorrect: graded.isCorrect,
                 correctChoiceIds: graded.correctChoiceIds,
