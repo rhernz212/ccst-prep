@@ -1,5 +1,6 @@
 "use client";
 
+import { CheckCircle2, XCircle } from "lucide-react";
 import type { QuizChoice } from "@/lib/quiz/types";
 import { ChoiceList } from "./ChoiceList";
 
@@ -35,12 +36,14 @@ export function QuestionCard({
 }) {
   return (
     <div>
-      <div className="mb-2 text-sm font-medium text-gray-600">
+      <div className="mb-2 text-sm font-medium text-muted-foreground">
         Question {index + 1} of {total}
-        {isMultiSelect && <span className="ml-2 text-blue-600">(Select all that apply)</span>}
+        {isMultiSelect && (
+          <span className="ml-2 text-brand-600 dark:text-brand-400">(Select all that apply)</span>
+        )}
       </div>
       <div
-        className="prose prose-slate prose-p:my-1 mb-4 max-w-none"
+        className="prose prose-slate dark:prose-invert prose-p:my-1 mb-4 max-w-none"
         dangerouslySetInnerHTML={{ __html: stem }}
       />
       <ChoiceList
@@ -53,17 +56,25 @@ export function QuestionCard({
       />
       {review && (
         <div
-          className={`mt-4 rounded-md border p-3 text-sm ${
+          key={review.isCorrect ? "correct" : "incorrect"}
+          className={`mt-4 flex items-start gap-2 rounded-md border p-3 text-sm ${
             review.isCorrect
-              ? "border-green-300 bg-green-50 text-green-900"
-              : "border-red-300 bg-red-50 text-red-900"
+              ? "border-success-300 bg-success-50 text-success-900 animate-pop dark:border-success-600 dark:bg-success-900/40 dark:text-success-100"
+              : "border-danger-300 bg-danger-50 text-danger-900 animate-shake dark:border-danger-600 dark:bg-danger-900/40 dark:text-danger-100"
           }`}
         >
-          <div className="mb-1 font-medium">{review.isCorrect ? "Correct" : "Incorrect"}</div>
-          <div
-            className="prose prose-sm max-w-none"
-            dangerouslySetInnerHTML={{ __html: review.explanation }}
-          />
+          {review.isCorrect ? (
+            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
+          ) : (
+            <XCircle className="mt-0.5 h-4 w-4 shrink-0" />
+          )}
+          <div>
+            <div className="mb-1 font-medium">{review.isCorrect ? "Correct" : "Incorrect"}</div>
+            <div
+              className="prose prose-sm dark:prose-invert max-w-none"
+              dangerouslySetInnerHTML={{ __html: review.explanation }}
+            />
+          </div>
         </div>
       )}
     </div>

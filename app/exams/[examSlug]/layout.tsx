@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 import { getExamMeta } from "@/lib/content/exam-content";
 import { ExamTabNav } from "@/components/ui/ExamTabNav";
 
@@ -15,20 +16,24 @@ export default async function ExamLayout({
   if (!exam) notFound();
 
   return (
-    <div className="min-h-screen bg-white">
-      <header className="border-b border-gray-200">
+    <div className="min-h-screen bg-background">
+      <header className="border-b border-border">
         <div className="mx-auto max-w-6xl px-4 pt-4">
-          <Link href="/" className="text-sm text-gray-500 hover:underline">
-            ← All certifications
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-brand-600 dark:hover:text-brand-400"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" />
+            All certifications
           </Link>
-          <h1 className="mt-1 text-2xl font-bold text-gray-900">{exam.title}</h1>
-          <p className="mb-3 text-sm text-gray-500">
+          <h1 className="mt-1 text-2xl font-bold text-foreground">{exam.title}</h1>
+          <p className="mb-3 text-sm text-muted-foreground">
             {exam.vendor} · {exam.examCode}
           </p>
         </div>
         <ExamTabNav examSlug={examSlug} />
       </header>
-      <main className="mx-auto max-w-6xl px-4 py-8">{children}</main>
+      <main className="mx-auto max-w-6xl px-4 py-8 animate-fade-in-up">{children}</main>
     </div>
   );
 }

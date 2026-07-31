@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { signUp } from "../actions";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
 
 export default async function SignUpPage({
   searchParams,
@@ -9,47 +11,40 @@ export default async function SignUpPage({
   const { error } = await searchParams;
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-sm flex-col justify-center px-4">
-      <h1 className="text-2xl font-bold text-gray-900">Create an account</h1>
+    <div className="mx-auto flex min-h-screen max-w-sm flex-col justify-center px-4 animate-fade-in-up">
+      <h1 className="text-2xl font-bold text-foreground">Create an account</h1>
       {error && (
-        <p className="mt-3 rounded-md bg-red-50 p-2 text-sm text-red-700">{error}</p>
+        <p className="mt-3 rounded-md bg-danger-50 p-2 text-sm text-danger-700 dark:bg-danger-900 dark:text-danger-300">
+          {error}
+        </p>
       )}
       <form action={signUp} className="mt-6 space-y-4">
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="email" className="block text-sm font-medium text-foreground">
             Email
           </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-          />
+          <Input id="email" name="email" type="email" required className="mt-1 w-full" />
         </div>
         <div>
-          <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="password" className="block text-sm font-medium text-foreground">
             Password
           </label>
-          <input
+          <Input
             id="password"
             name="password"
             type="password"
             required
             minLength={6}
-            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+            className="mt-1 w-full"
           />
         </div>
-        <button
-          type="submit"
-          className="w-full rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
-        >
+        <Button type="submit" className="w-full">
           Sign up
-        </button>
+        </Button>
       </form>
-      <p className="mt-4 text-sm text-gray-500">
+      <p className="mt-4 text-sm text-muted-foreground">
         Already have an account?{" "}
-        <Link href="/sign-in" className="text-blue-600 hover:underline">
+        <Link href="/sign-in" className="text-brand-600 hover:underline dark:text-brand-400">
           Sign in
         </Link>
       </p>

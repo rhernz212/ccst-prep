@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getExamMeta } from "@/lib/content/exam-content";
 import { createClient } from "@/lib/supabase/server";
 import { StartExamButton } from "@/components/exam/StartExamButton";
+import { Card } from "@/components/ui/Card";
 
 export default async function ExamStartPage({
   params,
@@ -26,24 +27,24 @@ export default async function ExamStartPage({
   }
 
   return (
-    <div className="mx-auto max-w-2xl">
-      <h2 className="text-xl font-semibold text-gray-900">Full Practice Exam</h2>
-      <div className="mt-4 rounded-lg border border-gray-200 p-6">
+    <div className="mx-auto max-w-2xl animate-fade-in-up">
+      <h2 className="text-xl font-semibold text-foreground">Full Practice Exam</h2>
+      <Card className="mt-4 p-6">
         <dl className="grid grid-cols-2 gap-4 text-sm">
           <div>
-            <dt className="text-gray-500">Time limit</dt>
-            <dd className="text-lg font-semibold text-gray-900">{exam.timeLimitMinutes} minutes</dd>
+            <dt className="text-muted-foreground">Time limit</dt>
+            <dd className="text-lg font-semibold text-foreground">{exam.timeLimitMinutes} minutes</dd>
           </div>
           <div>
-            <dt className="text-gray-500">Questions</dt>
-            <dd className="text-lg font-semibold text-gray-900">{exam.questionCount}</dd>
+            <dt className="text-muted-foreground">Questions</dt>
+            <dd className="text-lg font-semibold text-foreground">{exam.questionCount}</dd>
           </div>
         </dl>
 
         {domainTitles.length > 0 && (
           <div className="mt-4">
-            <div className="text-sm text-gray-500">Domains covered</div>
-            <ul className="mt-1 list-inside list-disc text-sm text-gray-700">
+            <div className="text-sm text-muted-foreground">Domains covered</div>
+            <ul className="mt-1 list-inside list-disc text-sm text-foreground">
               {domainTitles.map((title) => (
                 <li key={title}>{title}</li>
               ))}
@@ -51,7 +52,7 @@ export default async function ExamStartPage({
           </div>
         )}
 
-        <p className="mt-4 text-xs text-gray-400">
+        <p className="mt-4 text-xs text-muted-foreground">
           Once started, the timer cannot be paused. You can navigate between questions freely and
           submit at any time — the exam auto-submits whatever you&apos;ve answered when time runs out.
         </p>
@@ -59,7 +60,7 @@ export default async function ExamStartPage({
         <div className="mt-6">
           <StartExamButton examSlug={examSlug} />
         </div>
-      </div>
+      </Card>
     </div>
   );
 }

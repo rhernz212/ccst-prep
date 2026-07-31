@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import type { ExamQuestion } from "@/lib/exam/types";
 import { QuestionCard } from "@/components/quiz/QuestionCard";
 import { ExamTimer } from "./ExamTimer";
+import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
 
 export function ExamRunner({
   examSlug,
@@ -68,12 +70,12 @@ export function ExamRunner({
 
   return (
     <div>
-      <div className="mb-4 flex items-center justify-between rounded-lg border border-gray-200 p-4">
-        <div className="text-sm text-gray-500">
+      <Card className="mb-4 flex items-center justify-between p-4">
+        <div className="text-sm text-muted-foreground">
           Question {index + 1} of {questions.length}
         </div>
         <ExamTimer startedAt={startedAt} timeLimitMinutes={timeLimitMinutes} onExpire={finalize} />
-      </div>
+      </Card>
 
       <div className="mb-4 flex flex-wrap gap-1">
         {questions.map((q, i) => {
@@ -83,12 +85,12 @@ export function ExamRunner({
               key={q.id}
               type="button"
               onClick={() => setIndex(i)}
-              className={`h-8 w-8 rounded text-xs font-medium ${
+              className={`h-8 w-8 rounded-md text-xs font-medium transition-colors ${
                 i === index
-                  ? "bg-blue-600 text-white"
+                  ? "bg-brand-600 text-white"
                   : answered
-                    ? "bg-blue-100 text-blue-700"
-                    : "bg-gray-100 text-gray-500"
+                    ? "bg-brand-100 text-brand-700 dark:bg-brand-950 dark:text-brand-300"
+                    : "bg-surface-hover text-muted-foreground"
               }`}
             >
               {i + 1}
@@ -97,42 +99,28 @@ export function ExamRunner({
         })}
       </div>
 
-      <QuestionCard
-        index={index}
-        total={questions.length}
-        stem={current.stem}
-        choices={current.choices}
-        isMultiSelect={current.isMultiSelect}
-        selectedIds={answers[current.id] ?? []}
-        onChange={(ids) => setAnswers((prev) => ({ ...prev, [current.id]: ids }))}
-      />
+      <div key={current.id} className="animate-fade-in-up">
+        <QuestionCard
+          index={index}
+          total={questions.length}
+          stem={current.stem}
+          choices={current.choices}
+          isMultiSelect={current.isMultiSelect}
+          selectedIds={answers[current.id] ?? []}
+          onChange={(ids) => setAnswers((prev) => ({ ...prev, [current.id]: ids }))}
+        />
+      </div>
 
       <div className="mt-6 flex items-center justify-between">
-        <button
-          type="button"
-          onClick={() => setIndex((i) => Math.max(0, i - 1))}
-          disabled={index === 0}
-          className="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 disabled:opacity-40"
-        >
+        <Button variant="secondary" onClick={() => setIndex((i) => Math.max(0, i - 1))} disabled={index === 0}>
           Previous
-        </button>
+        </Button>
         {index < questions.length - 1 ? (
-          <button
-            type="button"
-            onClick={() => setIndex((i) => Math.min(questions.length - 1, i + 1))}
-            className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
-          >
-            Next
-          </button>
+          <Button onClick={() => setIndex((i) => Math.min(questions.length - 1, i + 1))}>Next</Button>
         ) : (
-          <button
-            type="button"
-            onClick={handleSubmitClick}
-            disabled={submitting}
-            className="rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 disabled:opacity-60"
-          >
+          <Button variant="success" onClick={handleSubmitClick} loading={submitting}>
             {submitting ? "Submitting…" : "Submit Exam"}
-          </button>
+          </Button>
         )}
       </div>
     </div>

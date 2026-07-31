@@ -20,8 +20,10 @@ export function CliPracticePanel() {
         <button
           type="button"
           onClick={() => setMode("free")}
-          className={`rounded-md px-3 py-1.5 text-sm font-medium ${
-            mode === "free" ? "bg-blue-600 text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+          className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+            mode === "free"
+              ? "bg-brand-600 text-white"
+              : "bg-surface-hover text-muted-foreground hover:text-foreground"
           }`}
         >
           Free Exploration
@@ -29,8 +31,10 @@ export function CliPracticePanel() {
         <button
           type="button"
           onClick={() => setMode("scenario")}
-          className={`rounded-md px-3 py-1.5 text-sm font-medium ${
-            mode === "scenario" ? "bg-blue-600 text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+          className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+            mode === "scenario"
+              ? "bg-brand-600 text-white"
+              : "bg-surface-hover text-muted-foreground hover:text-foreground"
           }`}
         >
           Scenario Practice
@@ -47,7 +51,7 @@ export function CliPracticePanel() {
 
       <Terminal onCommandRun={(raw) => setCommandHistory((prev) => [...prev, raw])} />
 
-      <p className="mt-3 text-xs text-gray-400">
+      <p className="mt-3 text-xs text-muted-foreground">
         Supported commands: ipconfig (/all), ping, tracert, nslookup, netstat. This is a simulated
         network, not a real one — commands run against a fixed practice fixture.
       </p>

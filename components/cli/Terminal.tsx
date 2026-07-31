@@ -41,7 +41,7 @@ export function Terminal({ onCommandRun }: { onCommandRun?: (raw: string) => voi
 
   return (
     <div
-      className="rounded-lg border border-gray-700 bg-black font-mono text-sm text-gray-100"
+      className="rounded-lg border border-border-strong bg-black font-mono text-sm text-gray-100"
       onClick={() => inputRef.current?.focus()}
     >
       <div ref={scrollRef} className="h-80 overflow-y-auto p-3">
@@ -61,7 +61,7 @@ export function Terminal({ onCommandRun }: { onCommandRun?: (raw: string) => voi
           )
         )}
       </div>
-      <form onSubmit={handleSubmit} className="flex items-center gap-2 border-t border-gray-700 px-3 py-2">
+      <form onSubmit={handleSubmit} className="flex items-center gap-2 border-t border-border-strong px-3 py-2">
         <span className="text-green-400">C:\&gt;</span>
         <input
           ref={inputRef}

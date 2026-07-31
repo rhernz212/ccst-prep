@@ -42,7 +42,11 @@ export function ExamTimer({
   const isLow = remainingMs < 5 * 60 * 1000;
 
   return (
-    <div className={`font-mono text-lg font-semibold ${isLow ? "text-red-600" : "text-gray-900"}`}>
+    <div
+      className={`font-mono text-lg font-semibold ${
+        isLow ? "text-danger-600 dark:text-danger-400" : "text-foreground"
+      }`}
+    >
       {minutes}:{String(seconds).padStart(2, "0")}
     </div>
   );

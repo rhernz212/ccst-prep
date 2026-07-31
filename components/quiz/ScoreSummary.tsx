@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { QuizQuestion, QuizResult } from "@/lib/quiz/types";
 import { QuestionCard } from "./QuestionCard";
+import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
 
 export function ScoreSummary({
   examSlug,
@@ -21,15 +23,15 @@ export function ScoreSummary({
   const correctCount = result.graded.filter((g) => g.isCorrect).length;
 
   return (
-    <div>
-      <div className="rounded-lg border border-gray-200 p-6 text-center">
-        <div className="text-sm text-gray-600">{chapterTitle}</div>
-        <div className="mt-1 text-4xl font-bold text-gray-900">{pct}%</div>
-        <div className="mt-1 text-sm text-gray-600">
+    <div className="animate-fade-in-up">
+      <Card className="p-6 text-center">
+        <div className="text-sm text-muted-foreground">{chapterTitle}</div>
+        <div className="animate-pop mt-1 text-4xl font-bold text-foreground">{pct}%</div>
+        <div className="mt-1 text-sm text-muted-foreground">
           {correctCount} of {result.questionCount} correct
         </div>
         {!result.saved && (
-          <p className="mt-3 text-sm text-amber-700">
+          <p className="mt-3 text-sm text-warning-700 dark:text-warning-400">
             <Link href={`/sign-in?redirect=${encodeURIComponent(`/exams/${examSlug}/quizzes`)}`} className="underline">
               Sign in
             </Link>{" "}
@@ -37,21 +39,12 @@ export function ScoreSummary({
           </p>
         )}
         <div className="mt-4 flex justify-center gap-3">
-          <button
-            type="button"
-            onClick={onRetry}
-            className="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-          >
+          <Button variant="secondary" onClick={onRetry}>
             Retry quiz
-          </button>
-          <Link
-            href={`/exams/${examSlug}/quizzes`}
-            className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
-          >
-            Back to quizzes
-          </Link>
+          </Button>
+          <Button href={`/exams/${examSlug}/quizzes`}>Back to quizzes</Button>
         </div>
-      </div>
+      </Card>
 
       <div className="mt-8 space-y-8">
         {questions.map((q, i) => {

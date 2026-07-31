@@ -7,6 +7,8 @@ import {
   gradeMaskForHostsProblem,
   type RangeAnswerInput,
 } from "@/lib/domain/subnetting/grader";
+import { Card } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
 
 export function SubnetPracticeCard() {
   const [difficulty, setDifficulty] = useState(3);
@@ -38,9 +40,7 @@ export function SubnetPracticeCard() {
 
   if (!problem) {
     return (
-      <div className="rounded-lg border border-gray-200 p-5 text-sm text-gray-500">
-        Loading practice problem…
-      </div>
+      <Card className="p-5 text-sm text-muted-foreground">Loading practice problem…</Card>
     );
   }
 
@@ -53,10 +53,10 @@ export function SubnetPracticeCard() {
   const isCorrect = problem.kind === "find-range" ? rangeResult?.correct : maskCorrect;
 
   return (
-    <div className="rounded-lg border border-gray-200 p-5">
+    <Card className="p-5">
       <div className="mb-4 flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-gray-900">Practice Problem</h3>
-        <label className="flex items-center gap-2 text-sm text-gray-600">
+        <h3 className="text-lg font-semibold text-foreground">Practice Problem</h3>
+        <label className="flex items-center gap-2 text-sm text-muted-foreground">
           Difficulty
           <select
             value={difficulty}
@@ -65,7 +65,7 @@ export function SubnetPracticeCard() {
               setDifficulty(d);
               nextProblem(d);
             }}
-            className="rounded-md border border-gray-300 px-2 py-1 text-sm"
+            className="rounded-md border border-border bg-background px-2 py-1 text-sm text-foreground dark:bg-surface"
           >
             {[1, 2, 3, 4, 5].map((d) => (
               <option key={d} value={d}>
@@ -76,7 +76,7 @@ export function SubnetPracticeCard() {
         </label>
       </div>
 
-      <p className="mb-4 text-sm text-gray-800">{problem.prompt}</p>
+      <p className="mb-4 text-sm text-foreground">{problem.prompt}</p>
 
       {problem.kind === "find-range" ? (
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -130,10 +130,11 @@ export function SubnetPracticeCard() {
 
       {checked && (
         <div
+          key={isCorrect ? "correct" : "incorrect"}
           className={`mt-4 rounded-md border p-3 text-sm ${
             isCorrect
-              ? "border-green-300 bg-green-50 text-green-900"
-              : "border-red-300 bg-red-50 text-red-900"
+              ? "border-success-300 bg-success-50 text-success-900 animate-pop dark:border-success-600 dark:bg-success-900/40 dark:text-success-100"
+              : "border-danger-300 bg-danger-50 text-danger-900 animate-shake dark:border-danger-600 dark:bg-danger-900/40 dark:text-danger-100"
           }`}
         >
           {isCorrect ? (
@@ -154,24 +155,12 @@ export function SubnetPracticeCard() {
 
       <div className="mt-5 flex gap-3">
         {!checked ? (
-          <button
-            type="button"
-            onClick={() => setChecked(true)}
-            className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
-          >
-            Check Answer
-          </button>
+          <Button onClick={() => setChecked(true)}>Check Answer</Button>
         ) : (
-          <button
-            type="button"
-            onClick={() => nextProblem()}
-            className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
-          >
-            Next Problem
-          </button>
+          <Button onClick={() => nextProblem()}>Next Problem</Button>
         )}
       </div>
-    </div>
+    </Card>
   );
 }
 
@@ -188,18 +177,22 @@ function AnswerField({
   correct?: boolean;
   disabled?: boolean;
 }) {
-  let borderClass = "border-gray-300";
-  if (correct === true) borderClass = "border-green-500 bg-green-50";
-  if (correct === false) borderClass = "border-red-500 bg-red-50";
+  let stateClass = "border-border bg-background dark:bg-surface";
+  if (correct === true) {
+    stateClass = "border-success-500 bg-success-50 dark:bg-success-900/40";
+  }
+  if (correct === false) {
+    stateClass = "border-danger-500 bg-danger-50 dark:bg-danger-900/40";
+  }
 
   return (
     <div>
-      <label className="block text-xs font-medium text-gray-600">{label}</label>
+      <label className="block text-xs font-medium text-muted-foreground">{label}</label>
       <input
         value={value}
         onChange={(e) => onChange(e.target.value)}
         disabled={disabled}
-        className={`mt-1 w-full rounded-md border px-2 py-1.5 font-mono text-sm ${borderClass}`}
+        className={`mt-1 w-full rounded-md border px-2 py-1.5 font-mono text-sm text-foreground transition-colors disabled:opacity-80 ${stateClass}`}
       />
     </div>
   );

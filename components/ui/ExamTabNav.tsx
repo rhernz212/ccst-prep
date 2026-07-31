@@ -25,8 +25,8 @@ export function ExamTabNav({ examSlug }: { examSlug: string }) {
             href={href}
             className={`whitespace-nowrap border-b-2 px-3 py-2 text-sm transition-colors ${
               active
-                ? "border-blue-600 font-medium text-blue-600"
-                : "border-transparent text-gray-600 hover:text-gray-900"
+                ? "border-brand-600 font-medium text-brand-600 dark:border-brand-400 dark:text-brand-400"
+                : "border-transparent text-muted-foreground hover:text-foreground"
             }`}
           >
             {tab.label}

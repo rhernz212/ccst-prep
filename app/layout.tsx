@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { AuthStatus } from "@/components/auth/AuthStatus";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import "./globals.css";
+
+const noFlashScript = `
+  try {
+    const t = localStorage.theme;
+    if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches))
+      document.documentElement.classList.add('dark');
+  } catch {}
+`;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,9 +36,12 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
-        <div className="flex justify-end border-b border-gray-100 px-4 py-2">
+      <body className="min-h-full flex flex-col bg-background text-foreground">
+        <script dangerouslySetInnerHTML={{ __html: noFlashScript }} />
+        <div className="flex items-center justify-end gap-3 border-b border-border px-4 py-2">
+          <ThemeToggle />
           <AuthStatus />
         </div>
         {children}

@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { QuizQuestion, QuizResult } from "@/lib/quiz/types";
 import { QuestionCard } from "./QuestionCard";
 import { ScoreSummary } from "./ScoreSummary";
+import { Button } from "@/components/ui/Button";
 
 export function QuizRunner({
   examSlug,
@@ -72,7 +73,7 @@ export function QuizRunner({
   }
 
   return (
-    <div>
+    <div key={current.id} className="animate-fade-in-up">
       <QuestionCard
         index={index}
         total={questions.length}
@@ -83,37 +84,25 @@ export function QuizRunner({
         onChange={(ids) => setAnswers((prev) => ({ ...prev, [current.id]: ids }))}
       />
 
-      {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
+      {error && <p className="mt-4 text-sm text-danger-600 dark:text-danger-400">{error}</p>}
 
       <div className="mt-6 flex items-center justify-between">
-        <button
-          type="button"
+        <Button
+          variant="secondary"
           onClick={() => setIndex((i) => Math.max(0, i - 1))}
           disabled={index === 0}
-          className="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 disabled:opacity-40"
         >
           Previous
-        </button>
-        <span className="text-sm text-gray-600">
+        </Button>
+        <span className="text-sm text-muted-foreground">
           {answeredCount} of {questions.length} answered
         </span>
         {isLast ? (
-          <button
-            type="button"
-            onClick={handleSubmit}
-            disabled={submitting}
-            className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-60"
-          >
+          <Button onClick={handleSubmit} loading={submitting}>
             {submitting ? "Submitting…" : "Submit Quiz"}
-          </button>
+          </Button>
         ) : (
-          <button
-            type="button"
-            onClick={() => setIndex((i) => Math.min(questions.length - 1, i + 1))}
-            className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
-          >
-            Next
-          </button>
+          <Button onClick={() => setIndex((i) => Math.min(questions.length - 1, i + 1))}>Next</Button>
         )}
       </div>
     </div>

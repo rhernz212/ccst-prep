@@ -1,4 +1,5 @@
 import type { DomainBreakdownEntry } from "@/lib/exam/types";
+import { ProgressBar } from "@/components/ui/ProgressBar";
 
 export function DomainScoreChart({ byDomain }: { byDomain: DomainBreakdownEntry[] }) {
   return (
@@ -8,14 +9,12 @@ export function DomainScoreChart({ byDomain }: { byDomain: DomainBreakdownEntry[
         return (
           <div key={d.domainCode}>
             <div className="mb-1 flex justify-between text-sm">
-              <span className="text-gray-700">{d.domainTitle}</span>
-              <span className="text-gray-500">
+              <span className="text-foreground">{d.domainTitle}</span>
+              <span className="text-muted-foreground">
                 {d.correct}/{d.total} ({pct}%)
               </span>
             </div>
-            <div className="h-2 rounded-full bg-gray-100">
-              <div className="h-2 rounded-full bg-blue-600" style={{ width: `${pct}%` }} />
-            </div>
+            <ProgressBar value={pct} />
           </div>
         );
       })}

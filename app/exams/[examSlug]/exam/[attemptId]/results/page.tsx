@@ -1,8 +1,9 @@
-import Link from "next/link";
 import { redirect, notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { DomainScoreChart } from "@/components/exam/DomainScoreChart";
 import { QuestionCard } from "@/components/quiz/QuestionCard";
+import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
 import type { DomainBreakdownEntry } from "@/lib/exam/types";
 
 export default async function ExamResultsPage({
@@ -60,27 +61,22 @@ export default async function ExamResultsPage({
   const byDomain = (attempt.domain_breakdown ?? []) as DomainBreakdownEntry[];
 
   return (
-    <div>
-      <div className="rounded-lg border border-gray-200 p-6 text-center">
-        <div className="text-sm text-gray-500">
+    <div className="animate-fade-in-up">
+      <Card className="p-6 text-center">
+        <div className="text-sm text-muted-foreground">
           {attempt.status === "timed_out" ? "Time expired" : "Exam submitted"}
         </div>
-        <div className="mt-1 text-4xl font-bold text-gray-900">{pct}%</div>
+        <div className="animate-pop mt-1 text-4xl font-bold text-foreground">{pct}%</div>
         <div className="mt-4">
-          <Link
-            href={`/exams/${examSlug}/exam`}
-            className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
-          >
-            Back to exam overview
-          </Link>
+          <Button href={`/exams/${examSlug}/exam`}>Back to exam overview</Button>
         </div>
-      </div>
+      </Card>
 
       {byDomain.length > 0 && (
-        <div className="mt-8 rounded-lg border border-gray-200 p-6">
-          <h3 className="mb-4 text-lg font-semibold text-gray-900">Score by Domain</h3>
+        <Card className="mt-8 p-6">
+          <h3 className="mb-4 text-lg font-semibold text-foreground">Score by Domain</h3>
           <DomainScoreChart byDomain={byDomain} />
-        </div>
+        </Card>
       )}
 
       <div className="mt-8 space-y-8">

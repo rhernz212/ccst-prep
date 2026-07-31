@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { Button } from "@/components/ui/Button";
 
 export function StartExamButton({ examSlug }: { examSlug: string }) {
   const router = useRouter();
@@ -39,7 +40,7 @@ export function StartExamButton({ examSlug }: { examSlug: string }) {
 
   if (needsAuth) {
     return (
-      <p className="text-sm text-amber-700">
+      <p className="text-sm text-warning-700 dark:text-warning-400">
         <Link
           href={`/sign-in?redirect=${encodeURIComponent(`/exams/${examSlug}/exam`)}`}
           className="underline"
@@ -53,15 +54,10 @@ export function StartExamButton({ examSlug }: { examSlug: string }) {
 
   return (
     <div>
-      <button
-        type="button"
-        onClick={handleStart}
-        disabled={loading}
-        className="rounded-md bg-blue-600 px-6 py-3 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-60"
-      >
+      <Button size="lg" onClick={handleStart} loading={loading}>
         {loading ? "Starting…" : "Start Practice Exam"}
-      </button>
-      {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
+      </Button>
+      {error && <p className="mt-2 text-sm text-danger-600 dark:text-danger-400">{error}</p>}
     </div>
   );
 }
