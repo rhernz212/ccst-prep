@@ -1,7 +1,11 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
-const PROTECTED_WRITE_PREFIXES = ["/api/progress", "/api/quiz-attempts", "/api/exam-attempts"];
+// /api/quiz-attempts is intentionally NOT here: grading must work for
+// anonymous visitors too (per plan — "take a quiz client-side, no save,
+// with a sign in to save your score prompt"). The route itself checks auth
+// and only persists the attempt when a user is present.
+const PROTECTED_WRITE_PREFIXES = ["/api/progress", "/api/exam-attempts"];
 const PROTECTED_PAGE_PREFIXES = ["/exam/run", "/results"];
 
 export async function updateSession(request: NextRequest) {
