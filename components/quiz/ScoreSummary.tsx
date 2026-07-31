@@ -23,9 +23,9 @@ export function ScoreSummary({
   return (
     <div>
       <div className="rounded-lg border border-gray-200 p-6 text-center">
-        <div className="text-sm text-gray-500">{chapterTitle}</div>
+        <div className="text-sm text-gray-600">{chapterTitle}</div>
         <div className="mt-1 text-4xl font-bold text-gray-900">{pct}%</div>
-        <div className="mt-1 text-sm text-gray-500">
+        <div className="mt-1 text-sm text-gray-600">
           {correctCount} of {result.questionCount} correct
         </div>
         {!result.saved && (

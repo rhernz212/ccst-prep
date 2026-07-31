@@ -94,7 +94,7 @@ export function QuizRunner({
         >
           Previous
         </button>
-        <span className="text-xs text-gray-400">
+        <span className="text-sm text-gray-600">
           {answeredCount} of {questions.length} answered
         </span>
         {isLast ? (

@@ -85,7 +85,7 @@ export function SubnetCalculatorForm() {
 function Field({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt className="text-xs text-gray-500">{label}</dt>
+      <dt className="text-xs font-medium text-gray-600">{label}</dt>
       <dd className="font-mono font-medium text-gray-900">{value}</dd>
     </div>
   );

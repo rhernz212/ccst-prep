@@ -45,13 +45,13 @@ export default async function ChapterQuizPage({
   }));
 
   if (questions.length === 0) {
-    return <p className="text-gray-500">No questions available for this chapter yet.</p>;
+    return <p className="text-gray-600">No questions available for this chapter yet.</p>;
   }
 
   return (
     <div>
       <div className="mb-4">
-        <div className="text-sm text-gray-500">Chapter {chapter.number}</div>
+        <div className="text-sm text-gray-600">Chapter {chapter.number}</div>
         <h2 className="text-xl font-semibold text-gray-900">{chapter.title} Quiz</h2>
       </div>
       <QuizRunner

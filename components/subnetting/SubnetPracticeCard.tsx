@@ -38,7 +38,7 @@ export function SubnetPracticeCard() {
 
   if (!problem) {
     return (
-      <div className="rounded-lg border border-gray-200 p-5 text-sm text-gray-400">
+      <div className="rounded-lg border border-gray-200 p-5 text-sm text-gray-500">
         Loading practice problem…
       </div>
     );
@@ -194,7 +194,7 @@ function AnswerField({
 
   return (
     <div>
-      <label className="block text-xs font-medium text-gray-500">{label}</label>
+      <label className="block text-xs font-medium text-gray-600">{label}</label>
       <input
         value={value}
         onChange={(e) => onChange(e.target.value)}

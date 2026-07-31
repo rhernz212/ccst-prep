@@ -19,7 +19,7 @@ export default async function QuizzesIndexPage({
 
   const { data: examRow } = await supabase.from("exams").select("id").eq("slug", examSlug).maybeSingle();
   if (!examRow) {
-    return <p className="text-gray-500">Quizzes aren&apos;t available yet for this exam.</p>;
+    return <p className="text-gray-600">Quizzes aren&apos;t available yet for this exam.</p>;
   }
 
   const { data: chapters } = await supabase
@@ -53,7 +53,7 @@ export default async function QuizzesIndexPage({
           if (questionCount === 0) {
             return (
               <li key={chapter.id}>
-                <div className="rounded-lg border border-gray-100 p-4 text-gray-400">
+                <div className="rounded-lg border border-gray-100 p-4 text-gray-500">
                   <div className="text-sm">Chapter {chapter.number}</div>
                   <div className="font-medium">{chapter.title}</div>
                   <div className="mt-1 text-xs">No questions available</div>
@@ -68,9 +68,9 @@ export default async function QuizzesIndexPage({
                 href={`/exams/${examSlug}/quizzes/${chapter.slug}`}
                 className="block rounded-lg border border-gray-200 p-4 transition hover:border-blue-400 hover:shadow-sm"
               >
-                <div className="text-sm text-gray-500">Chapter {chapter.number}</div>
+                <div className="text-sm text-gray-600">Chapter {chapter.number}</div>
                 <div className="font-medium text-gray-900">{chapter.title}</div>
-                <div className="mt-1 text-xs text-gray-400">
+                <div className="mt-1 text-xs text-gray-500">
                   {questionCount} questions
                   {best !== undefined ? ` · best ${Math.round(best * 100)}%` : ""}
                 </div>

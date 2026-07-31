@@ -35,7 +35,7 @@ export function QuestionCard({
 }) {
   return (
     <div>
-      <div className="mb-2 text-sm font-medium text-gray-500">
+      <div className="mb-2 text-sm font-medium text-gray-600">
         Question {index + 1} of {total}
         {isMultiSelect && <span className="ml-2 text-blue-600">(Select all that apply)</span>}
       </div>
