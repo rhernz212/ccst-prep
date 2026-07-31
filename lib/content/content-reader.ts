@@ -1,6 +1,6 @@
 import { readFileSync, readdirSync, existsSync } from "fs";
 import path from "path";
-import type { Chapter, ExamMeta } from "./types";
+import type { Blueprint, Chapter, ExamMeta, QuestionBankEntry } from "./types";
 
 const CONTENT_ROOT = path.join(process.cwd(), "content", "exams");
 
@@ -32,4 +32,16 @@ export function listChapters(examSlug: string): Chapter[] {
 
 export function getChapter(examSlug: string, chapterSlug: string): Chapter | null {
   return listChapters(examSlug).find((c) => c.slug === chapterSlug) ?? null;
+}
+
+export function getBlueprint(examSlug: string): Blueprint | null {
+  const blueprintPath = path.join(CONTENT_ROOT, examSlug, "blueprint.json");
+  if (!existsSync(blueprintPath)) return null;
+  return JSON.parse(readFileSync(blueprintPath, "utf-8")) as Blueprint;
+}
+
+export function listQuestions(examSlug: string): QuestionBankEntry[] {
+  const questionsPath = path.join(CONTENT_ROOT, examSlug, "questions.json");
+  if (!existsSync(questionsPath)) return [];
+  return JSON.parse(readFileSync(questionsPath, "utf-8")) as QuestionBankEntry[];
 }

@@ -1,0 +1,4672 @@
+[
+  {
+    "chapterNumber": 1,
+    "ordinal": 1,
+    "domainCode": "1",
+    "stem": "With respect to the OSI model, which one of the following is the correct statement about PDUs?",
+    "explanation": "The contents of a protocol data unit (PDU) depend on the PDU because they are created in a specific order and their contents are based on that order. A packet will contain IP addresses but not MAC addresses because MAC addresses are not present until the PDU becomes a frame.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "A segment contains IP addresses.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "A packet contains IP addresses.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "A segment contains MAC addresses.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "A packet contains MAC addresses.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 1,
+    "ordinal": 2,
+    "domainCode": "1",
+    "stem": "You are the Cisco administrator for your company. A new branch office is opening and you are selecting the necessary hardware to support the network. There will be two groups of computers, each organized by department. The Sales group computers will be assigned IP addresses ranging from <code>192.168.1.2</code> to <code>192.168.1.50</code>. The Accounting group will be assigned IP addresses ranging from <code>10.0.0.2</code> to <code>10.0.0.50</code>. What type of device should you select to connect the two groups of computers so that data communication can occur?",
+    "explanation": "You should select a router to connect the two groups. When computers are in different subnets, as these two groups are, you will require a device that can make decisions based on IP addresses. Routers operate at layer 3 of the Open Systems Interconnection (OSI) model and make data-forwarding decisions based on layer 3 networking information, which are IP addresses. They create routing tables that guide them in forwarding traffic out of the proper interface to the proper subnet.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Hub",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Switch",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Router",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Bridge",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 1,
+    "ordinal": 3,
+    "domainCode": "1",
+    "stem": "The most effective way to mitigate congestion on a LAN would be to __________.",
+    "explanation": "Replacing the hub with a switch would reduce collisions and retransmissions, which would have the most impact on reducing congestion.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Upgrade the network cards",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Change the cabling to CAT 6",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Replace the hubs with switches",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Upgrade the CPUs in the routers",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 1,
+    "ordinal": 4,
+    "domainCode": "1",
+    "stem": "What is the function of the WLAN controller?",
+    "explanation": "Wireless LAN controllers are used to manage anywhere from a few access points to thousands. The APs are completely managed from the controller and are considered lightweight or dumb APs, as they have no configuration on the AP itself.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "To monitor and control the incoming and outgoing network traffic",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "To automatically handle the configuration of wireless access points",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "To allow wireless devices to connect to a wired network",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "To connect networks and intelligently choose the best paths between networks",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 1,
+    "ordinal": 5,
+    "domainCode": "1",
+    "stem": "What is the function of a firewall?",
+    "explanation": "Firewalls are used to connect a trusted internal network such as the demilitarized zone (DMZ), also called a screened subnet, to the untrusted outside network—typically the Internet.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "To automatically handle the configuration of wireless access points",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "To allow wireless devices to connect to a wired network",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "To monitor and control the incoming and outgoing network traffic",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "To connect networks and intelligently choose the best paths between networks",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 1,
+    "ordinal": 6,
+    "domainCode": "1",
+    "stem": "Which layer in the OSI reference model is responsible for determining the availability of the receiving program and checking to see whether enough resources exist for that communication?",
+    "explanation": "The Application layer is responsible for identifying and establishing the availability of the intended communication partner and determining whether sufficient resources for the intended communication exist.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Transport",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Network",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Presentation",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Application",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 1,
+    "ordinal": 7,
+    "domainCode": "1",
+    "stem": "Which of the following correctly describes steps in the OSI data encapsulation process? (Choose two.)",
+    "explanation": "The Transport layer segments data into smaller pieces for transport. Each segment is assigned a sequence number so that the receiving device can reassemble the data on arrival. The Network layer (layer 3) has two key responsibilities. First, this layer controls the logical addressing of devices. Second, the Network layer determines the best path to a particular destination network and routes the data appropriately.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "The Transport layer divides a data stream into segments and may add reliability and flow control information.",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "The Data Link layer adds physical source and destination addresses and a Frame Check Sequence (FCS) field to the segment.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Packets are created when the Network layer encapsulates a frame with source and destination host addresses and protocol-related control information.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Packets are created when the Network layer adds layer 3 addresses and control information to a segment.",
+        "isCorrect": true
+      },
+      {
+        "label": "E",
+        "body": "The Presentation layer translates bits into voltages for transmission across the physical link.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 1,
+    "ordinal": 8,
+    "domainCode": "1",
+    "stem": "Which of the following layers of the OSI model was later subdivided into two layers?",
+    "explanation": "The IEEE Ethernet Data Link layer has two sublayers, the Media Access Control (MAC) sublayer and the Logical Link Control (LLC) sublayer.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Presentation",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Transport",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Data Link",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Physical",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 1,
+    "ordinal": 9,
+    "domainCode": "1",
+    "stem": "What is a function of an access point (AP)?",
+    "explanation": "Wireless APs are very popular today and will be going away about the same time that rock n’ roll does. The idea behind these devices (which are layer 2 bridge devices) is to connect wireless products to the wired Ethernet network. The wireless AP will create a single collision domain and is typically its own dedicated broadcast domain as well.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "To monitor and control the incoming and outgoing network traffic",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "To automatically handle the configuration of wireless access point",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "To allow wireless devices to connect to a wired network",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "To connect networks and intelligently choose the best paths between networks",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 1,
+    "ordinal": 10,
+    "domainCode": "1",
+    "stem": "A __________ is an example of a device that operates only at the physical layer.",
+    "explanation": "Hubs operate on the Physical layer, as they have no intelligence, and send all traffic in all directions.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Hub",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Switch",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Router",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Bridge",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 1,
+    "domainCode": "1",
+    "stem": "Which of the following Application layer protocols sets up a secure session that's similar to Telnet?",
+    "explanation": "Secure Shell (SSH) protocol sets up a secure session that’s similar to Telnet over a standard TCP/IP connection and is employed for doing things like logging into systems, running programs on remote systems, and moving files from one system to another.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "FTP",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "SSH",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "DNS",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "DHCP",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 2,
+    "domainCode": "1",
+    "stem": "Which protocol is used to find the hardware address of a local device?",
+    "explanation": "Address Resolution Protocol (ARP) is used to find the hardware address from a known IP address.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "RARP",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "ARP",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "IP",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "ICMP",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "BootP",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 3,
+    "domainCode": "1",
+    "stem": "Which of the following are layers in the TCP/IP model? (Choose three.)",
+    "explanation": "The listed answers are from the OSI model and the question asked about the TCP/ IP protocol stack (DoD model). Yes, it is normal for the objectives to have this type of question. However, let’s just look for what is wrong. First, the Session layer is not in the TCP/IP model; neither are the Data Link and Physical layers. This leaves us with the Transport layer (Host-to-Host in the DoD model), Internet layer (Network layer in the OSI), and Application layer (Application/Process in the DoD). Remember, the CCENT objectives can list the layers as OSI layers or DoD layers at any time, regardless of what the question is asking.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Application",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Session",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Transport",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Internet",
+        "isCorrect": true
+      },
+      {
+        "label": "E",
+        "body": "Data Link",
+        "isCorrect": false
+      },
+      {
+        "label": "F",
+        "body": "Physical",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 4,
+    "domainCode": "1",
+    "stem": "Which class of IP address provides a maximum of only 254 host addresses per network ID?",
+    "explanation": "A Class C network address has only 8 bits for defining hosts: 28 – 2 = 254.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Class A",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Class B",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Class C",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Class D",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "Class E",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 5,
+    "domainCode": "1",
+    "stem": "Which of the following describe the DHCP Discover message? (Choose two.)",
+    "explanation": "A client that sends out a DHCP Discover message in order to receive an IP address sends out a broadcast at both layer 2 and layer 3. The layer 2 broadcast is all <i>F</i>s in hex, or FF:FF:FF:FF:FF:FF. The layer 3 broadcast is 255.255.255.255, which means any networks and all hosts. DHCP is connectionless, which means it uses User Datagram Protocol (UDP) at the Transport layer, also called the Host-to-Host layer.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "It uses ff:ff:ff:ff:ff:ff as a layer 2 broadcast.",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "It uses UDP as the Transport layer protocol.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "It uses TCP as the Transport layer protocol.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "It does not use a layer 2 destination address.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 6,
+    "domainCode": "1",
+    "stem": "Which layer 4 protocol is used for a Telnet connection?",
+    "explanation": "Although Telnet does use TCP and IP (TCP/IP), the question specifically asks about layer 4, and IP works at layer 3. Telnet uses TCP at layer 4.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "IP",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "TCP",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "TCP/IP",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "UDP",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "ICMP",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 8,
+    "domainCode": "1",
+    "stem": "Which of the following services use TCP? (Choose three.)",
+    "explanation": "SMTP, FTP, and HTTP use TCP.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "DHCP",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "SMTP",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "SNMP",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "FTP",
+        "isCorrect": true
+      },
+      {
+        "label": "E",
+        "body": "HTTP",
+        "isCorrect": true
+      },
+      {
+        "label": "F",
+        "body": "TFTP",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 9,
+    "domainCode": "1",
+    "stem": "Which of the following is an example of a multicast address?",
+    "explanation": "The range of multicast addresses starts with 224.0.0.0 and goes through 239.255.255.255.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "10.6.9.1",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "192.168.10.6",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "224.0.0.10",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "172.16.9.5",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 10,
+    "domainCode": "1",
+    "stem": "If you use either Telnet or FTP, which layer are you using to generate the data?",
+    "explanation": "Both FTP and Telnet use TCP at the Transport layer; however, they both are Application layer protocols, so the Application layer is the best answer for this question.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Application",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Presentation",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Session",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Transport",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 11,
+    "domainCode": "1",
+    "stem": "The DoD model (also called the TCP/IP stack) has four layers. Which layer of the DoD model is equivalent to the Network layer of the OSI model?",
+    "explanation": "The four layers of the DoD model are Application/Process, Host-to-Host, Internet, and Network Access. The Internet layer is equivalent to the Network layer of the OSI model.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Application",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Host-to-Host",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Internet",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Network Access",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 12,
+    "domainCode": "1",
+    "stem": "Which of the following are private IP addresses? (Choose two.)",
+    "explanation": "The Class A private address range is 10.0.0.0 through 10.255.255.255. The Class B private address range is 172.16.0.0 through 172.31.255.255, and the Class C private address range is 192.168.0.0 through 192.168.255.255.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "12.0.0.1",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "168.172.19.39",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "172.20.14.36",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "172.33.194.30",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "192.168.24.43",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 13,
+    "domainCode": "1",
+    "stem": "What layer in the TCP/IP stack is equivalent to the Transport layer of the OSI model?",
+    "explanation": "The four layers of the TCP/IP stack (also called the DoD model) are Application/Process, Host-to-Host (also called Transport on the objectives), Internet, and Network Access/ Link. The Host-to-Host layer is equivalent to the Transport layer of the OSI model.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Application",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Host-to-Host",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Internet",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Network Access",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 14,
+    "domainCode": "1",
+    "stem": "Which statements are true regarding ICMP packets? (Choose two.)",
+    "explanation": "ICMP is used for diagnostics and destination unreachable messages. ICMP is encapsulated within IP datagrams, and because it is used for diagnostics, it will provide hosts with information about network problems.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "ICMP guarantees datagram delivery.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "ICMP can provide hosts with information about network problems.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "ICMP is encapsulated within IP datagrams.",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "ICMP is encapsulated within UDP datagrams",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 15,
+    "domainCode": "1",
+    "stem": "What is the address range of a Class B network address in binary?",
+    "explanation": "The range of a Class B network address is 128–191. This makes our binary range 10<i>xxxxxx</i>.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "01<i>xxxxxx</i>",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "0<i>xxxxxxx</i>",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "10<i>xxxxxx</i>",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "110<i>xxxxx</i>",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 1,
+    "domainCode": "2",
+    "stem": "What is the maximum number of IP addresses that can be assigned to hosts on a local subnet that uses the 255.255.255.224 subnet mask?",
+    "explanation": "A /27 (255.255.255.224) is 3 bits on and 5 bits off. This provides 8 subnets, each with 30 hosts. Does it matter if this mask is used with a Class A, B, or C network address? Not at all. The number of subnet bits would never change.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "14",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "15",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "16",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "30",
+        "isCorrect": true
+      },
+      {
+        "label": "E",
+        "body": "31",
+        "isCorrect": false
+      },
+      {
+        "label": "F",
+        "body": "62",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 2,
+    "domainCode": "2",
+    "stem": "You have a network that needs 29 subnets while maximizing the number of host addresses available on each subnet. How many bits must you borrow from the host field to provide the correct subnet mask?",
+    "explanation": "A 240 mask is 4 subnet bits and provides 16 subnets, each with 14 hosts. We need more subnets, so let’s add subnet bits. One more subnet bit would be a 248 mask. This provides 5 subnet bits (32 subnets) with 3 host bits (6 hosts per subnet). This is the best answer.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "2",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "3",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "4",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "5",
+        "isCorrect": true
+      },
+      {
+        "label": "E",
+        "body": "6",
+        "isCorrect": false
+      },
+      {
+        "label": "F",
+        "body": "7",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 3,
+    "domainCode": "2",
+    "stem": "What is the subnetwork address for a host with the IP address 200.10.5.68/28?",
+    "explanation": "This is a pretty simple question. A /28 is 255.255.255.240, which means that our block size is 16 in the fourth octet. 0, 16, 32, 48, 64, 80, etc. The host is in the 64 subnet.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "200.10.5.56",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "200.10.5.32",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "200.10.5.64",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "200.10.5.0",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 4,
+    "domainCode": "2",
+    "stem": "The network address of 172.16.0.0/19 provides how many subnets and hosts?",
+    "explanation": "A CIDR address of /19 is 255.255.224.0. This is a Class B address, so that is only 3 subnet bits, but it provides 13 host bits, or 8 subnets, each with 8,190 hosts.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "7 subnets, 30 hosts each",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "7 subnets, 2,046 hosts each",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "7 subnets, 8,190 hosts each",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "8 subnets, 8,190 hosts each",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "8 subnets, 2,046 hosts each",
+        "isCorrect": false
+      },
+      {
+        "label": "F",
+        "body": "8 subnets, 8,190 hosts each",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 5,
+    "domainCode": "2",
+    "stem": "Which two statements describe the IP address 10.16.3.65/23? (Choose two.)",
+    "explanation": "The mask 255.255.254.0 (/23) used with a Class A address means that there are 15 subnet bits and 9 host bits. The block size in the third octet is 2 (256 – 254). So, this makes the subnets in the interesting octet 0, 2, 4, 6, etc., all the way to 254. The host 10.16.3.65 is in the 2.0 subnet. The next subnet is 4.0, so the broadcast address for the 2.0 subnet is 3.255. The valid host addresses are 2.1 through 3.254.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "The subnet address is 10.16.3.0 255.255.254.0.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "The lowest host address in the subnet is 10.16.2.1 255.255.254.0.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "The last valid host address in the subnet is 10.16.2.254 255.255.254.0.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "The broadcast address of the subnet is 10.16.3.255 255.255.254.0.",
+        "isCorrect": true
+      },
+      {
+        "label": "E",
+        "body": "The network is not subnetted.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 6,
+    "domainCode": "2",
+    "stem": "If a host on a network has the address 172.16.45.14/30, what is the subnetwork this host belongs to?",
+    "explanation": "A /30, regardless of the class of address, has a 252 in the fourth octet. This means we have a block size of 4 and our subnets are 0, 4, 8, 12, 16, etc. Address 14 is obviously in the 12 subnet.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "172.16.45.0",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "172.16.45.4",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "172.16.45.8",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "172.16.45.12",
+        "isCorrect": true
+      },
+      {
+        "label": "E",
+        "body": "172.16.45.16",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 7,
+    "domainCode": "2",
+    "stem": "Which mask should you use on point-to-point links in order to reduce the waste of IP addresses?",
+    "explanation": "A point-to-point link uses only two hosts. A /30, or 255.255.255.252, mask provides two hosts per subnet.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "/27",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "/28",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "/29",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "/30",
+        "isCorrect": true
+      },
+      {
+        "label": "E",
+        "body": "/31",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 8,
+    "domainCode": "2",
+    "stem": "What is the subnetwork number of a host with an IP address of 172.16.66.0/21?",
+    "explanation": "A /21 is 255.255.248.0, which means we have a block size of 8 in the third octet, so we just count by 8 until we reach 66. The subnet in this question is 64.0. The next subnet is 72.0, so the broadcast address of the 64 subnet is 71.255.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "172.16.36.0",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "172.16.48.0",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "172.16.64.0",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "172.16.0.0",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 9,
+    "domainCode": "2",
+    "stem": "You have an interface on a router with the IP address of 192.168.192.10/29. Including the router interface, how many hosts can have IP addresses on the LAN attached to the router interface?",
+    "explanation": "A /29 (255.255.255.248), regardless of the class of address, has only 3 host bits. Six is the maximum number of hosts on this LAN, including the router interface.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "6",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "8",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "30",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "62",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "126",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 10,
+    "domainCode": "2",
+    "stem": "You need to configure a server that is on the subnet 192.168.19.24/29. The router has the first available host address. Which of the following should you assign to the server?",
+    "explanation": "A /29 is 255.255.255.248, which is a block size of 8 in the fourth octet. The subnets are 0, 8, 16, 24, 32, 40, etc. 192.168.19.24 is the 24 subnet, and since 32 is the next subnet, the broadcast address for the 24 subnet is 31. 192.168.19.26 is the only correct answer.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "192.168.19.0 255.255.255.0",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "192.168.19.33 255.255.255.240",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "192.168.19.26 255.255.255.248",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "192.168.19.31 255.255.255.248",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "192.168.19.34 255.255.255.240",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 11,
+    "domainCode": "2",
+    "stem": "You have an interface on a router with the IP address of 192.168.192.10/29. What is the broadcast address the hosts will use on this LAN?",
+    "explanation": "A /29 (255.255.255.248) has a block size of 8 in the fourth octet. This means the subnets are 0, 8, 16, 24, etc. 10 is in the 8 subnet. The next subnet is 16, so 15 is the broadcast address.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "192.168.192.15",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "192.168.192.31",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "192.168.192.63",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "192.168.192.127",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "192.168.192.255",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 12,
+    "domainCode": "2",
+    "stem": "You need to subnet a network that has 5 subnets, each with at least 16 hosts. Which classful subnet mask would you use?",
+    "explanation": "You need 5 subnets, each with at least 16 hosts. The mask 255.255.255.240 provides 16 subnets with 14 hosts—this will not work. The mask 255.255.255.224 provides 8 subnets, each with 30 hosts. This is the best answer.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "255.255.255.192",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "255.255.255.224",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "255.255.255.240",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "255.255.255.248",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 13,
+    "domainCode": "2",
+    "stem": "You configure a router interface with the IP address 192.168.10.62 255.255.255.192 and receive the following error:\r\n<pre id=\"c03-code-0006\"><code>Bad mask /26 for address 192.168.10.62</code></pre>\r\n<p id=\"c03-para-0268\">Why did you receive this error?</p>",
+    "explanation": "You cannot answer this question if you can’t subnet. The 192.168.10.62 with a mask of 255.255.255.192 is a block size of 64 in the fourth octet. The host 192.168.10.62 is in the zero subnet, and the error occurred because <code>ip subnet-zero</code> is not enabled on the router.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "You typed this mask on a WAN link, and that is not allowed.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "This is not a valid host and subnet mask combination.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "<code>ip subnet-zero</code> is not enabled on the router.",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "The router does not support IP.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 14,
+    "domainCode": "2",
+    "stem": "If an Ethernet port on a router were assigned an IP address of 172.16.112.1/25, what would be the valid subnet address of this interface?",
+    "explanation": "A /25 mask is 255.255.255.128. Used with a Class B network, the third and fourth octets are used for subnetting with a total of 9 subnet bits—8 bits in the third octet and 1 bit in the fourth octet. Since there is only 1 bit in the fourth octet, the bit is either off or on, which is a value of 0 or 128. The host in the question is in the 0 subnet, which has a broadcast address of 127, since 112.128 is the next subnet.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "172.16.112.0",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "172.16.0.0",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "172.16.96.0",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "172.16.255.0",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "172.16.128.0",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 15,
+    "domainCode": "2",
+    "stem": "The network ID is 192.168.10.0/28, and you need to use the last available IP address in the range. What would be a valid host IP address if you were using the first subnet? Again, the zero subnet should not be considered valid for this question.",
+    "explanation": "A /28 is a 255.255.255.240 mask. The first subnet is 16 (remember that the question stated not to use subnet zero), and the next subnet is 32, so our broadcast address is 31. This makes our host range 17–30. 30 is the last valid host.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "192.168.10.16",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "192.168.10.62",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "192.168.10.30",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "192.168.10.127",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 1,
+    "domainCode": "2",
+    "stem": "Which option is a valid IPv6 address?",
+    "explanation": "An IPv6 address is represented as eight groups of four hexadecimal digits, each group representing 16 bits (two octets). The groups are separated by colons (:). Option A has two double colons, option B doesn’t have 8 fields, and option C has invalid hex characters.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "2001:0000:130F::099a::12a",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "2002:7654:A1AD:61:81AF:CCC1",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "FEC0:ABCD:WXYZ:0067::2A4",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "2004:1:25A4:886F::1",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 2,
+    "domainCode": "2",
+    "stem": "Which three statements about IPv6 prefixes are true? (Choose three.)",
+    "explanation": "This question is easier to answer if you just take out the wrong options. First, the loopback is only ::1, so that makes option D wrong. Link local is FE80::/10, not /8, and there are no broadcasts.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "FF00:/8 is used for IPv6 multicast.",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "FE80::/10 is used for link-local unicast.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "FC00::/7 is used in private networks.",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "2001::1/127 is used for loopback addresses.",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "FE80::/8 is used for link-local unicast.",
+        "isCorrect": false
+      },
+      {
+        "label": "F",
+        "body": "FEC0::/10 is used for IPv6 broadcast.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 3,
+    "domainCode": "2",
+    "stem": "Which statements about IPv6 router advertisement messages are true? (Choose two.)",
+    "explanation": "ICMPv6 router advertisements use type 134 and must be at least 64 bits in length.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "They use ICMPv6 type 134.",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "The advertised prefix length must be 64 bits.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "The advertised prefix length must be 48 bits.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "They are sourced from the configured IPv6 interface address.",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "Their destination is always the link-local address of the neighboring node.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 4,
+    "domainCode": "2",
+    "stem": "Which of the following are true when describing an IPv6 anycast address? (Choose three.)",
+    "explanation": "Anycast addresses identify multiple interfaces, which is somewhat similar to multicast addresses; however, the big difference is that the anycast packet is delivered to only one address—the first one it finds defined in terms of routing distance. This address can also be called one-to-one-of-many, or one-to-nearest.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "One-to-many communication model",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "One-to-nearest communication model",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Any-to-many communications model",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "A unique IPv6 address for each device in the group",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "The same address for multiple devices in the group",
+        "isCorrect": true
+      },
+      {
+        "label": "F",
+        "body": "Delivery of packets to the group interface that is closest to the sending device",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 5,
+    "domainCode": "2",
+    "stem": "You want to ping the loopback address of your IPv6 local host. What will you type?",
+    "explanation": "The loopback address with IPv4 is 127.0.0.1. With IPv6, that address is ::1.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "<code>ping 127.0.0.1</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "<code>ping 0.0.0.0</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "<code>ping ::1</code>",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "<code>trace 0.0.::1</code>",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 6,
+    "domainCode": "2",
+    "stem": "Which of the following are features of the IPv6 protocol? (Choose three.)",
+    "explanation": "An important feature of IPv6 is that it allows the plug-and-play option to the network devices by allowing them to configure themselves independently. It is possible to plug a node into an IPv6 network without requiring any human intervention. IPv6 does not implement traditional IP broadcasts.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Optional IPsec",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Autoconfiguration",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "No broadcasts",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Complicated header",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "Plug-and-play",
+        "isCorrect": true
+      },
+      {
+        "label": "F",
+        "body": "Checksums",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 7,
+    "domainCode": "2",
+    "stem": "Which of the following statements describe characteristics of IPv6 unicast addressing? (Choose two.)",
+    "explanation": "The loopback address is ::1; link-local addresses start with FE80::/10; site-local addresses start with FEC0::/10; global addresses start with 200::/3; and multicast addresses start with FF00::/8.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Global addresses start with 2000::/3.",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Link-local addresses start with FE00:/12.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Link-local addresses start with FF00::/10.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "There is only one loopback address, which is ::1.",
+        "isCorrect": true
+      },
+      {
+        "label": "E",
+        "body": "If a global address is assigned to an interface, then that is the only allowable address for the interface.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 8,
+    "domainCode": "2",
+    "stem": "A host sends a router solicitation (RS) on the data link. What destination address is sent with this request?",
+    "explanation": "A router solicitation is sent out using the all-routers multicast address of FF02::2. The router can send a router advertisement to all hosts using the FF02::1 multicast address.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "FF02::A",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "FF02::9",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "FF02::2",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "FF02::1",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "FF02::5",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 9,
+    "domainCode": "2",
+    "stem": "Which of the following are valid reasons for adopting IPv6 over IPv4? (Choose two.)",
+    "explanation": "IPv6 does not use broadcasts, and autoconfiguration is a feature of IPv6 that allows for hosts to automatically obtain an IPv6 address.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "No broadcast",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Change of source address in the IPv6 header",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Change of destination address in the IPv6 header",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "No password required for Telnet access",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "Autoconfiguration",
+        "isCorrect": true
+      },
+      {
+        "label": "F",
+        "body": "NAT",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 10,
+    "domainCode": "2",
+    "stem": "Which of the following is known as “one-to-nearest” addressing in IPv6?",
+    "explanation": "IPv6 anycast addresses are used for one-to-nearest communication, meaning an anycast address is used by a device to send data to one specific recipient (interface) that is the closest out of a group of recipients (interfaces).",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Global unicast",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Anycast",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Multicast",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Unspecified address",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 11,
+    "domainCode": "2",
+    "stem": "Which of the following statements about IPv6 addresses are true? (Choose two.)",
+    "explanation": "To shorten the written length of an IPv6 address, successive fields of zeros may be replaced by double colons (::). In trying to shorten the address further, leading zeros may also be removed. Just as with IPv4, a single device’s interface can have more than one address; with IPv6 there are more types of addresses, and the same rule applies. There can be link-local, global unicast, multicast, and anycast addresses all assigned to the same interface.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Leading zeros are required.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Two colons (::) are used to represent successive hexadecimal fields of zeros.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Two colons (::) are used to separate fields.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "A single interface will have multiple IPv6 addresses of different types.",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 12,
+    "domainCode": "2",
+    "stem": "Which of the following descriptions about IPv6 is correct?",
+    "explanation": "There are no broadcasts with IPv6. Unicast, multicast, anycast, global, and link-local unicast are used.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Addresses are not hierarchical and are assigned at random.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Broadcasts have been eliminated and replaced with multicasts.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "There are 2.7 billion addresses.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "An interface can be configured with only one IPv6 address.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 13,
+    "domainCode": "2",
+    "stem": "Which of the following are advantages of using NAT? (Choose three.)",
+    "explanation": "NAT is not perfect, but there are some advantages. It conserves global addresses, which allows us to add millions of hosts to the Internet without “real” IP addresses. This provides flexibility in our corporate networks. NAT can also allow you to use the same subnet more than once in the same network without overlapping networks.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Translation introduces switching path delays.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "NAT conserves legally registered addresses.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "NAT causes loss of end-to-end IP traceability.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "NAT increases flexibility when connecting to the Internet.",
+        "isCorrect": true
+      },
+      {
+        "label": "E",
+        "body": "Certain applications will not function with NAT enabled.",
+        "isCorrect": false
+      },
+      {
+        "label": "F",
+        "body": "NAT remedies address overlap occurrence.",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 14,
+    "domainCode": "2",
+    "stem": "Port Address Translation is also called what?",
+    "explanation": "Another term for Port Address Translation (PAT) is <i>NAT Overload</i>, because that is the keyword used to enable PAT.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "NAT Fast",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "NAT Static",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "NAT Overload",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Overloading Static",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 15,
+    "domainCode": "2",
+    "stem": "Which of the following is considered to be the inside host's address before translation?",
+    "explanation": "An inside local address is considered to be the IP address of the host on the private network before translation.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Inside local",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Outside local",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Inside global",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Outside global",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 16,
+    "domainCode": "2",
+    "stem": "Which of the following are methods of NAT? (Choose three.)",
+    "explanation": "You can configure NAT in three ways on a Cisco router: static, dynamic, and NAT Overload (PAT).",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Static",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "IP NAT pool",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Dynamic",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "NAT double-translation",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "Overload",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 17,
+    "domainCode": "2",
+    "stem": "Which of the following are the disadvantages of using NAT? (Choose three.)",
+    "explanation": "NAT is not perfect and can cause some issues in some networks, but most networks work just fine. NAT can cause delays and troubleshooting problems, and some applications just won’t work.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Translation introduces switching path delays.",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "NAT conserves legally registered addresses.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "NAT causes loss of end-to-end IP traceability.",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "NAT increases flexibility when connecting to the Internet.",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "Certain applications will not function with NAT enabled.",
+        "isCorrect": true
+      },
+      {
+        "label": "F",
+        "body": "NAT reduces address overlap occurrence.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 5,
+    "ordinal": 1,
+    "domainCode": "4",
+    "stem": "Which command was used to generate the following output?\r\n<pre id=\"c05-code-0013\"><code>Codes: L - local, C - connected, S - static,</code>\r\n<code>[output cut]</code>\r\n<code>10.0.0.0/8 is variably subnetted, 6 subnets, 4 masks</code>\r\n<code>C 10.0.0.0/8 is directly connected, FastEthernet0/3</code>\r\n<code>L 10.0.0.1/32 is directly connected, FastEthernet0/3</code>\r\n<code>C 10.10.0.0/16 is directly connected, FastEthernet0/2</code>\r\n<code>L 10.10.0.1/32 is directly connected, FastEthernet0/2</code>\r\n<code>C 10.10.10.0/24 is directly connected, FastEthernet0/1</code>\r\n<code>L 10.10.10.1/32 is directly connected, FastEthernet0/1</code>\r\n<code>S* 0.0.0.0/0 is directly connected, FastEthernet0/0</code></pre>",
+    "explanation": "The <code>show ip route</code> command is used to display the routing table of a router.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "<code>show running-config</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "<code>show ip route</code>",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "<code>show routing table</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "<code>show ip path</code>",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 5,
+    "ordinal": 2,
+    "domainCode": "4",
+    "stem": "Which of the following statements are true regarding the command <code>ip route 172.16.4.0 255.255.255.0 192.168.4.2</code>? (Choose two.)",
+    "explanation": "Although option D almost seems right, it is not; the mask option is the mask used on the remote network, not the source network. Since there is no number at the end of the static route, it is using the default administrative distance of 1.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "The command is used to establish a static route.",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "The default administrative distance is used.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "The command is used to configure the default route.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "The subnet mask for the source address is 255.255.255.0.",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "The command is used to establish a stub network.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 5,
+    "ordinal": 3,
+    "domainCode": "4",
+    "stem": "What destination addresses will be used by HostA to send data to the HTTPS server as shown in the following network? (Choose two.)\r\n<figure> <img alt=\"An illustration of the I P routing. The parts labeled are host A, router A, and H T T P S server.\" class=\"center\" src=\"images/c05uf001.png\" />\r\n</figure>",
+    "explanation": "The switches are not used as either a default gateway or other destination. Switches have nothing to do with routing. It is very important to remember that the destination MAC address will always be the router’s interface. The destination address of a frame, from HostA, will be the MAC address of the Fa0/0 interface of RouterA. The destination address of a packet will be the IP address of the network interface card (NIC) of the HTTPS server. The destination port number in the segment header will have a value of 443 (HTTPS).",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "The IP address of the switch",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "The MAC address of the remote switch",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "The IP address of the HTTPS server",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "The MAC address of the HTTPS server",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "The IP address of RouterA's Fa0/0 interface",
+        "isCorrect": false
+      },
+      {
+        "label": "F",
+        "body": "The MAC address of RouterA's Fa0/0 interface",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 5,
+    "ordinal": 4,
+    "domainCode": "4",
+    "stem": "Which of the following is called an advanced distance-vector routing protocol?",
+    "explanation": "Hybrid protocols use aspects of both distance vector and link state—for example, EIGRP. Be advised, however, that Cisco typically just calls EIGRP an advanced distance-vector routing protocol. Do not be misled by the way the question is worded. Yes, I know that MAC addresses are not in a packet. You must read the question carefully to understand what it is really asking.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "OSPF",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "EIGRP",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "BGP",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "RIP",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 5,
+    "ordinal": 5,
+    "domainCode": "4",
+    "stem": "When a packet is routed across a network, the __________ in the packet changes at every hop whereas the __________ does not.",
+    "explanation": "Since the destination MAC address is different at each hop, it must keep changing. The IP address, which is used for the routing process, does not.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "MAC address, IP address",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "IP address, MAC address",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Port number, IP address",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "IP address, port number",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 5,
+    "ordinal": 6,
+    "domainCode": "4",
+    "stem": "Which of the following statements regarding the distance-vector and link-state routing protocols are true? (Choose two.)",
+    "explanation": "The distance-vector routing protocol sends its complete routing table out of all active interfaces at periodic time intervals. Link-state routing protocols send updates containing the state of their own links to all routers in the internetwork.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Link state sends its complete routing table out of all active interfaces at periodic time intervals.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Distance vector sends its complete routing table out of all active interfaces at periodic time intervals.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Link state sends updates containing the state of its own links to all routers in the internetwork.",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Distance vector sends updates containing the state of its own links to all routers in the internetwork.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 5,
+    "ordinal": 7,
+    "domainCode": "4",
+    "stem": "What does the <code>150</code> at the end of the following command mean?\r\n<pre id=\"c05-code-0014\"><code>Router(config)<b>#ip route 172.16.3.0 255.255.255.0 192.168.2.4 150</b></code></pre>",
+    "explanation": "The <code>150</code> at the end changes the default administrative distance (AD) of 1 to 150.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Metric",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Administrative distance",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Hop count",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Cost",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 5,
+    "ordinal": 8,
+    "domainCode": "4",
+    "stem": "A network administrator views the output from the <code>show ip route</code> command. A network that is advertised by both RIP and EIGRP appears in the routing table flagged as an EIGRP route. Why is the RIP route to this network not used in the routing table?",
+    "explanation": "RIP has an administrative distance (AD) of 120, whereas EIGRP has an administrative distance of 90, so the router will prefer routes with a lower AD than 90 to the same network.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "EIGRP has a faster update timer.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "EIGRP has a lower administrative distance.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "RIP has a higher metric value for that route.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "The EIGRP route has fewer hops.",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "The RIP path has a routing loop.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 5,
+    "ordinal": 9,
+    "domainCode": "4",
+    "stem": "Which of the following is <i>not</i> an advantage of static routing?",
+    "explanation": "Recovery from a lost route requires manual intervention by a human to replace the lost route.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Less overhead on the router CPU",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "No bandwidth usage between routers",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Adds security",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Recovers automatically from lost routes",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 5,
+    "ordinal": 10,
+    "domainCode": "4",
+    "stem": "Which of the following are advantages of static routing? (Choose three.)",
+    "explanation": "The advantages are less overhead on the router and network as well as increased security.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Less overhead on the router CPU",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "No bandwidth usage between routers",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Adds security",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Recovers automatically from lost routes",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 6,
+    "ordinal": 1,
+    "domainCode": "4",
+    "stem": "Which of the following statements regarding VLANs is true?",
+    "explanation": "Here’s a list of ways VLANs simplify network management:\r\n<ul class=\"square\" id=\"bapp01-list-0001\">\r\n<li id=\"bapp01-li-0001\">Network adds, moves, and changes are achieved with ease by just configuring a port into the appropriate VLAN.</li>\r\n<li id=\"bapp01-li-0002\">A group of users that need an unusually high level of security can be put into its own VLAN so that users outside of the VLAN can’t communicate with them.</li>\r\n<li id=\"bapp01-li-0003\">As a logical grouping of users by function, VLANs can be considered independent from their physical or geographic locations.</li>\r\n<li id=\"bapp01-li-0004\">VLANs greatly enhance network security if implemented correctly.</li>\r\n<li id=\"bapp01-li-0005\">VLANs increase the number of broadcast domains while decreasing their size.</li>\r\n</ul>",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "VLANs greatly reduce network security.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "VLANs increase the number of collision domains while decreasing their size.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "VLANs decrease the number of broadcast domains while decreasing their size.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Network adds, moves, and changes are achieved with ease by just configuring a port into the appropriate VLAN.",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 6,
+    "ordinal": 2,
+    "domainCode": "4",
+    "stem": "Which of the following statements regarding layer 2 switching is <i>not</i> true?",
+    "explanation": "Layer 2 switches and bridges are faster than routers because they don’t take up time looking at the Network Layer header information. They do make use of the Data Link layer information.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Layer 2 switches and bridges are faster than routers because they don't take up time looking at the Data Link layer header information.",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Layer 2 switches and bridges look at the frame's hardware addresses before deciding to either forward, flood, or drop the frame.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Switches create private, dedicated collision domains and provide independent bandwidth on each port.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Switches use application-specific integrated circuits (ASICs) to build and maintain their MAC filter tables.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 6,
+    "ordinal": 4,
+    "domainCode": "4",
+    "stem": "Which of the following is <i>not</i> an issue addressed by STP?",
+    "explanation": "Gateway redundancy can be solved with Hot Standby Router Protocol (HSRP), which provides dynamic default gateways.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Broadcast storms",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Gateway redundancy",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "A device receiving multiple copies of the same frame",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Constant updating of the MAC filter table",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 6,
+    "ordinal": 7,
+    "domainCode": "4",
+    "stem": "What is the purpose of frame tagging in virtual LAN (VLAN) configurations?",
+    "explanation": "<i>Frame tagging</i> refers to VLAN identification; this is what switches use to keep track of all those frames as they’re traversing a switch fabric. It’s how switches identify which frames belong to which VLANs over trunk links.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Inter-VLAN routing",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Encryption of network packets",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Frame identification over trunk links",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Frame identification over access links",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 6,
+    "ordinal": 8,
+    "domainCode": "4",
+    "stem": "On which default interface do you configure an IP address for a switch?",
+    "explanation": "The management IP address of the switch is called the management VLAN interface, which is a routed interface on every Cisco switch and called interface VLAN 1.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "int fa0/0",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "int vty 0 15",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "int vlan 1",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "int s/0/0",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 6,
+    "ordinal": 9,
+    "domainCode": "4",
+    "stem": "Which command will show you the VLAN port assignments?",
+    "explanation": "The command <code>show vlan</code> provides the VLAN port assignments.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "<code>show port-assignments</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "<code>show vlan</code>",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "<code>show vlan-ports</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "<code>show database</code>",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 6,
+    "ordinal": 10,
+    "domainCode": "4",
+    "stem": "Which of the following are the basic layer 2 switch functions? (Choose three.)",
+    "explanation": "Address learning, forward/filter decisions, and loop avoidance are the functions of a switch.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Address learning",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Forward/filter decision",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "IP management",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Loop avoidance",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "Why would a network administrator use plenum-rated cable during an installation? (Choose two.)",
+    "explanation": "Plenum-rated means that the cable’s coating doesn’t begin burning until a much higher temperature of heat, doesn’t release as many toxic fumes as PVC when it does burn, and is rated for use in air plenums that carry breathable air, usually as nonenclosed fresh-air return pathways that share space with cabling.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "It has a low combustion temperature.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "It has a high combustion temperature.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "It reduces toxic gas released during a fire.",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "It is not susceptible to any interference.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "Which of the following Ethernet unshielded twisted-pair cabling types is/are commonly used?",
+    "explanation": "UTP is commonly used in twisted-pair Ethernet like 10BaseT, 100BaseTX, 1000BaseTX, and so on.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "10BaseT",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "100BaseTX",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "1000BaseTX",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "All of the above",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "In which of the following categories is UTP cable not rated?",
+    "explanation": "Unshielded twisted-pair has standards from Category 2 through 8 for use on Ethernet networks. There is no Category 9 defined.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Category 2",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Category 3",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Category 5e",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Category 9",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "What type of connector does UTP cable typically use?",
+    "explanation": "UTP usually connects with RJ-45. You use a crimper to attach an RJ connector to a cable.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "BNC",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "ST",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "RJ-45",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "SC",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "Which of the following provides the longest cable run distance?",
+    "explanation": "Single-mode fiber allows for the maximum cable run distances.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Single-mode fiber",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Multimode fiber",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Category 3 UTP",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Coax",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "In a physical star topology, what happens when a workstation loses its physical connection to another device?",
+    "explanation": "In a star topology, each workstation connects to a hub, switch, or similar central device but not to other workstations. The benefit is that when connectivity to the central device is lost, the rest of the network lives on.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "The ring is broken, so no devices can communicate.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Only that workstation loses its ability to communicate.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "That workstation and the device it's connected to lose communication with the rest of the network.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "No devices can communicate because there are now two unterminated network segments.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "Why is fiber-optic cable immune to electromagnetic interference (EMI) and radio frequency interference (RFI)?",
+    "explanation": "Fiber-optic cable transmits digital signals using light impulses rather than electricity; therefore, it is immune to EMI and RFI.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Because it transmits analog signals using electricity",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Because it transmits analog signals using light impulses",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Because it transmits digital signals using light impulses",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Because it transmits digital signals using electricity",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "What type of cable transmits lights from end to end?",
+    "explanation": "Remember that fiber-optic cable transmits a digital signal using light impulses. Light is carried on either a glass or a plastic core.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Coax",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Fiber-optic",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "UTP",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Category 2",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "What is the main difference between single-mode fiber (SMF) and multimode fiber (MMF)?",
+    "explanation": "The difference between single-mode fibers and multimode fibers is in the number of light rays (and thus the number of signals) they can carry. Generally speaking, multimode fiber is used for shorter-distance applications and single-mode fiber for longer distances.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Electrical signals.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Number of light rays.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Number of digital signals.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "That signal-mode can be run a shorter distance.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "What type of cable should be used if you need to make a cable run longer than 100 meters?",
+    "explanation": "Standards limit UTP to a mere 100 meters. Different fiber-optic types have different maximum lengths, but fiber-optic is the only cable type that can extend well beyond 100 meters.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Category 5e",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Category 6",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Fiber-optic",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Coaxial",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 11,
+    "domainCode": null,
+    "stem": "What is a logical grouping of network users and resources called?",
+    "explanation": "A logical grouping of hosts is called a LAN, and you typically group them by connecting them to a hub or switch.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "WAN",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "LAN",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "MPLS",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Host",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 12,
+    "domainCode": null,
+    "stem": "You have a network with multiple LANs and want to keep them separate but still connect them together so they can all get to the Internet. Which of the following is the best solution?",
+    "explanation": "Routers are used to connect different networks together.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Use static IP addresses.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Add more hubs.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Implement more switches.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Install a router.",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 13,
+    "domainCode": null,
+    "stem": "What is a difference between a LAN and a WAN?",
+    "explanation": "A typical WAN connects two or more remote LANs together using someone else’s network (your ISP’s) and a router. Your local host and router “see” these networks as remote networks and not as local networks or local resources. Routers use proprietary serial connections for WANs.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "A WAN requires a router.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "A WAN covers larger geographical areas.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "A WAN can utilize either private or public data transport.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "All of the above.",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 14,
+    "domainCode": null,
+    "stem": "Which of the following is an example of a LAN?",
+    "explanation": "LANs generally have a geographic scope of a single building or smaller. They can range from simple (two hosts) to complex (with thousands of hosts).",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Ten buildings interconnected by Ethernet connections over fiber-optic cabling",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Ten routers interconnected by MPLS circuits",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Two routers interconnected with a Serial circuit",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "A computer connected to another computer so they can share resources",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "Which encryption type does enterprise WPA3 use?",
+    "explanation": "WPA3 Enterprise uses GCMP-256 for encryption; WPA2 uses AES-CCMP for encryption; and WPA uses TKIP.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "AES-CCMP",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "GCMP-256",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "PSK",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "TKIP/MIC",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "What is the frequency range of the IEEE 802.11b standard?",
+    "explanation": "The IEEE 802.11b and IEEE 802.11g standards both run in the 2.4 GHz RF range.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "2.4 Gbps",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "5 Gbps",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "2.4 GHz",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "5 GHz",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "What is the frequency range of the IEEE 802.11a standard?",
+    "explanation": "The IEEE 802.11a standard runs in the 5 GHz RF range.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "2.4 Gbps",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "5 Gbps",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "2.4 GHz",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "5 GHz",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "What is the frequency range of the IEEE 802.11g standard?",
+    "explanation": "The IEEE 802.11b and IEEE 802.11g standards both run in the 2.4 GHz RF range.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "2.4 Gbps",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "5 Gbps",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "2.4 GHz",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "5 GHz",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "You've finished physically installing an access point on the ceiling of your office. At a minimum, which parameter must be configured on the access point in order to allow a wireless client to operate on it?",
+    "explanation": "The minimum parameter configured on an AP for a simple WLAN installation is the SSID, although you should set the channel and authentication method as well.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "AES",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "PSK",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "SSID",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "TKIP",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "WEP",
+        "isCorrect": false
+      },
+      {
+        "label": "F",
+        "body": "802.11i",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "Which encryption type does WPA2 use?",
+    "explanation": "WPA3 Enterprise uses GCMP-256 for encryption; WPA2 uses AES-CCMP for encryption; and WPA uses TKIP.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "AES-CCMP",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "PPK via IV",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "PSK",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "TKIP/MIC",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "How many nonoverlapping channels are available with 802.11b?",
+    "explanation": "The IEEE 802.11b standard provides three nonoverlapping channels.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "3",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "12",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "23",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "40",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "Which of the following has built-in resistance to dictionary attacks?",
+    "explanation": "WPA3 is resistant to offline dictionary attacks where an attacker attempts to determine a network password by trying possible passwords without further network interaction.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "WPA",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "WPA2",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "WPA3",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "AES",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "TKIP",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "What is the maximum data rate for the 802.11a standard?",
+    "explanation": "The IEEE 802.11a standard provides a maximum data rate of up to 54 Mbps.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "6 Mbps",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "11 Mbps",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "22 Mbps",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "54 Mbps",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "What is the maximum data rate for the 802.11g standard?",
+    "explanation": "The IEEE 802.11g standard provides a maximum data rate of up to 54 Mbps.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "6 Mbps",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "11 Mbps",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "22 Mbps",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "54 Mbps",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 11,
+    "domainCode": null,
+    "stem": "What's the maximum data rate for the 802.11b standard?",
+    "explanation": "The IEEE 802.11b standard provides a maximum data rate of up to 11 Mbps.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "6 Mbps",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "11 Mbps",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "22 Mbps",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "54 Mbps",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 12,
+    "domainCode": null,
+    "stem": "WPA3 replaced the default open authentication with which of the following enhancements?",
+    "explanation": "The 802.11 “open” authentication support has been replaced with Opportunistic Wireless Encryption (OWE) enhancement, which is an enhancement, not a mandatory certified setting.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "AES",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "OWL",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "OWE",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "TKIP",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 13,
+    "domainCode": null,
+    "stem": "A wireless client can't connect to an 802.11b/g BSS with a b/g wireless card, and the client section of the access point doesn't list any active WLAN clients. What's a possible reason for this?",
+    "explanation": "Although this question is cryptic at best, the only possible answer is option D. If the SSID is not being broadcast (which we must assume in this question), the client must be configured with the correct SSID in order to associate to the AP.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "The incorrect channel is configured on the client.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "The client's IP address is on the wrong subnet.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "The client has an incorrect pre-shared key.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "The SSID is configured incorrectly on the client.",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 14,
+    "domainCode": null,
+    "stem": "Which features did WPA add to address the inherent weaknesses found in WEP? (Choose two.)",
+    "explanation": "WPA uses Temporal Key Integrity Protocol (TKIP), which includes both broadcast key rotation (dynamic keys that change) and sequencing of frames.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "A stronger encryption algorithm",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Key mixing using temporal keys",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Shared key authentication",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "A shorter initialization vector",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "Per frame sequence counter",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 15,
+    "domainCode": null,
+    "stem": "Which of the following wireless encryption methods are based on the RC4 encryption algorithm? (Choose two.)",
+    "explanation": "Both WEP and TKIP (WPA) use the RC4 algorithm. It is advised to use WPA2, which uses AES encryption, or WPA3 when it is available to you.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "WEP",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "CCKM",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "AES",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "TKIP",
+        "isCorrect": true
+      },
+      {
+        "label": "E",
+        "body": "CCMP",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 16,
+    "domainCode": null,
+    "stem": "Two workers have established wireless communication directly between their wireless laptops. Which type of wireless topology has been created by these two employees?",
+    "explanation": "Two wireless hosts directly connected wirelessly is no different from two hosts connecting with a crossover cable. They are both ad hoc networks, but in wireless we call this an independent basic service set (IBSS).",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "BSS",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "SSID",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "IBSS",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "ESS",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 17,
+    "domainCode": null,
+    "stem": "Which of the following statements describe the wireless security standard that WPA defines? (Choose two.)",
+    "explanation": "WPA, although using the same RC4 encryption that WEP uses, provides enhancements to the WEP protocol by using dynamic keys that change constantly, as well as providing a pre-shared key method of authentication.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "It specifies the use of dynamic encryption keys that change throughout the users connection time.",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "It requires that all devices use the same encryption key.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "It can use PSK authentication.",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Static keys must be used.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 18,
+    "domainCode": null,
+    "stem": "Which wireless LAN design ensures that a mobile wireless client will not lose connectivity when moving from one access point to another?",
+    "explanation": "To create an extended service set (ESS), you need to overlap the wireless BSA from each AP by at least 15 percent in order to not have a gap in coverage, so users do not lose their connection when roaming between APs.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Using adapters and access points manufactured by the same company",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Overlapping the wireless cell coverage by at least 15 percent",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Configuring all access points to use the same channel",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Utilizing MAC address filtering to allow the client MAC address to authenticate with the surrounding APs",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 19,
+    "domainCode": null,
+    "stem": "You're connecting your access point and it's set to root. What does extended service set ID mean?",
+    "explanation": "Extended service set ID means that you have more than one access point, and they all are set to the same SSID, and all are connected together in the same VLAN or distribution system, so users can roam.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "That you have more than one access point and they are in the same SSID connected by a distribution system",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "That you have more than one access point and they are in separate SSIDs connected by a distribution system",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "That you have multiple access points but they are placed physically in different buildings",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "That you have multiple access points but one is a repeater access point",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 20,
+    "domainCode": null,
+    "stem": "What of the following are basic parameters to configure on a wireless access point? (Choose three.)",
+    "explanation": "The three basic parameters to configure when setting up an access point are the SSID, the RF channel, and the authentication method.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Authentication method",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "RF channel",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "RTS/CTS",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "SSID",
+        "isCorrect": true
+      },
+      {
+        "label": "E",
+        "body": "Microwave interference resistance",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 9,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "Which command can you use to determine the IP address of a directly connected neighbor?",
+    "explanation": "The command <code>show cdp neighbors detail</code>, which can be run on both routers and switches, displays detailed information about each device connected to the device you’re running the command on, including the IP address. The command <code>show cdp neighbors</code> does not show the IP address of your neighbor devices; only <code>show cdp neighbors detail</code> provides that information.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "<code>show cdp</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "<code>show cdp neighbors</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "<code>show cdp neighbors detail</code>",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "<code>show neighbor detail</code>",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 9,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "Which of the following is a network protocol that is designed as a secure alternative to command-based utilities such as Telnet?",
+    "explanation": "Secure Shell (SSH) creates a secure channel between devices and provides confidentiality and integrity of the data transmission. It uses public-key cryptography to authenticate the remote computer and allow the remote computer to authenticate the user, if necessary.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "SSL",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "SSH",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "STP",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "STFP",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 9,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "Which of the following commands provides a quick overview of all a device's interfaces, including the logical address and interface status at layers 1 and 2?",
+    "explanation": "The Cisco IOS command <code>show ip interface brief</code> is a very useful output that provides all of a device’s interfaces, including the logical address and interface status at layers 1 and 2.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "<code>show running-config</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "<code>show processes</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "<code>show ip interface brief</code>",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "<code>show mac address-table</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "<code>show interfaces</code>",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 9,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "Between which systems could you use a cable that uses the pinout pattern shown here?\r\n<figure> <img alt=\"An illustration of a straight-through Ethernet cable. There are four wires used in straight cables.\" class=\"center\" src=\"images/c09uf001.png\" />\r\n</figure>",
+    "explanation": "This is a very simple cable for a 10/100Mbps straight-through connection. If you want gigabit (of course you do!), you need all 8 wires connected. But since this is 1 to 1, 2 to 2, etc, this is a cable for connecting from host to switch.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "With a connection from a switch to a switch",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "With a connection from a router to a router",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "With a connection from a host to a host",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "With a connection from a host to a switch",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 9,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "Which type of cable uses the pinout shown here?\r\n<figure> <img alt=\"An illustration of U T P Gigabit crossover Ethernet cable. There are eight wires used in crossover cables.\" class=\"center\" src=\"images/c09uf002.png\" />\r\n</figure>",
+    "explanation": "This is a crossover cable. It is using all 8 pins, so it can be used for higher speeds, such as between gigabit ports. Crossover cables are used to connect like devices, such as host to host, switch to switch, etc.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Fiber-optic",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Crossover Gigabit Ethernet",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Straight-through Fast Ethernet",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Coaxial",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 9,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "Which cable type uses the pinout arrangement shown here?\r\n<figure> <img alt=\"An illustration of a rolled Ethernet cable. There are eight wires used in rolled cables.\" class=\"center\" src=\"images/c09uf003.png\" />\r\n</figure>",
+    "explanation": "This is a rolled cable and is used for a connection from a host to a console port.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Fiber-optic",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Rolled",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Straight-through",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Crossover",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 9,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "Which of the following commands provide this output?\r\n<pre id=\"c09-code-0050\"><code>Switch#<b>show _______________</b></code>\r\n<code>Vlan Mac Address Type Ports]]</code>\r\n<code>1 0005.dccb.d74b DYNAMIC Fa0/1</code>\r\n<code>1 000a.f467.9e80 DYNAMIC Fa0/3</code>\r\n<code>1 000a.f467.9e8b DYNAMIC Fa0/4</code>\r\n<code>1 000a.f467.9e8c DYNAMIC Fa0/3</code>\r\n<code>1 0010.7b7f.c2b0 DYNAMIC Fa0/3</code>\r\n<code>1 0030.80dc.460b DYNAMIC Fa0/3</code>\r\n<code>1 0030.9492.a5dd DYNAMIC Fa0/1</code>\r\n<code>    1    00d0.58ad.05f4 DYNAMIC Fa0/1</code></pre>",
+    "explanation": "The command <code>show mac address-table</code> provides the known MAC address of local hosts and which port they are connected on.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "<code>show interfaces</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "<code>show mac address-table</code>",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "<code>show ip interface brief</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "<code>show switch</code>",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 9,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "Which of the following commands provides this output?\r\n<pre id=\"c09-code-0051\"><code>Switch#<b>show ___________</b></code>\r\n<code>Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge</code>\r\n<code>S - Switch, H - Host, I - IGMP, r - Repeater, P - Phone,</code>\r\n<code>D - Remote, C - CVTA, M - Two-port Mac Relay Device ID Local Intrfce Holdtme Capability Platform Port ID</code>\r\n<code>SW-1 Fas 0/1 150 S I WS-C3560- Fas 0/15</code>\r\n<code>SW-1 Fas 0/2 150 S I WS-C3560- Fas 0/16</code>\r\n<code>SW-2 Fas 0/5 162 S I WS-C3560- Fas 0/5</code>\r\n<code>SW-2 Fas 0/6 162 S I WS-C3560- Fas 0/6</code></pre>",
+    "explanation": "The <code>show cdp neighbors</code> command (<code>sh cdp nei</code> for short) delivers information about directly connected devices.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "<code>show interfaces</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "<code>show mac address-table</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "<code>show ip interface brief</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "<code>show cdp neighbors</code>",
+        "isCorrect": true
+      },
+      {
+        "label": "E",
+        "body": "<code>show ip route</code>",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 9,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "Which of the following remote access technologies allows you to connect to a remote location and have your host appear as though it is local on that network?",
+    "explanation": "A VPN allows you to connect securely to a remote location and appear local to that network.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Meraki",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "SSH",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Virtual private network",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Telnet",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 9,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "Which command will you run in the following output to show the switch stack's base MAC address, priority to become Master, version, and the state of the switch?\r\n<pre id=\"c09-code-0052\"><code>3560-New#<b>show _________</b></code>\r\n<code>Switch/Stack Mac Address : 4ca6.4d28.2380</code>\r\n<code>                                           H/W   Current</code>\r\n<code>Switch#  Role   Mac Address     Priority Version  State </code>\r\n<code>----------------------------------------------------------</code>\r\n<code>*1       Master 4ca6.4d28.2380     1      4       Ready</code></pre>",
+    "explanation": "The command <code>show switch</code> on a stack of Cisco Catalyst switches shows the base MAC address, the priority to become Master, the version, and the state of the switch.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "<code>show interfaces</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "<code>show mac address-table</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "<code>show ip interface brief</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "<code>show switch</code>",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 10,
+    "ordinal": 1,
+    "domainCode": "6",
+    "stem": "Which of the following are true about TACACS+? (Choose two.)",
+    "explanation": "ACACS+ uses TCP, is Cisco proprietary, and offers multiprotocol support as well as separated AAA services.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "TACACS+ is a Cisco proprietary security mechanism.",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "TACACS+ uses UDP.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "TACACS+ combines authentication and authorization services as a single process—after users are authenticated, they are also authorized.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "TACACS+ offers multiprotocol support.",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 10,
+    "ordinal": 2,
+    "domainCode": "6",
+    "stem": "Which of the following is <i>not</i> true about RADIUS?",
+    "explanation": "Unlike TACACS+, which separates AAA services, this is not an option when configuring RADIUS.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "RADIUS is an open standard protocol.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "RADIUS separates AAA services.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "RADIUS uses UDP.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "RADIUS encrypts only the password in the access-request packet, from the client to the server. The remainder of the packet is unencrypted.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 10,
+    "ordinal": 3,
+    "domainCode": "6",
+    "stem": "Which of the following is <i>not</i> a password alternative?",
+    "explanation": "MFA, biometrics, and certificates are all password alternatives.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Multifactor authentication (MFA)",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Malware lookups",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Biometrics",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Certificates",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 10,
+    "ordinal": 4,
+    "domainCode": "6",
+    "stem": "Which of the following are common denial-of-service attacks? (Choose two.)",
+    "explanation": "There are quite a few denial-of-service attacks, but from the options in this question you have command-and-control (C&amp;C), DDoS, and ping of death.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "CnC",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "DDos",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "MFA",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Ping of death",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 10,
+    "ordinal": 5,
+    "domainCode": "6",
+    "stem": "Which of the following are listed threats that you need to be aware of as the first line of defense in providing CIA? (Choose four.)",
+    "explanation": "Unstructured, structured, external, and internal threats are the types of threats that are important to understand when trying to implement CIA.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Structured threats",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "External threats",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Internal threats",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Malware threats",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "Unstructured threats",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 10,
+    "ordinal": 6,
+    "domainCode": "6",
+    "stem": "Which types of security server protocols are supported by Cisco routers? (Choose three.)",
+    "explanation": "RADIUS, TACACS+, and Kerberos are the three types of security server protocols supported by Cisco routers.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "RADIUS",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Kerberos",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "DIA",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "TACACS+",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 10,
+    "ordinal": 7,
+    "domainCode": "6",
+    "stem": "Which of the following describes an exploit?",
+    "explanation": "An exploit occurs when a threat agent takes advantage of a vulnerability and uses it to advance an attack.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "An exploit is when antivirus software uses definition files that identify known malware.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "An exploit is a system of ranking vulnerabilities that are discovered based on predefined metrics.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "An exploit is when a hacker confuses an internal user and gets them to turn over their credentials.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "An exploit is when a threat agent takes advantage of a vulnerability and uses it to advance an attack.",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 10,
+    "ordinal": 8,
+    "domainCode": "6",
+    "stem": "Multifactor authentication is designed to add an additional level of security to the authentication process by verifying more than one characteristic of a user before allowing access to a resource. Users can be identified in one of five ways. Which of the following can be part of multifactor authentication? (Choose three.)",
+    "explanation": "Multifactor authentication is when two or more of the following factors are being tested:\r\n<ul class=\"square\" id=\"bapp01-list-0002\">\r\n<li id=\"bapp01-li-0006\">Something a user knows (password)</li>\r\n<li id=\"bapp01-li-0007\">Something a user is (retinas, fingerprint, facial recognition)</li>\r\n<li id=\"bapp01-li-0008\">Something a user possesses (smart card)</li>\r\n<li id=\"bapp01-li-0009\">Somewhere a user is (location)</li>\r\n<li id=\"bapp01-li-0010\">Something a user does (behavior)</li>\r\n</ul>",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Something a user eats",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Something a user knows",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Something a user is",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Something a user possesses",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 10,
+    "ordinal": 9,
+    "domainCode": "6",
+    "stem": "What of the following statements about ACLs is true?",
+    "explanation": "ACLs typically reside on routers to determine which packets are allowed to route through them based on the requesting device’s source or destination Internet Protocol (IP) address or layer 4 ports.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "They typically reside on routers to determine which packets are allowed to route through them based on the requesting device's source or destination Internet Protocol (IP) addresses.",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "They run only on layer 2 switches.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "They run only on layers 3/4 and work only on Cisco's new NGFW.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "They use MAC addresses only to filter packets.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 10,
+    "ordinal": 10,
+    "domainCode": "6",
+    "stem": "Which of the following statements best describes a firewall?",
+    "explanation": "A firewall protects your LAN resources from invaders who prowl the Internet for unprotected networks while simultaneously preventing all or some of your LAN’s computers from accessing certain services on the Internet.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "A firewall provides full access to your internal network from the Internet so that, for example, accounting can update the spreadsheets used for payroll.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "A firewall blocks all traffic so that people cannot get out of the internal network without a written and signed document from the CTO.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "A firewall protects your inside networks from someone on the Internet, while at the same time inspecting traffic going to the Internet.",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "A firewall provides biometrics for all data going from inside the network to outside the network.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 11,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "When the vendor provides the hardware platform or data center, and the company installs and manages its own operating systems and application systems, which service type is being used?",
+    "explanation": "There are many different service type offerings from the cloud providers. IaaS, or infrastructure as a service, is when the cloud vendor provides the hardware platform and the company installs and manages its own operating systems.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Software as a service",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Infrastructure as a service",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Platform as a service",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Desktop as a service",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 11,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "Which of the following devices would probably never be an IoT endpoint?",
+    "explanation": "Pretty much everything in your life would eventually be an IoT endpoint, but can you imagine an out-of-control weed trimmer? Let’s hope this never happens.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Bathtub",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Convertible car",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Electric weed trimmer",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Outdoor lighting of your home/office",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 11,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "Which three of the following are the benefits of using cloud computing?",
+    "explanation": "The benefits of using cloud computing include more fault tolerance, constant availability, access from anywhere, and, although there will be increased performance, it’s unlikely anything will be faster when moving your data off-site. Certainly, some things can be, but that’s not really a guaranteed benefit as much as the three listed here.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Faster document updates",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Increased fault tolerance",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Constant availability",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Access from anywhere",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 11,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "Which of the following are advantages to a cloud service builder or provider?",
+    "explanation": "Here are the advantages to a cloud service builder or provider:\r\n<ul id=\"bapp01-list-0003\">\r\n<li id=\"bapp01-li-0011\">Cost reduction, standardization, and automation</li>\r\n<li id=\"bapp01-li-0012\">High utilization through virtualized, shared resources</li>\r\n<li id=\"bapp01-li-0013\">Easier administration</li>\r\n<li id=\"bapp01-li-0014\">Fall-in-place operations model</li>\r\n</ul>",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "On-premise backups needed",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Cost-effective/cost-reduction",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Decentralized resources",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Centralized resources",
+        "isCorrect": true
+      },
+      {
+        "label": "E",
+        "body": "Faster deployment",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 11,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "Which three of the following are advantages to cloud users?",
+    "explanation": "Here are the advantages to cloud users:\r\n<ul id=\"bapp01-list-0004\">\r\n<li id=\"bapp01-li-0015\">On-demand, self-service resource provisioning</li>\r\n<li id=\"bapp01-li-0016\">Fast deployment cycles</li>\r\n<li id=\"bapp01-li-0017\">Cost-effective</li>\r\n<li id=\"bapp01-li-0018\">The centralized appearance of resources</li>\r\n<li id=\"bapp01-li-0019\">Highly available, horizontally scaled application architectures</li>\r\n<li id=\"bapp01-li-0020\">No local backups</li>\r\n</ul>",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "On-demand, self-service resource provisioning",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Faster deployment cycles",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "No local backups",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "More expensive but worth it",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 11,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "Which one of the following is most useful for integrations of VoIP and IoT?",
+    "explanation": "Remote auto phones through IoT cell clouds is a useful IoT and VoIP integration.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Remote auto phones through IoT cell clouds",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Building management integration",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "User status integration",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "VoIP and IoT data integration",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 11,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "Which of the following provides only the network infrastructure?",
+    "explanation": "IaaS delivers computer infrastructure—a platform virtualization environment—where the customer has the most control and management capability.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "IaaS",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "PaaS",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "SaaS",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "DaaS",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 11,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "Which of the following provides the operating system and the network infrastructure?",
+    "explanation": "The vendor provides the hardware platform or data center and the software running on the platform, allowing customers to develop, run, and manage applications without the complexity of building and maintaining the infrastructure typically associated with developing and launching an application. An example is Windows Azure.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "IaaS",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "PaaS",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "SaaS",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "DaaS",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 11,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "Which of the following provides the required software, operating system, and network?",
+    "explanation": "The vendor provides the entire solution. This includes the operating system, infrastructure software, and the application. SaaS consists of common application software such as databases, web servers, and email software that’s hosted by the SaaS vendor. The customer accesses this software over the Internet. Instead of having users install software on their computers or servers, the SaaS vendor owns the software and runs it on computers in its data center. Microsoft Office 365 and many Amazon Web Services (AWS) offerings are perfect examples of SaaS.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "IaaS",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "PaaS",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "SaaS",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "DaaS",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 11,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "Which of the following is some combination of private and public cloud?",
+    "explanation": "<b>Private cloud</b>: This is a solution owned and managed by one company solely for that company’s use.\r\n<p id=\"bapp01-para-0284\"><b>Public cloud</b>: This is a solution provided by a third party. It offloads the details to the third party but gives up some control and can introduce security issues.</p>\r\n<p id=\"bapp01-para-0285\"><b>Hybrid cloud</b>: This is some combination of private and public. For example, perhaps you only use the facilities of the provider but still manage the data yourself.</p>\r\n<p id=\"bapp01-para-0286\"><b>Community cloud</b>: This is a solution owned and managed by a group of organizations that create the cloud for a common purpose.</p>",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Private cloud",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Public cloud",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Hybrid cloud",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Community cloud",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 12,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "Which of the following defines the term <i>latency</i>?",
+    "explanation": "Bandwidth and throughput both have to do with network data. Network bandwidth refers to how much data can possibly travel in a network during a period of time. Network throughput refers to how much data actually transfers during a period of time. Bandwidth and throughput are also sometimes confused with latency, which is understandable because latency refers to the speed at which data travels across the network to its destination.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Network latency refers to the amount of bandwidth and delay over a period of time.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Network bandwidth refers to how much data can possibly travel in a network during a period of time.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Network throughput refers to how much data actually transfers during a period of time.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Network latency refers to the speed at which data travels across the network to its destination.",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 12,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "Which of the following defines the term <i>bandwidth</i>?",
+    "explanation": "Bandwidth and throughput both have to do with network data. Network bandwidth refers to how much data can possibly travel in a network during a period of time. Network throughput refers to how much data actually transfers during a period of time. Bandwidth and throughput are also sometimes confused with latency, which is understandable because latency refers to the speed at which data travels across the network to its destination.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Network bandwidth refers to the amount of latency and delay over a period of time.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Network bandwidth refers to how much data can possibly travel in a network during a period of time.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Network throughput refers to how much data actually transfers during a period of time.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Network latency refers to the speed at which data travels across the network to its destination.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 12,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "Which of the following defines the term <i>throughput</i>?",
+    "explanation": "Bandwidth and throughput both have to do with network data. Network bandwidth defines how much data can possibly travel in a network during a period of time. Network throughput refers to how much data actually transfers during a period of time. Bandwidth and throughput are also sometimes confused with latency, which is understandable because latency refers to the speed at which data travels across the network to its destination.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Network throughput refers to the amount of delay over a period of time.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Network bandwidth refers to how much data can possibly travel in a network during a period of time.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Network throughput refers to how much data actually transfers during a period of time.",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Network latency refers to the speed at which data travels across the network to its destination.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 12,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "Which of the following describes a speed test in contrast to iPerf? (Choose two.)",
+    "explanation": "The main difference between the two programs is that a speed test does not require a speed test server to be set up; it automatically chooses a server on the Internet. iPerf, however, requires an endpoint program, which must be installed on a separate server, typically on your own network.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "iPerf requires a speed test server to be set up.",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "A speed test requires a speed test server to be set up.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "A speed test requires an endpoint program, which must be installed on a separate server.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "iPerf requires an endpoint program, which must be installed on a separate server.",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 12,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "Which of the following diagnostic commands provides a step-by-step output of the path a packet takes on the way to a destination?",
+    "explanation": "ICMP uses echo request and replies to test whether a node IP stack is initialized and running on the network. <code>traceroute</code> displays the list of routers on a path to a network destination by using TTL time-outs and ICMP error messages. Microsoft uses <code>tracert</code>.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "<code>ping</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "<code>route print</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "<code>ipconfig /path</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "<code>traceroute</code>",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 12,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "Which of the following diagnostic commands provides the routing table of a Windows host?",
+    "explanation": "<code>route print</code> provides the routing table of a Windows host. ICMP uses echo request and replies to test whether a node IP stack is initialized and running on the network. <code>traceroute</code> displays the list of routers on a path to a network destination by using TTL time-outs and ICMP error messages. Microsoft uses <code>tracert</code>.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "<code>ping</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "<code>route print</code>",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "<code>ipconfig /path</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "<code>traceroute</code>",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 12,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "Which of the following diagnostic commands provides output that tells you a host is up and running on the network?",
+    "explanation": "ICMP uses echo requests and replies to test if a node IP stack is initialized and alive on the network. <code>traceroute</code> displays the list of routers on a path to a network destination by using TTL time-outs and ICMP error messages. Microsoft uses <code>tracert</code>.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "<code>ping</code>",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "<code>route print</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "<code>ipconfig /path</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "<code>traceroute</code>",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 12,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "Which of the following would you perform after analyzing a problem described in a trouble ticket?",
+    "explanation": "Cisco created a seven-step troubleshooting process for help desk technicians to find and fix issues.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Gather information.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Solve the problem.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Define the problem.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Eliminate possible causes.",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 12,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "What is the first thing you should do after loading Wireshark on your computer?",
+    "explanation": "Once Wireshark loads, you need to select the interface you want to do a packet capture on. If your computer has multiple interfaces, you’ll need to select the one with the traffic you are interested in seeing.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Read the first frame you just received.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Choose the interface on which you want to receive the packets.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Open all TCP packets, which always show the problem.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Save the file.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 12,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "Which of the following would you perform after proposing a hypothesis of the problem described in a trouble ticket?",
+    "explanation": "Cisco’s seven-step troubleshooting process is as follows:\r\n<ol id=\"bapp01-list-0005\">\r\n<li id=\"bapp01-li-0021\">Define the problem.</li>\r\n<li id=\"bapp01-li-0022\">Gather information.</li>\r\n<li id=\"bapp01-li-0023\">Analyze the information.</li>\r\n<li id=\"bapp01-li-0024\">Eliminate possible causes.</li>\r\n<li id=\"bapp01-li-0025\">Propose a hypothesis.</li>\r\n<li id=\"bapp01-li-0026\">Test the hypothesis.</li>\r\n<li id=\"bapp01-li-0027\">Solve the problem.</li>\r\n</ol>",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Test the hypothesis.",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Solve the problem.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Define the problem.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Eliminate possible causes.",
+        "isCorrect": false
+      }
+    ]
+  }
+]

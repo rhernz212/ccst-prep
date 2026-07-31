@@ -37,3 +37,39 @@ export interface NavChapter {
   sourceFile: string;
   sections: NavSection[];
 }
+
+export interface BlueprintObjective {
+  code: string;
+  title: string;
+  chapterRefs: number[];
+  contentExamples: string[];
+}
+
+export interface BlueprintDomain {
+  code: string;
+  title: string;
+  objectives: BlueprintObjective[];
+  weight: number;
+}
+
+export interface Blueprint {
+  weightingMethod: string;
+  domains: BlueprintDomain[];
+}
+
+export interface QuestionChoice {
+  label: string;
+  body: string;
+  isCorrect: boolean;
+}
+
+export interface QuestionBankEntry {
+  chapterNumber: number;
+  /** 1-based position within that chapter's Review Questions — also the natural key used to re-seed idempotently. */
+  ordinal: number;
+  domainCode: string | null;
+  stem: string;
+  explanation: string;
+  isMultiSelect: boolean;
+  choices: QuestionChoice[];
+}
