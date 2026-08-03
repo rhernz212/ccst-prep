@@ -1,5 +1,6 @@
 import { redirect, notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { getCurrentUser } from "@/lib/supabase/get-user";
 import { ExamRunner } from "@/components/exam/ExamRunner";
 import type { ExamQuestion } from "@/lib/exam/types";
 
@@ -15,9 +16,7 @@ export default async function ExamRunPage({
   if (!attemptId) notFound();
 
   const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getCurrentUser();
   if (!user) {
     redirect(`/sign-in?redirect=${encodeURIComponent(`/exams/${examSlug}/exam`)}`);
   }

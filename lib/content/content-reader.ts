@@ -4,6 +4,18 @@ import type { Blueprint, Chapter, ExamMeta, QuestionBankEntry } from "./types";
 
 const CONTENT_ROOT = path.join(process.cwd(), "content", "exams");
 
+/**
+ * Parsed chapters, memoized per exam. Rendering one chapter page used to
+ * read and JSON.parse all twelve files (~930 KB) on every request, because
+ * both the nav and the lookup-by-slug went through listChapters().
+ *
+ * Disabled outside production so editing a chapter JSON during development
+ * doesn't require a server restart — the content files are committed
+ * artifacts, so in production they can't change under a running process.
+ */
+const chapterCache = new Map<string, Chapter[]>();
+const shouldCache = process.env.NODE_ENV === "production";
+
 export function listExams(): ExamMeta[] {
   if (!existsSync(CONTENT_ROOT)) return [];
   return readdirSync(CONTENT_ROOT, { withFileTypes: true })
@@ -19,6 +31,9 @@ export function getExamMeta(examSlug: string): ExamMeta | null {
 }
 
 export function listChapters(examSlug: string): Chapter[] {
+  const cached = chapterCache.get(examSlug);
+  if (cached) return cached;
+
   const chaptersDir = path.join(CONTENT_ROOT, examSlug, "chapters");
   if (!existsSync(chaptersDir)) return [];
 
@@ -27,6 +42,7 @@ export function listChapters(examSlug: string): Chapter[] {
     .map((file) => JSON.parse(readFileSync(path.join(chaptersDir, file), "utf-8")) as Chapter);
 
   chapters.sort((a, b) => a.number - b.number);
+  if (shouldCache) chapterCache.set(examSlug, chapters);
   return chapters;
 }
 
