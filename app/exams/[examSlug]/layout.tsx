@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { getExamMeta } from "@/lib/content/exam-content";
 import { getReviewQueueStatus } from "@/lib/review/get-review-queue-status";
-import { ExamTabNav } from "@/components/ui/ExamTabNav";
+import { ExamMobileTabBar, ExamTabNav } from "@/components/ui/ExamTabNav";
 import { Badge } from "@/components/ui/Badge";
 
 export default async function ExamLayout({
@@ -49,6 +49,11 @@ export default async function ExamLayout({
       <main className="animate-fade-in-up pb-tabbar mx-auto w-full max-w-6xl grow px-4 py-8 md:pb-12">
         {children}
       </main>
+
+      {/* Outside <header> on purpose: the header's `aura` opens a stacking
+          context, and nested inside it this bar's z-40 lost to the page's
+          positioned cards. See ExamMobileTabBar. */}
+      <ExamMobileTabBar examSlug={examSlug} reviewDueCount={reviewStatus?.dueCount ?? 0} />
     </div>
   );
 }
