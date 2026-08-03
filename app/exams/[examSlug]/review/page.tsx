@@ -1,10 +1,12 @@
 import { notFound, redirect } from "next/navigation";
+import { ArrowRight, Check, Flame, Sparkles } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { getCurrentUser } from "@/lib/supabase/get-user";
 import { getExamMeta } from "@/lib/content/exam-content";
 import { getReviewQueueStatus } from "@/lib/review/get-review-queue-status";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
+import { Badge } from "@/components/ui/Badge";
 import { ReviewRunner } from "@/components/review/ReviewRunner";
 import type { QuizQuestion } from "@/lib/quiz/types";
 
@@ -45,11 +47,35 @@ export default async function ReviewPage({
     const neverStarted = (status?.scheduledCount ?? 0) === 0;
 
     return (
-      <Card className="p-6 text-center">
-        <h2 className="text-lg font-semibold text-foreground">
+      <Card className="aura mx-auto max-w-lg p-8 text-center sm:p-10">
+        {/* Empty states are where a study app most easily feels dead. The
+            illustrated mark and the pulse ring give this one a focal point so
+            it reads as a milestone rather than as a missing page. */}
+        <span className="relative mx-auto mb-5 grid h-16 w-16 place-items-center" aria-hidden="true">
+          <span
+            className={`absolute inset-0 rounded-full ${
+              neverStarted ? "bg-brand-500/15" : "bg-success-500/15"
+            }`}
+          />
+          <span
+            className={`grid h-14 w-14 place-items-center rounded-full text-white shadow-raised ${
+              neverStarted
+                ? "bg-linear-to-br from-brand-400 to-brand-600"
+                : "bg-linear-to-br from-success-400 to-success-600"
+            }`}
+          >
+            {neverStarted ? (
+              <Sparkles className="h-6 w-6" />
+            ) : (
+              <Check className="h-7 w-7" strokeWidth={2.5} />
+            )}
+          </span>
+        </span>
+
+        <h2 className="text-fluid-lg font-semibold text-foreground">
           {neverStarted ? "Your review queue is empty" : "You're all caught up"}
         </h2>
-        <p className="mt-1 text-sm text-muted-foreground">
+        <p className="mt-2 text-sm text-muted-foreground">
           {neverStarted ? (
             <>
               Questions are added here automatically as you answer them in quizzes and practice
@@ -74,8 +100,9 @@ export default async function ReviewPage({
             </>
           )}
         </p>
-        <Button href={`/exams/${examSlug}/quizzes`} className="mt-4">
+        <Button href={`/exams/${examSlug}/quizzes`} className="mt-6">
           {neverStarted ? "Take a quiz" : "Practice quizzes"}
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </Button>
       </Card>
     );
@@ -103,9 +130,12 @@ export default async function ReviewPage({
 
   return (
     <div>
-      <div className="mb-4">
-        <h2 className="text-xl font-semibold text-foreground">Review</h2>
-        <p className="text-sm text-muted-foreground">{questions.length} question(s) due today</p>
+      <div className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-1">
+        <h2 className="text-fluid-xl font-semibold text-foreground">Review</h2>
+        <Badge variant="accent">
+          <Flame className="h-3 w-3" aria-hidden="true" />
+          {questions.length} due today
+        </Badge>
       </div>
       <ReviewRunner examSlug={examSlug} questions={questions} />
     </div>

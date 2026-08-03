@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { Calculator } from "lucide-react";
 import { computeSubnet, type SubnetResult } from "@/lib/domain/subnetting/calculator";
 import { normalizeCidrOrMask } from "@/lib/domain/subnetting/grader";
 import { isValidIp } from "@/lib/domain/subnetting/ipv4";
@@ -32,9 +33,21 @@ export function SubnetCalculatorForm() {
   }
 
   return (
-    <Card className="p-5">
-      <h3 className="mb-4 text-lg font-semibold text-foreground">Subnet Calculator</h3>
-      <form onSubmit={handleCalculate} className="flex flex-wrap items-end gap-3">
+    <Card className="p-5 sm:p-6">
+      <div className="mb-5 flex items-center gap-3">
+        <span
+          className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-signal-50 text-signal-600 dark:bg-signal-500/15 dark:text-signal-300"
+          aria-hidden="true"
+        >
+          <Calculator className="h-5 w-5" />
+        </span>
+        <div>
+          <h3 className="text-fluid-lg font-semibold text-foreground">Subnet calculator</h3>
+          <p className="text-sm text-muted-foreground">Check your working, instantly.</p>
+        </div>
+      </div>
+
+      <form onSubmit={handleCalculate} className="grid gap-3 sm:grid-cols-[1fr_1fr_auto] sm:items-end">
         <div>
           <label htmlFor="calc-ip" className="block text-sm font-medium text-foreground">
             IP address
@@ -43,7 +56,8 @@ export function SubnetCalculatorForm() {
             id="calc-ip"
             value={ip}
             onChange={(e) => setIp(e.target.value)}
-            className="mt-1 w-48"
+            inputMode="decimal"
+            className="mt-1.5 w-full font-mono"
             placeholder="192.168.1.100"
           />
         </div>
@@ -55,20 +69,24 @@ export function SubnetCalculatorForm() {
             id="calc-mask"
             value={maskInput}
             onChange={(e) => setMaskInput(e.target.value)}
-            className="mt-1 w-48"
+            className="mt-1.5 w-full font-mono"
             placeholder="/24 or 255.255.255.0"
           />
         </div>
         <Button type="submit">Calculate</Button>
       </form>
 
-      {error && <p className="mt-3 text-sm text-danger-600 dark:text-danger-400">{error}</p>}
+      {error && (
+        <p className="mt-4 rounded-lg border border-danger-300 bg-danger-50 px-3 py-2 text-sm text-danger-700 dark:border-danger-500/50 dark:bg-danger-500/10 dark:text-danger-300">
+          {error}
+        </p>
+      )}
 
       {result && (
-        <dl className="mt-5 grid grid-cols-2 gap-x-6 gap-y-3 text-sm sm:grid-cols-3 animate-fade-in">
-          <Field label="Network" value={result.network} />
-          <Field label="Broadcast" value={result.broadcast} />
-          <Field label="Subnet mask" value={`${result.mask} (/${result.cidr})`} />
+        <dl className="animate-fade-in mt-6 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+          <Field label="Network" value={result.network} emphasis />
+          <Field label="Broadcast" value={result.broadcast} emphasis />
+          <Field label="Subnet mask" value={result.mask} hint={`/${result.cidr}`} />
           <Field label="Wildcard mask" value={result.wildcardMask} />
           <Field label="First usable host" value={result.firstHost ?? "—"} />
           <Field label="Last usable host" value={result.lastHost ?? "—"} />
@@ -80,11 +98,36 @@ export function SubnetCalculatorForm() {
   );
 }
 
-function Field({ label, value }: { label: string; value: string }) {
+/*
+ * Each result is its own tile rather than a row in a dense definition list —
+ * on a phone the flat list ran together into an unscannable block, and the
+ * two values people actually look for (network and broadcast) get a tint so
+ * they're findable without reading the labels.
+ */
+function Field({
+  label,
+  value,
+  hint,
+  emphasis = false,
+}: {
+  label: string;
+  value: string;
+  hint?: string;
+  emphasis?: boolean;
+}) {
   return (
-    <div>
+    <div
+      className={`rounded-xl border p-3 ${
+        emphasis
+          ? "border-signal-200 bg-signal-50 dark:border-signal-500/30 dark:bg-signal-500/10"
+          : "border-border bg-surface-sunken"
+      }`}
+    >
       <dt className="text-xs font-medium text-muted-foreground">{label}</dt>
-      <dd className="font-mono font-medium text-foreground">{value}</dd>
+      <dd className="tabular mt-1 font-mono text-sm font-semibold break-all text-foreground">
+        {value}
+        {hint && <span className="ml-1 font-normal text-muted-foreground">{hint}</span>}
+      </dd>
     </div>
   );
 }

@@ -4,10 +4,11 @@ import { createClient } from "@/lib/supabase/server";
 import { getCurrentUser } from "@/lib/supabase/get-user";
 import { getExamMeta } from "@/lib/content/exam-content";
 import { DomainScoreChart } from "@/components/exam/DomainScoreChart";
-import { ScoreVerdict } from "@/components/exam/ScoreVerdict";
+import { ScoreVerdict, meetsTarget } from "@/components/exam/ScoreVerdict";
 import { QuestionCard } from "@/components/quiz/QuestionCard";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { ScoreDial } from "@/components/ui/ScoreDial";
 import type { DomainBreakdownEntry } from "@/lib/exam/types";
 
 export default async function ExamResultsPage({
@@ -63,7 +64,6 @@ export default async function ExamResultsPage({
   }
   const attemptQuestions = (rawAttemptQuestions ?? []) as unknown as AttemptQuestionRow[];
 
-  const pct = Math.round((attempt.score ?? 0) * 100);
   const byDomain = (attempt.domain_breakdown ?? []) as DomainBreakdownEntry[];
   const exam = getExamMeta(examSlug);
   const incorrectCount = attemptQuestions.filter((aq) => aq.is_correct === false).length;
@@ -73,57 +73,71 @@ export default async function ExamResultsPage({
     ? attemptQuestions.filter((aq) => aq.is_correct === false)
     : attemptQuestions;
 
+  const onTarget = meetsTarget(attempt.score ?? 0, exam?.targetScore);
+
   return (
-    <div className="animate-fade-in-up">
-      <Card className="p-6 text-center">
-        <div className="text-sm text-muted-foreground">
-          {attempt.status === "timed_out" ? "Time expired" : "Exam submitted"}
-        </div>
-        <div className="animate-pop mt-1 text-4xl font-bold text-foreground">{pct}%</div>
-        <div className="mt-2 flex justify-center">
-          <ScoreVerdict score={attempt.score ?? 0} targetScore={exam?.targetScore} />
-        </div>
-        <div className="mt-4">
-          <Button href={`/exams/${examSlug}/exam`}>Back to exam overview</Button>
+    <div className="animate-fade-in-up mx-auto max-w-3xl">
+      <Card className="aura overflow-hidden p-6 sm:p-8">
+        <ScoreDial
+          score={attempt.score ?? 0}
+          caption={attempt.status === "timed_out" ? "Time expired" : "Exam submitted"}
+          detail={
+            <span className="inline-flex flex-wrap items-center justify-center gap-2">
+              <ScoreVerdict score={attempt.score ?? 0} targetScore={exam?.targetScore} />
+            </span>
+          }
+          // The one place confetti is allowed: a full practice exam that
+          // actually hit the readiness target.
+          celebrate={onTarget}
+        />
+        <div className="mt-7 flex justify-center">
+          <Button href={`/exams/${examSlug}/exam`} variant="secondary">
+            Back to exam overview
+          </Button>
         </div>
       </Card>
 
       {byDomain.length > 0 && (
-        <Card className="mt-8 p-6">
-          <h3 className="mb-4 text-lg font-semibold text-foreground">Score by Domain</h3>
+        <Card className="mt-6 p-6">
+          <h3 className="mb-1 text-fluid-lg font-semibold text-foreground">Score by domain</h3>
+          <p className="mb-5 text-sm text-muted-foreground">
+            Where to spend your next study session.
+          </p>
           <DomainScoreChart byDomain={byDomain} />
         </Card>
       )}
 
       {incorrectCount > 0 && (
-        <div className="mt-8 flex flex-wrap items-center gap-2 text-sm">
-          <span className="text-muted-foreground">Show:</span>
-          <Link
-            href={`/exams/${examSlug}/exam/${attemptId}/results`}
-            aria-current={!showOnlyIncorrect ? "true" : undefined}
-            className={`rounded-md px-3 py-1.5 font-medium transition-colors ${
-              !showOnlyIncorrect
-                ? "bg-brand-600 text-white"
-                : "bg-surface-hover text-muted-foreground hover:text-foreground"
-            }`}
-          >
-            All {attemptQuestions.length}
-          </Link>
-          <Link
-            href={`/exams/${examSlug}/exam/${attemptId}/results?show=incorrect`}
-            aria-current={showOnlyIncorrect ? "true" : undefined}
-            className={`rounded-md px-3 py-1.5 font-medium transition-colors ${
-              showOnlyIncorrect
-                ? "bg-brand-600 text-white"
-                : "bg-surface-hover text-muted-foreground hover:text-foreground"
-            }`}
-          >
-            Missed {incorrectCount}
-          </Link>
+        <div className="mt-8 flex flex-wrap items-center gap-1.5">
+          <span className="mr-1 text-sm text-muted-foreground">Show</span>
+          <div className="inline-flex gap-1 rounded-xl border border-border bg-surface-sunken p-1">
+            <Link
+              href={`/exams/${examSlug}/exam/${attemptId}/results`}
+              aria-current={!showOnlyIncorrect ? "true" : undefined}
+              className={`tabular rounded-lg px-3.5 py-2 text-sm font-semibold transition-colors ${
+                !showOnlyIncorrect
+                  ? "surface-card text-brand-700 dark:text-brand-300"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              All {attemptQuestions.length}
+            </Link>
+            <Link
+              href={`/exams/${examSlug}/exam/${attemptId}/results?show=incorrect`}
+              aria-current={showOnlyIncorrect ? "true" : undefined}
+              className={`tabular rounded-lg px-3.5 py-2 text-sm font-semibold transition-colors ${
+                showOnlyIncorrect
+                  ? "surface-card text-danger-700 dark:text-danger-300"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Missed {incorrectCount}
+            </Link>
+          </div>
         </div>
       )}
 
-      <div className="mt-8 space-y-8">
+      <div className="mt-6 space-y-4">
         {visibleQuestions.map((aq) => {
           if (!aq.questions) return null;
           const q = aq.questions;

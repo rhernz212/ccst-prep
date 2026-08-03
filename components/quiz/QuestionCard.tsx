@@ -1,8 +1,9 @@
 "use client";
 
-import { CheckCircle2, XCircle } from "lucide-react";
+import { CircleCheck, CircleX, Layers } from "lucide-react";
 import type { QuizChoice } from "@/lib/quiz/types";
 import { ChoiceList } from "./ChoiceList";
+import { Badge } from "@/components/ui/Badge";
 
 export interface ReviewInfo {
   isCorrect: boolean;
@@ -35,17 +36,25 @@ export function QuestionCard({
   review?: ReviewInfo;
 }) {
   return (
-    <div>
-      <div className="mb-2 text-sm font-medium text-muted-foreground">
-        Question {index + 1} of {total}
+    <div className="surface-card rounded-2xl p-4 sm:p-6">
+      <div className="mb-3 flex flex-wrap items-center gap-2">
+        <span className="tabular text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+          Question {index + 1}
+          <span className="text-muted-foreground/60"> / {total}</span>
+        </span>
         {isMultiSelect && (
-          <span className="ml-2 text-brand-600 dark:text-brand-400">(Select all that apply)</span>
+          <Badge variant="signal">
+            <Layers className="h-3 w-3" aria-hidden="true" />
+            Select all that apply
+          </Badge>
         )}
       </div>
+
       <div
-        className="prose prose-slate dark:prose-invert prose-p:my-1 mb-4 max-w-none"
+        className="prose prose-slate dark:prose-invert prose-p:my-1.5 mb-5 max-w-none text-fluid-base"
         dangerouslySetInnerHTML={{ __html: stem }}
       />
+
       <ChoiceList
         choices={choices}
         isMultiSelect={isMultiSelect}
@@ -55,6 +64,7 @@ export function QuestionCard({
         correctChoiceIds={review?.correctChoiceIds}
         groupLabel={`Question ${index + 1}${isMultiSelect ? ", select all that apply" : ""}`}
       />
+
       {review && (
         <div
           key={review.isCorrect ? "correct" : "incorrect"}
@@ -62,24 +72,31 @@ export function QuestionCard({
           // announced — otherwise a screen-reader user gets no signal that
           // their answer was judged at all.
           role="status"
-          className={`mt-4 flex items-start gap-2 rounded-md border p-3 text-sm ${
+          data-answer-state={review.isCorrect ? "right" : "wrong"}
+          className={`mt-5 overflow-hidden rounded-xl border ${
             review.isCorrect
-              ? "border-success-300 bg-success-50 text-success-900 animate-pop dark:border-success-600 dark:bg-success-900/40 dark:text-success-100"
-              : "border-danger-300 bg-danger-50 text-danger-900 animate-shake dark:border-danger-600 dark:bg-danger-900/40 dark:text-danger-100"
+              ? "animate-pop border-success-300 bg-success-50 dark:border-success-500/50 dark:bg-success-500/10"
+              : "animate-shake border-danger-300 bg-danger-50 dark:border-danger-500/50 dark:bg-danger-500/10"
           }`}
         >
-          {review.isCorrect ? (
-            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
-          ) : (
-            <XCircle className="mt-0.5 h-4 w-4 shrink-0" />
-          )}
-          <div>
-            <div className="mb-1 font-medium">{review.isCorrect ? "Correct" : "Incorrect"}</div>
-            <div
-              className="prose prose-sm dark:prose-invert max-w-none"
-              dangerouslySetInnerHTML={{ __html: review.explanation }}
-            />
+          <div
+            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold ${
+              review.isCorrect
+                ? "bg-success-100/70 text-success-800 dark:bg-success-500/10 dark:text-success-200"
+                : "bg-danger-100/70 text-danger-800 dark:bg-danger-500/10 dark:text-danger-200"
+            }`}
+          >
+            {review.isCorrect ? (
+              <CircleCheck className="h-4 w-4 shrink-0" aria-hidden="true" />
+            ) : (
+              <CircleX className="h-4 w-4 shrink-0" aria-hidden="true" />
+            )}
+            {review.isCorrect ? "Correct" : "Incorrect"}
           </div>
+          <div
+            className="prose prose-sm dark:prose-invert max-w-none px-4 py-3 text-foreground"
+            dangerouslySetInnerHTML={{ __html: review.explanation }}
+          />
         </div>
       )}
     </div>

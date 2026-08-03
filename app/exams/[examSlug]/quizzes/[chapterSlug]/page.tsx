@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { getExamMeta } from "@/lib/content/exam-content";
 import { QuizRunner } from "@/components/quiz/QuizRunner";
+import { Card } from "@/components/ui/Card";
+import { chapterHue } from "@/lib/ui/chapter-hue";
 import type { QuizQuestion } from "@/lib/quiz/types";
 
 export default async function ChapterQuizPage({
@@ -45,14 +47,33 @@ export default async function ChapterQuizPage({
   }));
 
   if (questions.length === 0) {
-    return <p className="text-muted-foreground">No questions available for this chapter yet.</p>;
+    return (
+      <Card className="p-8 text-center text-muted-foreground">
+        No questions available for this chapter yet.
+      </Card>
+    );
   }
 
   return (
-    <div>
-      <div className="mb-4">
-        <div className="text-sm text-muted-foreground">Chapter {chapter.number}</div>
-        <h2 className="text-xl font-semibold text-foreground">{chapter.title} Quiz</h2>
+    <div className="mx-auto max-w-3xl">
+      <div className="mb-5 flex items-center gap-3.5">
+        <span
+          className="grid h-11 w-11 shrink-0 place-items-center rounded-xl text-base font-bold text-white shadow-raised"
+          style={{
+            background: `linear-gradient(160deg, ${chapterHue(chapter.number, 1.18)}, ${chapterHue(chapter.number)})`,
+          }}
+          aria-hidden="true"
+        >
+          <span className="tabular">{chapter.number}</span>
+        </span>
+        <div className="min-w-0">
+          <div className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+            Chapter {chapter.number} quiz
+          </div>
+          <h2 className="text-fluid-xl font-semibold text-balance text-foreground">
+            {chapter.title}
+          </h2>
+        </div>
       </div>
       <QuizRunner
         examSlug={examSlug}

@@ -2,6 +2,7 @@ import type { QuizQuestion, QuizResult } from "@/lib/quiz/types";
 import { QuestionCard } from "@/components/quiz/QuestionCard";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { ScoreDial } from "@/components/ui/ScoreDial";
 
 export function ReviewSummary({
   examSlug,
@@ -14,23 +15,31 @@ export function ReviewSummary({
   questions: QuizQuestion[];
   answers: Record<string, string[]>;
 }) {
-  const pct = Math.round(result.score * 100);
   const correctCount = result.graded.filter((g) => g.isCorrect).length;
 
   return (
     <div className="animate-fade-in-up">
-      <Card className="p-6 text-center">
-        <div className="text-sm text-muted-foreground">Review complete</div>
-        <div className="animate-pop mt-1 text-4xl font-bold text-foreground">{pct}%</div>
-        <div className="mt-1 text-sm text-muted-foreground">
-          {correctCount} of {result.questionCount} correct
-        </div>
-        <div className="mt-4 flex justify-center gap-3">
+      <Card className="aura overflow-hidden p-6 sm:p-8">
+        <ScoreDial
+          score={result.score}
+          caption="Review complete"
+          detail={
+            <>
+              <span className="tabular font-semibold text-foreground">{correctCount}</span> of{" "}
+              <span className="tabular">{result.questionCount}</span> correct — everything you saw
+              has been rescheduled.
+            </>
+          }
+        />
+        <div className="mt-7 flex justify-center">
           <Button href={`/exams/${examSlug}/review`}>Back to review</Button>
         </div>
       </Card>
 
-      <div className="mt-8 space-y-8">
+      <h3 className="mt-10 mb-4 text-fluid-lg font-semibold text-foreground">
+        Every question, with the reasoning
+      </h3>
+      <div className="space-y-4">
         {questions.map((q: QuizQuestion, i: number) => {
           const graded = result.graded.find((g) => g.questionId === q.id);
           if (!graded) return null;

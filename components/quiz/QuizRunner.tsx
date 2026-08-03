@@ -5,6 +5,7 @@ import type { QuizQuestion, QuizResult, GradedAnswer } from "@/lib/quiz/types";
 import { QuestionCard } from "./QuestionCard";
 import { ScoreSummary } from "./ScoreSummary";
 import { QuizModeToggle, type QuizMode } from "./QuizModeToggle";
+import { NextIcon, RunnerNav, RunnerProgress } from "./RunnerChrome";
 import { Button } from "@/components/ui/Button";
 
 export function QuizRunner({
@@ -110,6 +111,8 @@ export function QuizRunner({
     <div>
       <QuizModeToggle mode={mode} onChange={setMode} />
 
+      <RunnerProgress index={index} total={questions.length} answeredCount={answeredCount} />
+
       <div key={current.id} className="animate-fade-in-up">
         <QuestionCard
           index={index}
@@ -132,35 +135,31 @@ export function QuizRunner({
           }
         />
 
-        {error && <p className="mt-4 text-sm text-danger-600 dark:text-danger-400">{error}</p>}
+        {error && (
+          <p className="mt-4 rounded-lg border border-danger-300 bg-danger-50 px-3 py-2 text-sm text-danger-700 dark:border-danger-500/50 dark:bg-danger-500/10 dark:text-danger-300">
+            {error}
+          </p>
+        )}
 
-        <div className="mt-6 flex items-center justify-between gap-3">
-          <Button
-            variant="secondary"
-            onClick={() => setIndex((i) => Math.max(0, i - 1))}
-            disabled={index === 0}
-          >
-            Previous
-          </Button>
-
-          <span className="text-sm text-muted-foreground">
-            {answeredCount} of {questions.length} answered
-          </span>
-
+        <RunnerNav
+          onPrevious={() => setIndex((i) => Math.max(0, i - 1))}
+          previousDisabled={index === 0}
+        >
           {canCheck ? (
             <Button onClick={handleCheck} loading={checking}>
               {checking ? "Checking…" : "Check answer"}
             </Button>
           ) : isLast ? (
-            <Button onClick={handleSubmit} loading={submitting}>
-              {submitting ? "Submitting…" : "Submit Quiz"}
+            <Button variant="success" onClick={handleSubmit} loading={submitting}>
+              {submitting ? "Submitting…" : "Submit quiz"}
             </Button>
           ) : (
             <Button onClick={() => setIndex((i) => Math.min(questions.length - 1, i + 1))}>
               Next
+              <NextIcon />
             </Button>
           )}
-        </div>
+        </RunnerNav>
       </div>
     </div>
   );

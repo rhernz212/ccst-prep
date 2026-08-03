@@ -2,23 +2,44 @@ import Link from "next/link";
 import type { ButtonHTMLAttributes } from "react";
 import { Spinner } from "./Spinner";
 
-type Variant = "primary" | "success" | "secondary" | "ghost";
+type Variant = "primary" | "success" | "secondary" | "subtle" | "ghost";
 type Size = "sm" | "md" | "lg";
 
-const BASE =
-  "inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-[background-color,transform,box-shadow] duration-150 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:focus-visible:ring-brand-400";
+/*
+ * Every size is at least 36px tall and md/lg clear 44px, so the primary action
+ * on any screen is a comfortable thumb target. The spring easing plus the
+ * lift-then-press is the entire "feels alive" budget for buttons — it resolves
+ * in 200ms and gets out of the way.
+ */
+const BASE = [
+  "relative inline-flex select-none items-center justify-center gap-2 rounded-lg",
+  "text-sm font-semibold whitespace-nowrap",
+  "transition-[transform,box-shadow,background-color,border-color] duration-200 ease-[var(--ease-spring)]",
+  "active:scale-[0.97] active:duration-75",
+  "disabled:pointer-events-none disabled:opacity-50",
+].join(" ");
 
 const VARIANT_CLASSES: Record<Variant, string> = {
-  primary: "bg-brand-600 text-white hover:bg-brand-700 hover:shadow-brand",
-  success: "bg-success-600 text-white hover:bg-success-700",
-  secondary: "border border-border bg-surface text-foreground hover:bg-surface-hover",
-  ghost: "text-muted-foreground hover:text-foreground hover:underline",
+  primary: [
+    "bg-linear-to-b from-brand-500 to-brand-600 text-white shadow-raised",
+    "hover:-translate-y-0.5 hover:from-brand-400 hover:to-brand-500 hover:shadow-brand",
+  ].join(" "),
+  success: [
+    "bg-linear-to-b from-success-500 to-success-600 text-white shadow-raised",
+    "hover:-translate-y-0.5 hover:from-success-400 hover:to-success-500 hover:shadow-success",
+  ].join(" "),
+  secondary: [
+    "surface-card text-foreground",
+    "hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md dark:hover:border-brand-500/70",
+  ].join(" "),
+  subtle: "bg-surface-hover text-foreground hover:bg-border/70",
+  ghost: "text-muted-foreground hover:bg-surface-hover hover:text-foreground",
 };
 
 const SIZE_CLASSES: Record<Size, string> = {
-  sm: "px-3 py-1.5",
-  md: "px-4 py-2",
-  lg: "px-6 py-3",
+  sm: "h-9 px-3.5",
+  md: "h-11 px-5",
+  lg: "h-12.5 px-7 text-base",
 };
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

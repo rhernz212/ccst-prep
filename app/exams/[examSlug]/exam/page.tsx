@@ -1,10 +1,12 @@
 import { notFound } from "next/navigation";
+import { Clock, ListChecks, TriangleAlert } from "lucide-react";
 import { getExamMeta } from "@/lib/content/exam-content";
 import { createClient } from "@/lib/supabase/server";
 import { getCurrentUser } from "@/lib/supabase/get-user";
 import { StartExamButton } from "@/components/exam/StartExamButton";
 import { AttemptHistory, type PastAttempt } from "@/components/exam/AttemptHistory";
 import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
 import type { DomainBreakdownEntry } from "@/lib/exam/types";
 
 export default async function ExamStartPage({
@@ -53,34 +55,57 @@ export default async function ExamStartPage({
   }
 
   return (
-    <div className="mx-auto max-w-2xl animate-fade-in-up">
-      <h2 className="text-xl font-semibold text-foreground">Full Practice Exam</h2>
-      <Card className="mt-4 p-6">
-        <dl className="grid grid-cols-2 gap-4 text-sm">
-          <div>
-            <dt className="text-muted-foreground">Time limit</dt>
-            <dd className="text-lg font-semibold text-foreground">{exam.timeLimitMinutes} minutes</dd>
+    <div className="animate-fade-in-up mx-auto max-w-2xl">
+      <h2 className="text-fluid-xl font-semibold text-foreground">Full Practice Exam</h2>
+      <p className="mt-1 text-sm text-muted-foreground">
+        The real thing, timed and scored by blueprint domain.
+      </p>
+
+      <Card className="ring-gradient aura mt-5 overflow-hidden p-6">
+        <dl className="grid grid-cols-2 gap-3">
+          <div className="rounded-xl bg-surface-sunken p-4">
+            <dt className="flex items-center gap-1.5 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+              <Clock className="h-3.5 w-3.5" aria-hidden="true" />
+              Time limit
+            </dt>
+            <dd className="tabular mt-1.5 font-display text-2xl font-bold text-foreground">
+              {exam.timeLimitMinutes}
+              <span className="ml-1 text-sm font-medium text-muted-foreground">min</span>
+            </dd>
           </div>
-          <div>
-            <dt className="text-muted-foreground">Questions</dt>
-            <dd className="text-lg font-semibold text-foreground">{exam.questionCount}</dd>
+          <div className="rounded-xl bg-surface-sunken p-4">
+            <dt className="flex items-center gap-1.5 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+              <ListChecks className="h-3.5 w-3.5" aria-hidden="true" />
+              Questions
+            </dt>
+            <dd className="tabular mt-1.5 font-display text-2xl font-bold text-foreground">
+              {exam.questionCount}
+            </dd>
           </div>
         </dl>
 
         {domainTitles.length > 0 && (
-          <div className="mt-4">
-            <div className="text-sm text-muted-foreground">Domains covered</div>
-            <ul className="mt-1 list-inside list-disc text-sm text-foreground">
+          <div className="mt-5">
+            <div className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+              Domains covered
+            </div>
+            <ul className="mt-2 flex flex-wrap gap-1.5">
               {domainTitles.map((title) => (
-                <li key={title}>{title}</li>
+                <li key={title}>
+                  <Badge variant="neutral">{title}</Badge>
+                </li>
               ))}
             </ul>
           </div>
         )}
 
-        <p className="mt-4 text-xs text-muted-foreground">
-          Once started, the timer cannot be paused. You can navigate between questions freely and
-          submit at any time — the exam auto-submits whatever you&apos;ve answered when time runs out.
+        <p className="mt-5 flex items-start gap-2 rounded-lg border border-warning-300 bg-warning-50 p-3 text-xs text-warning-700 dark:border-warning-500/40 dark:bg-warning-500/10 dark:text-warning-300">
+          <TriangleAlert className="mt-px h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+          <span>
+            Once started, the timer cannot be paused. You can navigate between questions freely and
+            submit at any time — the exam auto-submits whatever you&apos;ve answered when time runs
+            out.
+          </span>
         </p>
 
         <div className="mt-6">

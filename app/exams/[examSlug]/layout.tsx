@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { getExamMeta } from "@/lib/content/exam-content";
 import { getReviewQueueStatus } from "@/lib/review/get-review-queue-status";
 import { ExamTabNav } from "@/components/ui/ExamTabNav";
+import { Badge } from "@/components/ui/Badge";
 
 export default async function ExamLayout({
   children,
@@ -22,24 +23,32 @@ export default async function ExamLayout({
   const reviewStatus = await getReviewQueueStatus();
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b border-border">
-        <div className="mx-auto max-w-6xl px-4 pt-4">
+    <div className="flex min-h-screen flex-col">
+      <header className="aura relative border-b border-border">
+        <div className="mx-auto max-w-6xl px-4 pt-6 pb-4">
           <Link
             href="/"
-            className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-brand-600 dark:hover:text-brand-400"
+            className="inline-flex items-center gap-1.5 rounded-lg py-1 text-sm font-medium text-muted-foreground transition-colors hover:text-brand-600 dark:hover:text-brand-400"
           >
-            <ArrowLeft className="h-3.5 w-3.5" />
+            <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
             All certifications
           </Link>
-          <h1 className="mt-1 text-2xl font-bold text-foreground">{exam.title}</h1>
-          <p className="mb-3 text-sm text-muted-foreground">
-            {exam.vendor} · {exam.examCode}
+          <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2">
+            <h1 className="text-fluid-2xl font-bold text-foreground">{exam.title}</h1>
+            <Badge variant="brand">{exam.examCode}</Badge>
+          </div>
+          <p className="mt-1 text-sm text-muted-foreground">
+            {exam.vendor} · {exam.questionCount} questions · {exam.timeLimitMinutes} minutes
           </p>
         </div>
         <ExamTabNav examSlug={examSlug} reviewDueCount={reviewStatus?.dueCount ?? 0} />
       </header>
-      <main className="mx-auto max-w-6xl px-4 py-8 animate-fade-in-up">{children}</main>
+
+      {/* pb-tabbar clears the fixed mobile tab bar; it collapses back to normal
+          padding at md, where that bar is replaced by the desktop pill rail. */}
+      <main className="animate-fade-in-up pb-tabbar mx-auto w-full max-w-6xl grow px-4 py-8 md:pb-12">
+        {children}
+      </main>
     </div>
   );
 }

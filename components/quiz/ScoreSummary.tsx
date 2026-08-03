@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { RotateCcw } from "lucide-react";
 import type { QuizQuestion, QuizResult } from "@/lib/quiz/types";
 import { QuestionCard } from "./QuestionCard";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { ScoreDial } from "@/components/ui/ScoreDial";
 
 export function ScoreSummary({
   examSlug,
@@ -19,34 +21,47 @@ export function ScoreSummary({
   answers: Record<string, string[]>;
   onRetry: () => void;
 }) {
-  const pct = Math.round(result.score * 100);
   const correctCount = result.graded.filter((g) => g.isCorrect).length;
 
   return (
     <div className="animate-fade-in-up">
-      <Card className="p-6 text-center">
-        <div className="text-sm text-muted-foreground">{chapterTitle}</div>
-        <div className="animate-pop mt-1 text-4xl font-bold text-foreground">{pct}%</div>
-        <div className="mt-1 text-sm text-muted-foreground">
-          {correctCount} of {result.questionCount} correct
-        </div>
+      <Card className="aura overflow-hidden p-6 sm:p-8">
+        <ScoreDial
+          score={result.score}
+          caption={chapterTitle}
+          detail={
+            <>
+              <span className="tabular font-semibold text-foreground">{correctCount}</span> of{" "}
+              <span className="tabular">{result.questionCount}</span> correct
+            </>
+          }
+        />
+
         {!result.saved && (
-          <p className="mt-3 text-sm text-warning-700 dark:text-warning-400">
-            <Link href={`/sign-in?redirect=${encodeURIComponent(`/exams/${examSlug}/quizzes`)}`} className="underline">
+          <p className="mt-5 text-center text-sm text-warning-700 dark:text-warning-400">
+            <Link
+              href={`/sign-in?redirect=${encodeURIComponent(`/exams/${examSlug}/quizzes`)}`}
+              className="font-semibold underline underline-offset-2"
+            >
               Sign in
             </Link>{" "}
             to save your score.
           </p>
         )}
-        <div className="mt-4 flex justify-center gap-3">
+
+        <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
           <Button variant="secondary" onClick={onRetry}>
+            <RotateCcw className="h-4 w-4" aria-hidden="true" />
             Retry quiz
           </Button>
           <Button href={`/exams/${examSlug}/quizzes`}>Back to quizzes</Button>
         </div>
       </Card>
 
-      <div className="mt-8 space-y-8">
+      <h3 className="mt-10 mb-4 text-fluid-lg font-semibold text-foreground">
+        Every question, with the reasoning
+      </h3>
+      <div className="space-y-4">
         {questions.map((q, i) => {
           const graded = result.graded.find((g) => g.questionId === q.id);
           if (!graded) return null;

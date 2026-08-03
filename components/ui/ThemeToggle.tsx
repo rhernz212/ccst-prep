@@ -28,9 +28,28 @@ export function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      className="inline-flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-surface-hover hover:text-foreground"
+      className="group relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-transparent text-muted-foreground transition-[background-color,color,border-color,transform] duration-200 ease-[var(--ease-spring)] hover:border-border hover:bg-surface hover:text-foreground active:scale-90"
     >
-      {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+      {/*
+        Both icons are always mounted and cross-faded through a rotation, so
+        the switch reads as one object turning rather than two icons swapping.
+        The wrapper is a fixed-size grid cell to stop the rotation from
+        nudging the header layout.
+      */}
+      <span className="relative grid h-[18px] w-[18px] place-items-center">
+        <Sun
+          aria-hidden="true"
+          className={`absolute h-[18px] w-[18px] transition-[opacity,transform] duration-300 ease-[var(--ease-spring)] ${
+            isDark ? "rotate-0 scale-100 opacity-100" : "-rotate-90 scale-50 opacity-0"
+          }`}
+        />
+        <Moon
+          aria-hidden="true"
+          className={`absolute h-[18px] w-[18px] transition-[opacity,transform] duration-300 ease-[var(--ease-spring)] ${
+            isDark ? "rotate-90 scale-50 opacity-0" : "rotate-0 scale-100 opacity-100"
+          }`}
+        />
+      </span>
     </button>
   );
 }

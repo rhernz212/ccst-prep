@@ -34,23 +34,25 @@ export function AttemptHistory({
 
   return (
     <div className="mt-8">
-      <h3 className="mb-3 text-lg font-semibold text-foreground">Your attempts</h3>
+      <h3 className="mb-3 text-fluid-lg font-semibold text-foreground">Your attempts</h3>
 
       <Card className="p-5">
-        <dl className="grid grid-cols-3 gap-4 text-sm">
-          <div>
-            <dt className="text-muted-foreground">Attempts</dt>
-            <dd className="text-lg font-semibold text-foreground">{trend.attemptCount}</dd>
+        <dl className="grid grid-cols-3 gap-2.5">
+          <div className="rounded-xl bg-surface-sunken p-3.5">
+            <dt className="text-xs font-medium text-muted-foreground">Attempts</dt>
+            <dd className="tabular mt-1 font-display text-2xl font-bold text-foreground">
+              {trend.attemptCount}
+            </dd>
           </div>
-          <div>
-            <dt className="text-muted-foreground">Best</dt>
-            <dd className="text-lg font-semibold text-foreground">
+          <div className="rounded-xl bg-surface-sunken p-3.5">
+            <dt className="text-xs font-medium text-muted-foreground">Best</dt>
+            <dd className="tabular mt-1 font-display text-2xl font-bold text-foreground">
               {Math.round(trend.best * 100)}%
             </dd>
           </div>
-          <div>
-            <dt className="text-muted-foreground">Latest</dt>
-            <dd className="flex items-baseline gap-1.5 text-lg font-semibold text-foreground">
+          <div className="rounded-xl bg-surface-sunken p-3.5">
+            <dt className="text-xs font-medium text-muted-foreground">Latest</dt>
+            <dd className="tabular mt-1 flex flex-wrap items-baseline gap-x-1.5 font-display text-2xl font-bold text-foreground">
               {Math.round(trend.latest * 100)}%
               {trend.delta !== null && Math.abs(trend.delta) >= 0.005 && (
                 <span
@@ -102,10 +104,10 @@ export function AttemptHistory({
             <Card
               href={`/exams/${examSlug}/exam/${attempt.id}/results`}
               interactive
-              className="flex items-center justify-between gap-3 p-4"
+              className="group flex items-center justify-between gap-3 p-4"
             >
               <div className="min-w-0">
-                <div className="font-medium text-foreground">
+                <div className="tabular font-display text-lg font-bold text-foreground">
                   {Math.round(attempt.score * 100)}%
                   {attempt.status === "timed_out" && (
                     <span className="ml-2 text-xs font-normal text-warning-700 dark:text-warning-400">
@@ -125,7 +127,10 @@ export function AttemptHistory({
               </div>
               <div className="flex shrink-0 items-center gap-3">
                 <ScoreVerdict score={attempt.score} targetScore={targetScore} showTarget={false} />
-                <ArrowRight className="h-4 w-4 text-muted-foreground" />
+                <ArrowRight
+                  className="h-4 w-4 text-muted-foreground transition-[transform,color] duration-200 ease-[var(--ease-spring)] group-hover:translate-x-1 group-hover:text-brand-500"
+                  aria-hidden="true"
+                />
               </div>
             </Card>
           </li>

@@ -1,7 +1,9 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import Link from "next/link";
+import { Bricolage_Grotesque, Geist, JetBrains_Mono } from "next/font/google";
 import { AuthStatus } from "@/components/auth/AuthStatus";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { Wordmark } from "@/components/ui/Logo";
 import "./globals.css";
 
 const noFlashScript = `
@@ -12,19 +14,41 @@ const noFlashScript = `
   } catch {}
 `;
 
+// Body and long-form book content. Geist has the neutrality that 40 pages of
+// chapter text needs.
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Headings only. A variable grotesque with some flare in it, which is what
+// keeps the page from reading like an internal admin tool. The optical-size
+// axis is requested so headings can be set at a display optical size rather
+// than the 14pt default.
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
+  subsets: ["latin"],
+  axes: ["opsz"],
+});
+
+// The CLI simulator, IP addresses and subnet masks. Taller x-height and
+// unambiguous 0/O and 1/l — the credibility signal those tabs live on.
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "Cert Prep",
   description: "Study material, quizzes, and practice exams for IT certifications.",
+};
+
+// viewport-fit=cover is what makes env(safe-area-inset-*) return real values,
+// which the mobile tab bar depends on to clear the iOS home indicator.
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -35,15 +59,28 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${bricolage.variable} ${jetbrainsMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
         <script dangerouslySetInnerHTML={{ __html: noFlashScript }} />
-        <div className="flex items-center justify-end gap-3 border-b border-border px-4 py-2">
-          <ThemeToggle />
-          <AuthStatus />
-        </div>
+
+        <header className="glass sticky top-0 z-40 border-b border-border pt-safe">
+          <div className="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4">
+            <Link
+              href="/"
+              className="rounded-lg transition-opacity hover:opacity-80"
+              aria-label="Cert Prep home"
+            >
+              <Wordmark />
+            </Link>
+            <div className="ml-auto flex items-center gap-1.5 sm:gap-3">
+              <ThemeToggle />
+              <AuthStatus />
+            </div>
+          </div>
+        </header>
+
         {children}
       </body>
     </html>

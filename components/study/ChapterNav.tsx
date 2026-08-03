@@ -20,31 +20,42 @@ function ChapterList({ examSlug, chapters, currentChapterSlug, readAnchorIds }: 
             <Link
               href={`/exams/${examSlug}/study/${chapter.slug}`}
               aria-current={isCurrent ? "page" : undefined}
-              className={`block rounded px-2 py-1 transition-colors ${
+              className={`flex items-start gap-2 rounded-lg px-2.5 py-1.5 transition-colors ${
                 isCurrent
-                  ? "bg-brand-50 font-medium text-brand-700 dark:bg-brand-950/60 dark:text-brand-300"
+                  ? "bg-brand-50 font-semibold text-brand-700 dark:bg-brand-500/15 dark:text-brand-300"
                   : "text-foreground hover:bg-surface-hover"
               }`}
             >
-              {chapter.number}. {chapter.title}
+              <span
+                aria-hidden="true"
+                className="tabular mt-px inline-block w-4 shrink-0 text-right text-xs font-semibold text-muted-foreground"
+              >
+                {chapter.number}
+              </span>
+              <span className="min-w-0">{chapter.title}</span>
             </Link>
             {isCurrent && (
-              <ul className="mt-1 mb-2 ml-3 space-y-1 border-l border-border pl-3">
+              <ul className="mt-1 mb-2 ml-4 space-y-0.5 border-l-2 border-brand-200 pl-3 dark:border-brand-500/30">
                 {chapter.sections.map((section) => {
                   const isRead = readAnchorIds?.has(section.anchorId);
                   return (
                     <li key={section.anchorId}>
                       <a
                         href={`#${section.anchorId}`}
-                        className="flex items-center gap-1.5 py-0.5 text-muted-foreground transition-colors hover:text-foreground"
+                        className="flex items-start gap-1.5 rounded-md py-1 text-muted-foreground transition-colors hover:text-foreground"
                       >
-                        {isRead && (
+                        {isRead ? (
                           <Check
-                            className="h-3.5 w-3.5 shrink-0 text-success-600 dark:text-success-400"
+                            className="mt-0.5 h-3.5 w-3.5 shrink-0 text-success-600 dark:text-success-400"
                             aria-label="Read"
                           />
+                        ) : (
+                          <span
+                            aria-hidden="true"
+                            className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-border-strong"
+                          />
                         )}
-                        {section.title}
+                        <span className="min-w-0">{section.title}</span>
                       </a>
                     </li>
                   );
@@ -70,8 +81,8 @@ export function ChapterNav(props: ChapterNavProps) {
         it without shipping any JS, and only one copy is ever in the
         accessibility tree since the other is display:none at any breakpoint.
       */}
-      <details className="group mb-6 rounded-lg border border-border bg-surface lg:hidden">
-        <summary className="flex cursor-pointer list-none items-center justify-between gap-2 px-3 py-2 text-sm">
+      <details className="group surface-card mb-6 rounded-xl lg:hidden">
+        <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-2 px-3.5 py-2.5 text-sm">
           <span className="min-w-0">
             <span className="font-medium text-foreground">Chapters</span>
             {current && (
@@ -86,14 +97,19 @@ export function ChapterNav(props: ChapterNavProps) {
           </span>
           <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-open:rotate-180" />
         </summary>
-        <nav aria-label="Chapters" className="border-t border-border px-3 py-2 text-sm">
+        <nav
+          aria-label="Chapters"
+          className="max-h-[70vh] overflow-y-auto border-t border-border px-2.5 py-2 text-sm"
+        >
           <ChapterList {...props} />
         </nav>
       </details>
 
+      {/* top-[4.5rem] clears the sticky app header rather than the viewport
+          edge, so the rail's first item isn't tucked underneath it. */}
       <nav
         aria-label="Chapters"
-        className="hidden text-sm lg:sticky lg:top-4 lg:block lg:max-h-[calc(100vh-2rem)] lg:self-start lg:overflow-y-auto"
+        className="hidden text-sm lg:sticky lg:top-[4.5rem] lg:block lg:max-h-[calc(100vh-6rem)] lg:self-start lg:overflow-y-auto lg:pr-2"
       >
         <ChapterList {...props} />
       </nav>

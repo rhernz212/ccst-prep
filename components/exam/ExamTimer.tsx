@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Clock } from "lucide-react";
 
 export function ExamTimer({
   startedAt,
@@ -56,11 +57,16 @@ export function ExamTimer({
 
   return (
     <>
+      {/* The last five minutes get a tinted chip rather than just red text —
+          on a phone, a colour change on two small digits is easy to miss. */}
       <div
-        className={`font-mono text-lg font-semibold ${
-          isLow ? "text-danger-600 dark:text-danger-400" : "text-foreground"
+        className={`tabular inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1 font-mono text-base font-semibold transition-colors duration-500 ${
+          isLow
+            ? "border-danger-300 bg-danger-50 text-danger-700 dark:border-danger-500/50 dark:bg-danger-500/15 dark:text-danger-300"
+            : "border-border bg-surface-hover text-foreground"
         }`}
       >
+        <Clock className="h-3.5 w-3.5 opacity-70" aria-hidden="true" />
         <span className="sr-only">Time remaining: </span>
         {minutes}:{String(seconds).padStart(2, "0")}
       </div>
