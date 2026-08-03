@@ -19,7 +19,10 @@ export function sanitizeChapterHtml(html: string): string {
     ],
     allowedAttributes: {
       a: ["href"],
-      img: ["src", "alt", "class"],
+      // width/height/loading/decoding are set by rewrite-images.ts and must
+      // survive sanitization — they're what prevent layout shift and stop a
+      // 50-image chapter from fetching every figure up front.
+      img: ["src", "alt", "class", "width", "height", "loading", "decoding"],
       "*": ["class", "id"],
       table: ["border"],
       th: ["scope"],

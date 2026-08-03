@@ -9,6 +9,7 @@
     "lint": "eslint",
     "test": "vitest run",
     "ingest:ccst": "tsx scripts/ingest/ingest-ccst-networking.ts",
+    "optimize:images": "tsx scripts/ingest/optimize-content-images.ts",
     "seed:db": "tsx scripts/ingest/seed-db.ts"
   },
   "dependencies": {
@@ -32,6 +33,7 @@
     "dotenv": "^17.4.2",
     "eslint": "^9",
     "eslint-config-next": "16.2.12",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4",
     "tsx": "^4.23.1",
     "typescript": "^5",

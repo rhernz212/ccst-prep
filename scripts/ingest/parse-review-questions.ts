@@ -1,6 +1,7 @@
 import * as cheerio from "cheerio";
 import { readFileSync } from "fs";
 import { sanitizeChapterHtml } from "./sanitize";
+import { rewriteImages, type ImagePaths } from "./rewrite-images";
 
 export interface ParsedChoice {
   label: string;
@@ -25,10 +26,11 @@ const LETTERS = "ABCDEFGHIJ".split("");
  * are filtered out later during merge with the answer key, since the DB
  * schema only models discrete-choice questions.
  */
-export function parseReviewQuestions(
+export async function parseReviewQuestions(
   chapterXhtmlPath: string,
-  reviewSectionAnchorId: string
-): ParsedReviewQuestion[] {
+  reviewSectionAnchorId: string,
+  imagePaths: ImagePaths
+): Promise<ParsedReviewQuestion[]> {
   const xml = readFileSync(chapterXhtmlPath, "utf-8");
   const $ = cheerio.load(xml, { xmlMode: true });
 
@@ -45,6 +47,10 @@ export function parseReviewQuestions(
     const $el = $(el);
     if ($el.contents().length === 0) $el.remove();
   });
+
+  // A few review questions embed a diagram in the stem. Rewrite before the
+  // stem/choice split below so both branches inherit the corrected src.
+  await rewriteImages($, reviewSection, imagePaths);
 
   const questionItems = reviewSection.find("> section > ol > li");
   const questions: ParsedReviewQuestion[] = [];

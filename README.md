@@ -40,6 +40,18 @@ npm run ingest:ccst -- --source "<path to extracted epub OPS folder>"
 
 Then re-run `npm run seed:db` to push the updated content into Supabase (idempotent — safe to re-run).
 
+Images are re-encoded to WebP (max 1400px wide) during ingestion, and each `<img>` is emitted with intrinsic `width`/`height` plus `loading="lazy"`. The source PNGs are several megabytes apiece; one chapter page was shipping 133 MB of them before this.
+
+## Re-optimizing already-ingested images
+
+`npm run optimize:images` applies that same conversion to content that's already in `content/` without needing the source epub — it converts anything still in PNG form, rewrites the committed JSON to match, and removes the superseded originals. It's idempotent, so re-running is a no-op once everything is WebP.
+
+```bash
+npm run optimize:images
+```
+
+Pass `--source "<path to extracted epub OPS folder>"` if the content references an image that was never copied into `public/`.
+
 ## Tests
 
 Pure domain logic (subnetting calculator, CLI command simulator, exam question selection/scoring) has unit tests:

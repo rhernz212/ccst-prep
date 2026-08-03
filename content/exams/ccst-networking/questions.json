@@ -1938,7 +1938,7 @@
     "chapterNumber": 5,
     "ordinal": 3,
     "domainCode": "4",
-    "stem": "What destination addresses will be used by HostA to send data to the HTTPS server as shown in the following network? (Choose two.)\r\n<figure> <img alt=\"An illustration of the I P routing. The parts labeled are host A, router A, and H T T P S server.\" class=\"center\" src=\"images/c05uf001.png\" />\r\n</figure>",
+    "stem": "What destination addresses will be used by HostA to send data to the HTTPS server as shown in the following network? (Choose two.)\r\n<figure> <img alt=\"An illustration of the I P routing. The parts labeled are host A, router A, and H T T P S server.\" class=\"center\" src=\"/content/ccst-networking/images/c05uf001.webp\" width=\"739\" height=\"586\" loading=\"lazy\" decoding=\"async\" />\r\n</figure>",
     "explanation": "The switches are not used as either a default gateway or other destination. Switches have nothing to do with routing. It is very important to remember that the destination MAC address will always be the router’s interface. The destination address of a frame, from HostA, will be the MAC address of the Fa0/0 interface of RouterA. The destination address of a packet will be the IP address of the network interface card (NIC) of the HTTPS server. The destination port number in the segment header will have a value of 443 (HTTPS).",
     "isMultiSelect": true,
     "choices": [
@@ -3548,7 +3548,7 @@
     "chapterNumber": 9,
     "ordinal": 4,
     "domainCode": null,
-    "stem": "Between which systems could you use a cable that uses the pinout pattern shown here?\r\n<figure> <img alt=\"An illustration of a straight-through Ethernet cable. There are four wires used in straight cables.\" class=\"center\" src=\"images/c09uf001.png\" />\r\n</figure>",
+    "stem": "Between which systems could you use a cable that uses the pinout pattern shown here?\r\n<figure> <img alt=\"An illustration of a straight-through Ethernet cable. There are four wires used in straight cables.\" class=\"center\" src=\"/content/ccst-networking/images/c09uf001.webp\" width=\"944\" height=\"316\" loading=\"lazy\" decoding=\"async\" />\r\n</figure>",
     "explanation": "This is a very simple cable for a 10/100Mbps straight-through connection. If you want gigabit (of course you do!), you need all 8 wires connected. But since this is 1 to 1, 2 to 2, etc, this is a cable for connecting from host to switch.",
     "isMultiSelect": false,
     "choices": [
@@ -3578,7 +3578,7 @@
     "chapterNumber": 9,
     "ordinal": 5,
     "domainCode": null,
-    "stem": "Which type of cable uses the pinout shown here?\r\n<figure> <img alt=\"An illustration of U T P Gigabit crossover Ethernet cable. There are eight wires used in crossover cables.\" class=\"center\" src=\"images/c09uf002.png\" />\r\n</figure>",
+    "stem": "Which type of cable uses the pinout shown here?\r\n<figure> <img alt=\"An illustration of U T P Gigabit crossover Ethernet cable. There are eight wires used in crossover cables.\" class=\"center\" src=\"/content/ccst-networking/images/c09uf002.webp\" width=\"1302\" height=\"318\" loading=\"lazy\" decoding=\"async\" />\r\n</figure>",
     "explanation": "This is a crossover cable. It is using all 8 pins, so it can be used for higher speeds, such as between gigabit ports. Crossover cables are used to connect like devices, such as host to host, switch to switch, etc.",
     "isMultiSelect": false,
     "choices": [
@@ -3608,7 +3608,7 @@
     "chapterNumber": 9,
     "ordinal": 6,
     "domainCode": null,
-    "stem": "Which cable type uses the pinout arrangement shown here?\r\n<figure> <img alt=\"An illustration of a rolled Ethernet cable. There are eight wires used in rolled cables.\" class=\"center\" src=\"images/c09uf003.png\" />\r\n</figure>",
+    "stem": "Which cable type uses the pinout arrangement shown here?\r\n<figure> <img alt=\"An illustration of a rolled Ethernet cable. There are eight wires used in rolled cables.\" class=\"center\" src=\"/content/ccst-networking/images/c09uf003.webp\" width=\"944\" height=\"316\" loading=\"lazy\" decoding=\"async\" />\r\n</figure>",
     "explanation": "This is a rolled cable and is used for a connection from a host to a console port.",
     "isMultiSelect": false,
     "choices": [

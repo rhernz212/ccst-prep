@@ -25,7 +25,7 @@ function parseArgs() {
   };
 }
 
-function main() {
+async function main() {
   const { source, only } = parseArgs();
   const repoRoot = path.resolve(__dirname, "..", "..");
 
@@ -88,7 +88,7 @@ function main() {
     const chapterXhtmlPath = path.join(source, nav.sourceFile);
     console.log(`\nParsing chapter ${nav.number}: ${nav.title} (${nav.sourceFile})`);
 
-    const chapter = parseChapter({
+    const chapter = await parseChapter({
       chapterXhtmlPath,
       nav,
       sourceImagesDir,
@@ -105,7 +105,11 @@ function main() {
       throw new Error(`Chapter ${nav.number} has no "Review Questions" section in navigation.xhtml`);
     }
 
-    const rawQuestions = parseReviewQuestions(chapterXhtmlPath, reviewSection.anchorId);
+    const rawQuestions = await parseReviewQuestions(chapterXhtmlPath, reviewSection.anchorId, {
+      sourceImagesDir,
+      publicImagesDir,
+      publicImagePathPrefix,
+    });
     const answers = answersByChapter.get(nav.number) ?? [];
 
     if (rawQuestions.length !== answers.length) {
@@ -161,4 +165,7 @@ function main() {
   console.log("\nDone.");
 }
 
-main();
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

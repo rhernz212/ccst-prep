@@ -1,16 +1,12 @@
 import * as cheerio from "cheerio";
-import { readFileSync, copyFileSync, mkdirSync, existsSync } from "fs";
-import path from "path";
+import { readFileSync } from "fs";
 import type { Chapter, ChapterSection, NavChapter } from "@/lib/content/types";
 import { sanitizeChapterHtml } from "./sanitize";
+import { rewriteImages, type ImagePaths } from "./rewrite-images";
 
-interface ParseChapterOptions {
+interface ParseChapterOptions extends ImagePaths {
   chapterXhtmlPath: string;
   nav: NavChapter;
-  sourceImagesDir: string;
-  publicImagesDir: string;
-  /** e.g. "/content/ccst-networking/images" */
-  publicImagePathPrefix: string;
 }
 
 /**
@@ -32,34 +28,7 @@ function stripEmptyBookmarkSpans($: cheerio.CheerioAPI, root: ReturnType<cheerio
   });
 }
 
-/**
- * Rewrites `images/foo.png` -> `<publicImagePathPrefix>/foo.png` inside a
- * cheerio-loaded fragment and copies the referenced file into publicImagesDir.
- */
-function rewriteAndCopyImages(
-  $: cheerio.CheerioAPI,
-  root: ReturnType<cheerio.CheerioAPI>,
-  opts: ParseChapterOptions
-) {
-  root.find("img").each((_, imgEl) => {
-    const $img = $(imgEl);
-    const src = $img.attr("src");
-    if (!src) return;
-    const filename = path.basename(src);
-    const sourcePath = path.join(opts.sourceImagesDir, filename);
-    const destPath = path.join(opts.publicImagesDir, filename);
-
-    if (!existsSync(sourcePath)) {
-      throw new Error(`Image referenced in chapter but missing from source: ${sourcePath}`);
-    }
-    mkdirSync(opts.publicImagesDir, { recursive: true });
-    copyFileSync(sourcePath, destPath);
-
-    $img.attr("src", `${opts.publicImagePathPrefix}/${filename}`);
-  });
-}
-
-export function parseChapter(opts: ParseChapterOptions): Chapter {
+export async function parseChapter(opts: ParseChapterOptions): Promise<Chapter> {
   const xml = readFileSync(opts.chapterXhtmlPath, "utf-8");
   const $ = cheerio.load(xml, { xmlMode: true });
 
@@ -71,10 +40,11 @@ export function parseChapter(opts: ParseChapterOptions): Chapter {
   // Intro content: the "chapter opening" section before any named h2 section.
   const introSection = chapterRoot.find('> section[aria-label="chapter opening"]').first();
   stripEmptyBookmarkSpans($, introSection);
-  rewriteAndCopyImages($, introSection, opts);
+  await rewriteImages($, introSection, opts);
   const introHtml = sanitizeChapterHtml(introSection.html() ?? "");
 
-  const sections: ChapterSection[] = opts.nav.sections.map((navSection) => {
+  const sections: ChapterSection[] = [];
+  for (const navSection of opts.nav.sections) {
     const sectionEl = chapterRoot
       .find(`> section[aria-labelledby="${navSection.anchorId}"]`)
       .first();
@@ -87,25 +57,26 @@ export function parseChapter(opts: ParseChapterOptions): Chapter {
     const isReviewQuestions = /^review questions$/i.test(navSection.title);
 
     if (isReviewQuestions) {
-      return {
+      sections.push({
         anchorId: navSection.anchorId,
         title: navSection.title,
         order: navSection.order,
         isReviewQuestions: true,
         html: `<h2 id="${navSection.anchorId}">${navSection.title}</h2><p>Test your knowledge of this chapter in the Practice Quizzes tab.</p>`,
-      };
+      });
+      continue;
     }
 
     stripEmptyBookmarkSpans($, sectionEl);
-    rewriteAndCopyImages($, sectionEl, opts);
-    return {
+    await rewriteImages($, sectionEl, opts);
+    sections.push({
       anchorId: navSection.anchorId,
       title: navSection.title,
       order: navSection.order,
       isReviewQuestions: false,
       html: sanitizeChapterHtml(sectionEl.html() ?? ""),
-    };
-  });
+    });
+  }
 
   return {
     slug: opts.nav.slug,

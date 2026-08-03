@@ -7,6 +7,9 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|content/.*\\.(?:png|jpg|jpeg|svg)$).*)",
+    // Static content images are excluded so a chapter's ~50 figures don't each
+    // trigger a Supabase session refresh. Keep this extension list in sync with
+    // whatever the ingest pipeline emits (scripts/ingest/optimize-image.ts).
+    "/((?!_next/static|_next/image|favicon.ico|content/.*\\.(?:webp|avif|png|jpg|jpeg|svg|gif)$).*)",
   ],
 };
