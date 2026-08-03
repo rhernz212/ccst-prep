@@ -5,6 +5,13 @@ export interface ExamMeta {
   examCode: string;
   timeLimitMinutes: number;
   questionCount: number;
+  /**
+   * Readiness target as a 0-1 fraction, used to label practice attempts
+   * "on target" or "keep practicing". Deliberately not called a passing
+   * score: Cisco does not publish a cut score for the CCST exams, so this
+   * is a study goal you can tune per exam, not the real threshold.
+   */
+  targetScore?: number;
 }
 
 export interface ChapterSection {

@@ -1,6 +1,8 @@
 import { notFound, redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { getCurrentUser } from "@/lib/supabase/get-user";
 import { getExamMeta } from "@/lib/content/exam-content";
+import { getReviewQueueStatus } from "@/lib/review/get-review-queue-status";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { ReviewRunner } from "@/components/review/ReviewRunner";
@@ -18,9 +20,7 @@ export default async function ReviewPage({
   if (!exam) notFound();
 
   const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getCurrentUser();
   if (!user) {
     redirect(`/sign-in?redirect=${encodeURIComponent(`/exams/${examSlug}/review`)}`);
   }
@@ -39,14 +39,43 @@ export default async function ReviewPage({
   const dueIds = (dueRows ?? []).map((r) => r.question_id);
 
   if (dueIds.length === 0) {
+    const status = await getReviewQueueStatus();
+    // Nothing scheduled at all means review has never been started, which is
+    // a different situation from having worked through everything that's due.
+    const neverStarted = (status?.scheduledCount ?? 0) === 0;
+
     return (
       <Card className="p-6 text-center">
-        <h2 className="text-lg font-semibold text-foreground">You&apos;re all caught up</h2>
+        <h2 className="text-lg font-semibold text-foreground">
+          {neverStarted ? "Your review queue is empty" : "You're all caught up"}
+        </h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          No questions are due for review right now. Come back later, or keep practicing.
+          {neverStarted ? (
+            <>
+              Questions are added here automatically as you answer them in quizzes and practice
+              exams, then scheduled for review at widening intervals so they stick. Take a quiz to
+              get started.
+            </>
+          ) : (
+            <>
+              Nothing is due right now — you&apos;ve reviewed all{" "}
+              {status?.scheduledCount ?? 0} scheduled question(s).
+              {status?.nextDueAt && (
+                <>
+                  {" "}
+                  The next one is due{" "}
+                  {new Date(status.nextDueAt).toLocaleDateString(undefined, {
+                    month: "short",
+                    day: "numeric",
+                  })}
+                  .
+                </>
+              )}
+            </>
+          )}
         </p>
         <Button href={`/exams/${examSlug}/quizzes`} className="mt-4">
-          Practice quizzes
+          {neverStarted ? "Take a quiz" : "Practice quizzes"}
         </Button>
       </Card>
     );

@@ -1,6 +1,10 @@
+import Link from "next/link";
 import { redirect, notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { getCurrentUser } from "@/lib/supabase/get-user";
+import { getExamMeta } from "@/lib/content/exam-content";
 import { DomainScoreChart } from "@/components/exam/DomainScoreChart";
+import { ScoreVerdict } from "@/components/exam/ScoreVerdict";
 import { QuestionCard } from "@/components/quiz/QuestionCard";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -8,15 +12,17 @@ import type { DomainBreakdownEntry } from "@/lib/exam/types";
 
 export default async function ExamResultsPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ examSlug: string; attemptId: string }>;
+  searchParams: Promise<{ show?: string }>;
 }) {
   const { examSlug, attemptId } = await params;
+  const { show } = await searchParams;
+  const showOnlyIncorrect = show === "incorrect";
 
   const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getCurrentUser();
   if (!user) {
     redirect(`/sign-in?redirect=${encodeURIComponent(`/exams/${examSlug}/exam`)}`);
   }
@@ -59,6 +65,13 @@ export default async function ExamResultsPage({
 
   const pct = Math.round((attempt.score ?? 0) * 100);
   const byDomain = (attempt.domain_breakdown ?? []) as DomainBreakdownEntry[];
+  const exam = getExamMeta(examSlug);
+  const incorrectCount = attemptQuestions.filter((aq) => aq.is_correct === false).length;
+  // Filtering through the URL keeps this page a Server Component — no
+  // client-side state needed, and the filtered view is linkable.
+  const visibleQuestions = showOnlyIncorrect
+    ? attemptQuestions.filter((aq) => aq.is_correct === false)
+    : attemptQuestions;
 
   return (
     <div className="animate-fade-in-up">
@@ -67,6 +80,9 @@ export default async function ExamResultsPage({
           {attempt.status === "timed_out" ? "Time expired" : "Exam submitted"}
         </div>
         <div className="animate-pop mt-1 text-4xl font-bold text-foreground">{pct}%</div>
+        <div className="mt-2 flex justify-center">
+          <ScoreVerdict score={attempt.score ?? 0} targetScore={exam?.targetScore} />
+        </div>
         <div className="mt-4">
           <Button href={`/exams/${examSlug}/exam`}>Back to exam overview</Button>
         </div>
@@ -79,10 +95,42 @@ export default async function ExamResultsPage({
         </Card>
       )}
 
+      {incorrectCount > 0 && (
+        <div className="mt-8 flex flex-wrap items-center gap-2 text-sm">
+          <span className="text-muted-foreground">Show:</span>
+          <Link
+            href={`/exams/${examSlug}/exam/${attemptId}/results`}
+            aria-current={!showOnlyIncorrect ? "true" : undefined}
+            className={`rounded-md px-3 py-1.5 font-medium transition-colors ${
+              !showOnlyIncorrect
+                ? "bg-brand-600 text-white"
+                : "bg-surface-hover text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            All {attemptQuestions.length}
+          </Link>
+          <Link
+            href={`/exams/${examSlug}/exam/${attemptId}/results?show=incorrect`}
+            aria-current={showOnlyIncorrect ? "true" : undefined}
+            className={`rounded-md px-3 py-1.5 font-medium transition-colors ${
+              showOnlyIncorrect
+                ? "bg-brand-600 text-white"
+                : "bg-surface-hover text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            Missed {incorrectCount}
+          </Link>
+        </div>
+      )}
+
       <div className="mt-8 space-y-8">
-        {attemptQuestions.map((aq, i) => {
+        {visibleQuestions.map((aq) => {
           if (!aq.questions) return null;
           const q = aq.questions;
+          // Number against the full attempt, not the filtered list, so
+          // "Question 12 of 48" still points at the same question when the
+          // learner switches to the missed-only view.
+          const originalIndex = attemptQuestions.indexOf(aq);
           const correctChoiceIds = (q.question_choices ?? []).filter((c) => c.is_correct).map((c) => c.id);
           const choices = (q.question_choices ?? [])
             .slice()
@@ -92,7 +140,7 @@ export default async function ExamResultsPage({
           return (
             <QuestionCard
               key={q.id}
-              index={i}
+              index={originalIndex}
               total={attemptQuestions.length}
               stem={q.stem}
               choices={choices}

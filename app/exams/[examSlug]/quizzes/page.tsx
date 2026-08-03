@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { getCurrentUser } from "@/lib/supabase/get-user";
 import { getExamMeta } from "@/lib/content/exam-content";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
@@ -14,9 +15,7 @@ export default async function QuizzesIndexPage({
   if (!exam) notFound();
 
   const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getCurrentUser();
 
   const { data: examRow } = await supabase.from("exams").select("id").eq("slug", examSlug).maybeSingle();
   if (!examRow) {

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { getExamMeta } from "@/lib/content/exam-content";
+import { getReviewQueueStatus } from "@/lib/review/get-review-queue-status";
 import { ExamTabNav } from "@/components/ui/ExamTabNav";
 
 export default async function ExamLayout({
@@ -14,6 +15,11 @@ export default async function ExamLayout({
   const { examSlug } = await params;
   const exam = getExamMeta(examSlug);
   if (!exam) notFound();
+
+  // Two cheap head-only counts, and only for signed-in users — see
+  // getReviewQueueStatus. Lives in the layout so the badge shows on every
+  // tab, not just Review.
+  const reviewStatus = await getReviewQueueStatus();
 
   return (
     <div className="min-h-screen bg-background">
@@ -31,7 +37,7 @@ export default async function ExamLayout({
             {exam.vendor} · {exam.examCode}
           </p>
         </div>
-        <ExamTabNav examSlug={examSlug} />
+        <ExamTabNav examSlug={examSlug} reviewDueCount={reviewStatus?.dueCount ?? 0} />
       </header>
       <main className="mx-auto max-w-6xl px-4 py-8 animate-fade-in-up">{children}</main>
     </div>
