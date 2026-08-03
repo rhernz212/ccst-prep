@@ -53,10 +53,15 @@ export function QuestionCard({
         onChange={onChange ?? (() => {})}
         disabled={!!review}
         correctChoiceIds={review?.correctChoiceIds}
+        groupLabel={`Question ${index + 1}${isMultiSelect ? ", select all that apply" : ""}`}
       />
       {review && (
         <div
           key={review.isCorrect ? "correct" : "incorrect"}
+          // Grading feedback appears without any navigation, so it needs to be
+          // announced — otherwise a screen-reader user gets no signal that
+          // their answer was judged at all.
+          role="status"
           className={`mt-4 flex items-start gap-2 rounded-md border p-3 text-sm ${
             review.isCorrect
               ? "border-success-300 bg-success-50 text-success-900 animate-pop dark:border-success-600 dark:bg-success-900/40 dark:text-success-100"

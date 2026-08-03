@@ -122,6 +122,37 @@ body {
   color: var(--foreground);
 }
 
+/* The shake on a wrong answer and the pop on a score are exactly the kind of
+   motion that triggers vestibular symptoms, and they fire at the moment the
+   reader is being told they got something wrong. Collapse every animation and
+   transition to effectively instant rather than removing the feedback, so the
+   correct/incorrect state still reads — it just doesn't move. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Wide book content (data tables, preformatted CLI output) would otherwise
+   push the whole page wider than a phone viewport — a chapter measured 496px
+   of scrollWidth at 375px wide. Give each one its own scroll container so
+   overflow stays local instead of scrolling the document sideways. */
+.prose :is(table, pre) {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+/* Long unbroken tokens (IPv6 addresses, URLs) are the other source of
+   horizontal overflow, and don't wrap at a normal break opportunity. */
+.prose {
+  overflow-wrap: break-word;
+}
+
 /* Book-specific structural classes preserved through ingestion sanitization
    (see scripts/ingest/sanitize.ts). The book's original stylesheet is not
    reused, so these re-create the visual intent with Tailwind Typography. */

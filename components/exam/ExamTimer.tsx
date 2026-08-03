@@ -41,13 +41,33 @@ export function ExamTimer({
   const seconds = totalSeconds % 60;
   const isLow = remainingMs < 5 * 60 * 1000;
 
+  // Announcing every tick would be unusable, so only the milestones that
+  // change what a candidate does get spoken. The visible readout stays a
+  // plain (non-live) node so it can still be read on demand without
+  // interrupting once per second.
+  const announcement =
+    minutes === 5 && seconds === 0
+      ? "5 minutes remaining"
+      : minutes === 1 && seconds === 0
+        ? "1 minute remaining"
+        : minutes === 0 && seconds === 0
+          ? "Time is up. Submitting your exam."
+          : null;
+
   return (
-    <div
-      className={`font-mono text-lg font-semibold ${
-        isLow ? "text-danger-600 dark:text-danger-400" : "text-foreground"
-      }`}
-    >
-      {minutes}:{String(seconds).padStart(2, "0")}
-    </div>
+    <>
+      <div
+        className={`font-mono text-lg font-semibold ${
+          isLow ? "text-danger-600 dark:text-danger-400" : "text-foreground"
+        }`}
+      >
+        <span className="sr-only">Time remaining: </span>
+        {minutes}:{String(seconds).padStart(2, "0")}
+      </div>
+      {/* role="alert" is implicitly assertive — a time warning should cut in. */}
+      <div className="sr-only" role="alert">
+        {announcement}
+      </div>
+    </>
   );
 }

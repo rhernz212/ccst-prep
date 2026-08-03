@@ -9,6 +9,7 @@ export function ChoiceList({
   onChange,
   disabled,
   correctChoiceIds,
+  groupLabel,
 }: {
   choices: QuizChoice[];
   isMultiSelect: boolean;
@@ -17,6 +18,8 @@ export function ChoiceList({
   disabled?: boolean;
   /** When set, renders in review mode: highlights correct vs. incorrectly-selected choices. */
   correctChoiceIds?: string[];
+  /** Names the group of choices for assistive tech (the stem is separate markup). */
+  groupLabel?: string;
 }) {
   const toggle = (id: string) => {
     if (disabled) return;
@@ -28,7 +31,11 @@ export function ChoiceList({
   };
 
   return (
-    <div className="space-y-2">
+    // fieldset/legend so the choices are announced as one named group rather
+    // than as a run of unrelated radios; the legend is visually hidden because
+    // the question stem above already says the same thing on screen.
+    <fieldset className="space-y-2" disabled={disabled}>
+      {groupLabel && <legend className="sr-only">{groupLabel}</legend>}
       {choices.map((choice) => {
         const checked = selectedIds.includes(choice.id);
         const isCorrectChoice = correctChoiceIds?.includes(choice.id);
@@ -59,11 +66,31 @@ export function ChoiceList({
               className="mt-0.5 accent-brand-600"
             />
             <span className="text-foreground">
-              <span className="font-medium">{choice.label}.</span> {choice.body}
+              <span className="font-medium">{choice.label}.</span>{" "}
+              {/* In review mode correct/incorrect is otherwise conveyed by
+                  colour alone, which neither screen readers nor colour-blind
+                  readers can act on. */}
+              {correctChoiceIds && (isCorrectChoice || checked) && (
+                <span className="sr-only">
+                  {isCorrectChoice
+                    ? checked
+                      ? "Correct answer, which you chose."
+                      : "Correct answer."
+                    : "You chose this. Incorrect."}
+                </span>
+              )}
+              {/* Choice bodies carry markup (<code> for CLI commands, <i> for
+                  bit patterns) and are sanitized at ingestion by the same
+                  sanitizeChapterHtml call as the question stem — rendering
+                  them as text showed the raw tags to the reader. */}
+              <span
+                className="[&_code]:rounded [&_code]:bg-surface-hover [&_code]:px-1 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-[0.9em]"
+                dangerouslySetInnerHTML={{ __html: choice.body }}
+              />
             </span>
           </label>
         );
       })}
-    </div>
+    </fieldset>
   );
 }

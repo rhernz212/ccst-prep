@@ -59,6 +59,7 @@ export function ScenarioBrief({
       {result && (
         <p
           key={result}
+          role="status"
           className={`mt-2 text-sm animate-fade-in ${
             result === "correct"
               ? "text-success-700 dark:text-success-400"

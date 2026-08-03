@@ -131,6 +131,7 @@ export function SubnetPracticeCard() {
       {checked && (
         <div
           key={isCorrect ? "correct" : "incorrect"}
+          role="status"
           className={`mt-4 rounded-md border p-3 text-sm ${
             isCorrect
               ? "border-success-300 bg-success-50 text-success-900 animate-pop dark:border-success-600 dark:bg-success-900/40 dark:text-success-100"

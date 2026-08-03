@@ -44,7 +44,17 @@ export function Terminal({ onCommandRun }: { onCommandRun?: (raw: string) => voi
       className="rounded-lg border border-border-strong bg-black font-mono text-sm text-gray-100"
       onClick={() => inputRef.current?.focus()}
     >
-      <div ref={scrollRef} className="h-80 overflow-y-auto p-3">
+      {/* Command output replaces nothing on screen and moves no focus, so
+          without a live region a screen-reader user runs a command and hears
+          silence. Polite rather than assertive: output arrives as a direct
+          result of the user's own submit, so it shouldn't interrupt. */}
+      <div
+        ref={scrollRef}
+        role="log"
+        aria-live="polite"
+        aria-label="Terminal output"
+        className="h-80 overflow-y-auto p-3"
+      >
         {entries.map((entry, i) =>
           entry.type === "input" ? (
             <div key={i} className="text-green-400">

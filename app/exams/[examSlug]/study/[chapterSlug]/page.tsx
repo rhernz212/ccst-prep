@@ -30,7 +30,11 @@ export default async function ChapterPage({
         currentChapterSlug={chapterSlug}
         readAnchorIds={dbRefs?.readAnchorIds}
       />
-      <article className="prose prose-slate dark:prose-invert max-w-none prose-img:rounded-md prose-img:border prose-img:border-gray-200 dark:prose-img:border-border">
+      {/* min-w-0: figures now carry intrinsic width attributes (up to 1400px),
+          and a grid track sized `1fr` takes its minimum from content, so
+          without this the column stretches to the widest image and drags the
+          whole page into horizontal scroll. */}
+      <article className="prose prose-slate dark:prose-invert min-w-0 max-w-none prose-img:rounded-md prose-img:border prose-img:border-gray-200 dark:prose-img:border-border">
         <div className="mb-1 text-sm font-medium text-brand-600 dark:text-brand-400">
           Chapter {chapter.number}
         </div>
