@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { scoreAttempt } from "@/lib/domain/exam/scoring";
+import { recordReviewResults } from "@/lib/review/recordReviewResults";
 import type { ExamSubmission } from "@/lib/exam/types";
 
 export async function POST(request: Request, ctx: { params: Promise<{ attemptId: string }> }) {
@@ -120,6 +121,12 @@ export async function POST(request: Request, ctx: { params: Promise<{ attemptId:
         })
         .eq("id", g.attemptQuestionId)
     )
+  );
+
+  await recordReviewResults(
+    supabase,
+    user.id,
+    graded.map((g) => ({ questionId: g.questionId, isCorrect: g.isCorrect }))
   );
 
   return NextResponse.json({

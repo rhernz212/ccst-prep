@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
-import type { GradedAnswer, QuizResult, SubmittedAnswer } from "@/lib/quiz/types";
+import { gradeAnswers } from "@/lib/quiz/grade";
+import { recordReviewResults } from "@/lib/review/recordReviewResults";
+import type { QuizResult, SubmittedAnswer } from "@/lib/quiz/types";
 
 interface RequestBody {
   chapterId?: string;
@@ -21,34 +23,11 @@ export async function POST(request: Request) {
     );
   }
 
-  const questionIds = answers.map((a) => a.questionId);
-  const { data: questions, error: fetchError } = await supabase
-    .from("questions")
-    .select("id, explanation, question_choices(id, is_correct)")
-    .in("id", questionIds);
-
-  if (fetchError || !questions) {
-    return NextResponse.json({ error: fetchError?.message ?? "Failed to load questions" }, { status: 500 });
+  const gradeResult = await gradeAnswers(supabase, answers);
+  if ("error" in gradeResult) {
+    return NextResponse.json({ error: gradeResult.error }, { status: 500 });
   }
-
-  const graded: GradedAnswer[] = answers.map((answer) => {
-    const question = questions.find((q) => q.id === answer.questionId);
-    const choices = question?.question_choices ?? [];
-    const correctChoiceIds = choices.filter((c) => c.is_correct).map((c) => c.id);
-    const selected = new Set(answer.selectedChoiceIds);
-
-    const isCorrect =
-      correctChoiceIds.length === selected.size && correctChoiceIds.every((id) => selected.has(id));
-
-    return {
-      questionId: answer.questionId,
-      isCorrect,
-      correctChoiceIds,
-      explanation: question?.explanation ?? "",
-    };
-  });
-
-  const score = graded.length > 0 ? graded.filter((g) => g.isCorrect).length / graded.length : 0;
+  const { graded, score } = gradeResult;
 
   let saved = false;
   const {
@@ -79,6 +58,12 @@ export async function POST(request: Request) {
       );
       saved = !answersError;
     }
+
+    await recordReviewResults(
+      supabase,
+      user.id,
+      graded.map((g) => ({ questionId: g.questionId, isCorrect: g.isCorrect }))
+    );
   }
 
   const result: QuizResult = {

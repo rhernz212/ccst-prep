@@ -5,8 +5,8 @@ import { NextResponse, type NextRequest } from "next/server";
 // anonymous visitors too (per plan — "take a quiz client-side, no save,
 // with a sign in to save your score prompt"). The route itself checks auth
 // and only persists the attempt when a user is present.
-const PROTECTED_WRITE_PREFIXES = ["/api/progress", "/api/exam-attempts"];
-const PROTECTED_PAGE_PREFIXES = ["/exam/run", "/results"];
+const PROTECTED_WRITE_PREFIXES = ["/api/progress", "/api/exam-attempts", "/api/review-attempts"];
+const PROTECTED_PAGE_PREFIXES = ["/exam/run", "/results", "/review"];
 
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });
