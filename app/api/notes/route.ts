@@ -71,3 +71,46 @@ export async function POST(request: Request) {
 
   return NextResponse.json({ ok: true });
 }
+
+/**
+ * Deletes one note by id, for the Notes tab's per-note delete.
+ *
+ * POST already deletes when the body is emptied, but that path addresses a
+ * note by (chapter, section) — which is what the editor knows. The Notes tab
+ * knows the row id instead, and routing it back through the editor's key
+ * would mean re-deriving a section id it has no reason to hold.
+ *
+ * The id arrives in the body rather than the query string so it stays out of
+ * request logs and browser history.
+ */
+export async function DELETE(request: Request) {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return NextResponse.json({ error: "Authentication required" }, { status: 401 });
+  }
+
+  const payload = await request.json().catch(() => null);
+  const noteId = payload?.noteId;
+
+  if (typeof noteId !== "string") {
+    return NextResponse.json({ error: "noteId is required" }, { status: 400 });
+  }
+
+  // RLS already confines this to the caller's rows; the explicit user_id
+  // filter means a policy regression can't turn this into a delete-anything.
+  const { error } = await supabase
+    .from("chapter_notes")
+    .delete()
+    .eq("id", noteId)
+    .eq("user_id", user.id);
+
+  if (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+
+  return NextResponse.json({ ok: true });
+}

@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
-import { ArrowRight, NotebookPen } from "lucide-react";
+import { ArrowRight, ChevronDown, NotebookPen } from "lucide-react";
 import { getExamMeta } from "@/lib/content/exam-content";
 import { getCurrentUser } from "@/lib/supabase/get-user";
 import { getExamNotes } from "@/lib/notes/get-exam-notes";
 import { chapterHue } from "@/lib/ui/chapter-hue";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
+import { DeleteNoteButton } from "@/components/notes/DeleteNoteButton";
 
 export default async function NotesPage({
   params,
@@ -62,66 +63,89 @@ export default async function NotesPage({
         </Card>
       ) : (
         <ul className="space-y-4">
-          {chapters.map((chapter) => (
+          {chapters.map((chapter, index) => (
             <li key={chapter.chapterSlug} className="reveal">
               <Card className="overflow-hidden">
-                <div className="flex items-start gap-3.5 border-b border-border p-4">
-                  <span
-                    className="grid h-10 w-10 shrink-0 place-items-center rounded-xl text-sm font-bold text-white shadow-raised"
-                    style={{
-                      background: `linear-gradient(160deg, ${chapterHue(chapter.chapterNumber, 1.18)}, ${chapterHue(chapter.chapterNumber)})`,
-                    }}
-                    aria-hidden="true"
-                  >
-                    <span className="tabular">{chapter.chapterNumber}</span>
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    <div className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
-                      Chapter {chapter.chapterNumber}
-                    </div>
-                    <h3 className="leading-snug font-semibold text-balance text-foreground">
-                      {chapter.chapterTitle}
-                    </h3>
-                  </div>
-                  <span className="tabular shrink-0 text-xs text-muted-foreground">
-                    {chapter.notes.length} note{chapter.notes.length === 1 ? "" : "s"}
-                  </span>
-                </div>
+                {/*
+                  <details> rather than React state, matching ChapterNav: the
+                  open/closed state is per-chapter local UI with no reason to
+                  live in a client component, and this way collapsing ships no
+                  JS at all.
 
-                <ul className="divide-y divide-border">
-                  {chapter.notes.map((note) => (
-                    <li key={note.id} className="p-4">
-                      <Link
-                        href={`/exams/${examSlug}/study/${chapter.chapterSlug}${
-                          note.sectionAnchorId ? `#${note.sectionAnchorId}` : ""
-                        }`}
-                        className="group inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700 transition-colors hover:text-brand-500 dark:text-brand-300"
-                      >
-                        {note.sectionTitle ?? "Chapter overview"}
-                        <ArrowRight
-                          className="h-3 w-3 transition-transform duration-200 ease-[var(--ease-spring)] group-hover:translate-x-0.5"
-                          aria-hidden="true"
+                  The first chapter starts open so the page still leads with
+                  actual notes rather than a wall of closed headers; the rest
+                  stay shut, which is the point of the exercise once there are
+                  notes across a dozen chapters.
+                */}
+                <details className="group" open={index === 0}>
+                  <summary className="flex cursor-pointer list-none items-center gap-3.5 p-4 transition-colors hover:bg-surface-hover">
+                    <span
+                      className="grid h-10 w-10 shrink-0 place-items-center rounded-xl text-sm font-bold text-white shadow-raised"
+                      style={{
+                        background: `linear-gradient(160deg, ${chapterHue(chapter.chapterNumber, 1.18)}, ${chapterHue(chapter.chapterNumber)})`,
+                      }}
+                      aria-hidden="true"
+                    >
+                      <span className="tabular">{chapter.chapterNumber}</span>
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+                        Chapter {chapter.chapterNumber}
+                      </span>
+                      <span className="block leading-snug font-semibold text-balance text-foreground">
+                        {chapter.chapterTitle}
+                      </span>
+                    </span>
+                    <span className="tabular shrink-0 text-xs text-muted-foreground">
+                      {chapter.notes.length} note{chapter.notes.length === 1 ? "" : "s"}
+                    </span>
+                    <ChevronDown
+                      className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"
+                      aria-hidden="true"
+                    />
+                  </summary>
+
+                  <ul className="divide-y divide-border border-t border-border">
+                    {chapter.notes.map((note) => (
+                      <li key={note.id} className="flex items-start gap-2 p-4">
+                        <div className="min-w-0 flex-1">
+                          <Link
+                            href={`/exams/${examSlug}/study/${chapter.chapterSlug}${
+                              note.sectionAnchorId ? `#${note.sectionAnchorId}` : ""
+                            }`}
+                            className="group/link inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700 transition-colors hover:text-brand-500 dark:text-brand-300"
+                          >
+                            {note.sectionTitle ?? "Chapter overview"}
+                            <ArrowRight
+                              className="h-3 w-3 transition-transform duration-200 ease-[var(--ease-spring)] group-hover/link:translate-x-0.5"
+                              aria-hidden="true"
+                            />
+                          </Link>
+                          {/* whitespace-pre-wrap: notes are plain text and the
+                              line breaks the reader typed are most of the
+                              structure they have. */}
+                          <p className="mt-1.5 text-sm whitespace-pre-wrap text-foreground">
+                            {note.body}
+                          </p>
+                          <time
+                            dateTime={note.updatedAt}
+                            className="mt-2 block text-xs text-muted-foreground"
+                          >
+                            {new Date(note.updatedAt).toLocaleDateString(undefined, {
+                              month: "short",
+                              day: "numeric",
+                              year: "numeric",
+                            })}
+                          </time>
+                        </div>
+                        <DeleteNoteButton
+                          noteId={note.id}
+                          label={note.sectionTitle ?? `chapter ${chapter.chapterNumber}`}
                         />
-                      </Link>
-                      {/* whitespace-pre-wrap: notes are plain text and the line
-                          breaks the reader typed are most of the structure
-                          they have. */}
-                      <p className="mt-1.5 text-sm whitespace-pre-wrap text-foreground">
-                        {note.body}
-                      </p>
-                      <time
-                        dateTime={note.updatedAt}
-                        className="mt-2 block text-xs text-muted-foreground"
-                      >
-                        {new Date(note.updatedAt).toLocaleDateString(undefined, {
-                          month: "short",
-                          day: "numeric",
-                          year: "numeric",
-                        })}
-                      </time>
-                    </li>
-                  ))}
-                </ul>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
               </Card>
             </li>
           ))}
