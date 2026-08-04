@@ -11,6 +11,7 @@ import {
   TerminalSquare,
   type LucideIcon,
 } from "lucide-react";
+import type { ExamTool } from "@/lib/content/types";
 
 interface Tab {
   slug: string;
@@ -18,21 +19,38 @@ interface Tab {
   /** Shortened for the mobile bar, where six labels have to fit across 375px. */
   shortLabel: string;
   icon: LucideIcon;
+  /** Present only for exams that list this tool in meta.json. */
+  tool?: ExamTool;
 }
 
 const TABS: Tab[] = [
   { slug: "study", label: "Study Material", shortLabel: "Study", icon: BookOpen },
   { slug: "quizzes", label: "Practice Quizzes", shortLabel: "Quizzes", icon: ListChecks },
   { slug: "review", label: "Review", shortLabel: "Review", icon: RefreshCw },
-  { slug: "subnetting", label: "Subnetting", shortLabel: "Subnet", icon: Calculator },
-  { slug: "cli", label: "CLI Practice", shortLabel: "CLI", icon: TerminalSquare },
+  { slug: "subnetting", label: "Subnetting", shortLabel: "Subnet", icon: Calculator, tool: "subnetting" },
+  { slug: "cli", label: "CLI Practice", shortLabel: "CLI", icon: TerminalSquare, tool: "cli" },
   { slug: "exam", label: "Full Practice Exam", shortLabel: "Exam", icon: GraduationCap },
 ];
+
+// Tailwind needs literal class names, so the mobile bar's column count is
+// looked up rather than interpolated.
+const GRID_COLS: Record<number, string> = {
+  4: "grid-cols-4",
+  5: "grid-cols-5",
+  6: "grid-cols-6",
+};
 
 interface TabNavProps {
   examSlug: string;
   /** Questions due in the spaced-repetition queue; badged on the Review tab. */
   reviewDueCount?: number;
+  /** Tool tabs this exam offers, from meta.json. */
+  tools?: readonly ExamTool[];
+}
+
+function visibleTabs(tools: readonly ExamTool[] | undefined): Tab[] {
+  if (!tools) return TABS;
+  return TABS.filter((tab) => tab.tool === undefined || tools.includes(tab.tool));
 }
 
 function DueBadge({ count, className = "" }: { count: number; className?: string }) {
@@ -59,13 +77,13 @@ function useIsActive(examSlug: string) {
  * Rendered inside the exam header. Its mobile counterpart deliberately is not
  * — see ExamMobileTabBar.
  */
-export function ExamTabNav({ examSlug, reviewDueCount = 0 }: TabNavProps) {
+export function ExamTabNav({ examSlug, reviewDueCount = 0, tools }: TabNavProps) {
   const isActive = useIsActive(examSlug);
 
   return (
     <nav aria-label="Exam sections" className="mx-auto hidden max-w-6xl px-4 pb-3 md:block">
       <div className="inline-flex gap-1 rounded-xl border border-border bg-surface-sunken p-1">
-        {TABS.map((tab) => {
+        {visibleTabs(tools).map((tab) => {
           const active = isActive(tab.slug);
           const Icon = tab.icon;
           return (
@@ -109,16 +127,17 @@ export function ExamTabNav({ examSlug, reviewDueCount = 0 }: TabNavProps) {
  * `pb-tabbar` on the page wrapper reserves the space this occupies so the last
  * card isn't trapped underneath it.
  */
-export function ExamMobileTabBar({ examSlug, reviewDueCount = 0 }: TabNavProps) {
+export function ExamMobileTabBar({ examSlug, reviewDueCount = 0, tools }: TabNavProps) {
   const isActive = useIsActive(examSlug);
+  const tabs = visibleTabs(tools);
 
   return (
     <nav
       aria-label="Exam sections"
       className="glass pb-safe fixed inset-x-0 bottom-0 z-40 border-t border-border md:hidden"
     >
-      <div className="grid grid-cols-6">
-        {TABS.map((tab) => {
+      <div className={`grid ${GRID_COLS[tabs.length] ?? "grid-cols-6"}`}>
+        {tabs.map((tab) => {
           const active = isActive(tab.slug);
           const Icon = tab.icon;
           return (

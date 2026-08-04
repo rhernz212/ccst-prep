@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { getExamMeta } from "@/lib/content/exam-content";
+import { examTools } from "@/lib/content/exam-tools";
 import { getReviewQueueStatus } from "@/lib/review/get-review-queue-status";
 import { ExamMobileTabBar, ExamTabNav } from "@/components/ui/ExamTabNav";
 import { Badge } from "@/components/ui/Badge";
@@ -41,7 +42,11 @@ export default async function ExamLayout({
             {exam.vendor} · {exam.questionCount} questions · {exam.timeLimitMinutes} minutes
           </p>
         </div>
-        <ExamTabNav examSlug={examSlug} reviewDueCount={reviewStatus?.dueCount ?? 0} />
+        <ExamTabNav
+          examSlug={examSlug}
+          reviewDueCount={reviewStatus?.dueCount ?? 0}
+          tools={examTools(exam)}
+        />
       </header>
 
       {/* pb-tabbar clears the fixed mobile tab bar; it collapses back to normal
@@ -53,7 +58,11 @@ export default async function ExamLayout({
       {/* Outside <header> on purpose: the header's `aura` opens a stacking
           context, and nested inside it this bar's z-40 lost to the page's
           positioned cards. See ExamMobileTabBar. */}
-      <ExamMobileTabBar examSlug={examSlug} reviewDueCount={reviewStatus?.dueCount ?? 0} />
+      <ExamMobileTabBar
+        examSlug={examSlug}
+        reviewDueCount={reviewStatus?.dueCount ?? 0}
+        tools={examTools(exam)}
+      />
     </div>
   );
 }

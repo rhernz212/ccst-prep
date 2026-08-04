@@ -1,3 +1,11 @@
+/**
+ * Practice tools that aren't derived from a book's content, so they only
+ * apply to exams that actually test the skill. Everything else (study,
+ * quizzes, review, exam) follows from the ingested content and is always
+ * present.
+ */
+export type ExamTool = "subnetting" | "cli";
+
 export interface ExamMeta {
   slug: string;
   title: string;
@@ -5,6 +13,8 @@ export interface ExamMeta {
   examCode: string;
   timeLimitMinutes: number;
   questionCount: number;
+  /** Optional tool tabs to offer. Omitted means all of them. */
+  tools?: ExamTool[];
   /**
    * Readiness target as a 0-1 fraction, used to label practice attempts
    * "on target" or "keep practicing". Deliberately not called a passing

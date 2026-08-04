@@ -1,6 +1,19 @@
+import { notFound } from "next/navigation";
 import { CliPracticePanel } from "@/components/cli/CliPracticePanel";
+import { getExamMeta } from "@/lib/content/exam-content";
+import { hasExamTool } from "@/lib/content/exam-tools";
 
-export default function CliPracticePage() {
+export default async function CliPracticePage({
+  params,
+}: {
+  params: Promise<{ examSlug: string }>;
+}) {
+  // Hiding the tab isn't enough on its own — the route would still serve a
+  // CCST-shaped simulator to an exam that doesn't offer the tool.
+  const { examSlug } = await params;
+  const exam = getExamMeta(examSlug);
+  if (!exam || !hasExamTool(exam, "cli")) notFound();
+
   return (
     <div>
       <div className="mb-6">

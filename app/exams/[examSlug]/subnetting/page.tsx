@@ -1,7 +1,18 @@
+import { notFound } from "next/navigation";
 import { SubnetCalculatorForm } from "@/components/subnetting/SubnetCalculatorForm";
 import { SubnetPracticeCard } from "@/components/subnetting/SubnetPracticeCard";
+import { getExamMeta } from "@/lib/content/exam-content";
+import { hasExamTool } from "@/lib/content/exam-tools";
 
-export default function SubnettingPage() {
+export default async function SubnettingPage({
+  params,
+}: {
+  params: Promise<{ examSlug: string }>;
+}) {
+  const { examSlug } = await params;
+  const exam = getExamMeta(examSlug);
+  if (!exam || !hasExamTool(exam, "subnetting")) notFound();
+
   return (
     <div>
       <div className="mb-6">
