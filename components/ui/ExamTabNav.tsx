@@ -84,8 +84,15 @@ function useIsActive(examSlug: string) {
  * raised surface sitting in a sunken track, which survives being glanced at
  * across a wide viewport far better than a 2px underline does.
  *
- * Rendered inside the exam header. Its mobile counterpart deliberately is not
- * — see ExamMobileTabBar.
+ * Sticks beneath the app header, because a chapter page runs to forty-odd
+ * screens and the rail used to scroll away for good — reaching another tab
+ * meant scrolling the whole way back up. That also dictates where this is
+ * mounted: a sticky element is confined to its parent's box, so rendered
+ * inside the exam header it would unstick the moment that header scrolled
+ * past. Like ExamMobileTabBar, it has to be the header's sibling.
+ *
+ * Sits at z-30 under the app header's z-40, and its top 1px tucks behind that
+ * header's bottom border so no sliver of content shows between the two.
  */
 export function ExamTabNav({
   examSlug,
@@ -96,33 +103,40 @@ export function ExamTabNav({
   const isActive = useIsActive(examSlug);
 
   return (
-    <nav aria-label="Exam sections" className="mx-auto hidden max-w-6xl px-4 pb-3 md:block">
-      <div className="inline-flex gap-1 rounded-xl border border-border bg-surface-sunken p-1">
-        {visibleTabs(tools, signedIn).map((tab) => {
-          const active = isActive(tab.slug);
-          const Icon = tab.icon;
-          return (
-            <Link
-              key={tab.slug}
-              href={`/exams/${examSlug}/${tab.slug}`}
-              aria-current={active ? "page" : undefined}
-              className={`inline-flex items-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition-[background-color,color,box-shadow,transform] duration-200 ease-[var(--ease-spring)] active:scale-[0.97] ${
-                active
-                  ? "surface-card text-brand-700 dark:text-brand-300"
-                  : "text-muted-foreground hover:bg-surface-hover hover:text-foreground"
-              }`}
-            >
-              <Icon
-                className={`h-4 w-4 ${active ? "text-brand-500 dark:text-brand-400" : ""}`}
-                aria-hidden="true"
-              />
-              {tab.label}
-              {tab.slug === "review" && reviewDueCount > 0 && <DueBadge count={reviewDueCount} />}
-            </Link>
-          );
-        })}
-      </div>
-    </nav>
+    <div className="glass sticky top-14 z-30 hidden border-b border-border md:block">
+      <nav aria-label="Exam sections" className="mx-auto max-w-6xl px-4 py-2.5">
+        <div className="inline-flex gap-1 rounded-xl border border-border bg-surface-sunken p-1">
+          {visibleTabs(tools, signedIn).map((tab) => {
+            const active = isActive(tab.slug);
+            const Icon = tab.icon;
+            return (
+              <Link
+                key={tab.slug}
+                href={`/exams/${examSlug}/${tab.slug}`}
+                aria-current={active ? "page" : undefined}
+                className={`inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap transition-[background-color,color,box-shadow,transform] duration-200 ease-[var(--ease-spring)] active:scale-[0.97] lg:px-3.5 ${
+                  active
+                    ? "surface-card text-brand-700 dark:text-brand-300"
+                    : "text-muted-foreground hover:bg-surface-hover hover:text-foreground"
+                }`}
+              >
+                <Icon
+                  className={`h-4 w-4 shrink-0 ${active ? "text-brand-500 dark:text-brand-400" : ""}`}
+                  aria-hidden="true"
+                />
+                {/* Seven full labels don't fit on one line until ~1200px, and a
+                    rail that wraps to two lines is 89px of permanently sticky
+                    chrome. Below lg the mobile bar's short labels stand in;
+                    whitespace-nowrap keeps either from wrapping. */}
+                <span className="lg:hidden">{tab.shortLabel}</span>
+                <span className="hidden lg:inline">{tab.label}</span>
+                {tab.slug === "review" && reviewDueCount > 0 && <DueBadge count={reviewDueCount} />}
+              </Link>
+            );
+          })}
+        </div>
+      </nav>
+    </div>
   );
 }
 

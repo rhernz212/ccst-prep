@@ -105,11 +105,14 @@ export function ChapterNav(props: ChapterNavProps) {
         </nav>
       </details>
 
-      {/* top-[4.5rem] clears the sticky app header rather than the viewport
-          edge, so the rail's first item isn't tucked underneath it. */}
+      {/* top-36 clears both sticky bars — the app header (57px) and the exam
+          tab rail (69px) — rather than the viewport edge, so the rail's first
+          item isn't tucked underneath them. The max-height subtracts the same
+          stack plus a little, so the list scrolls internally instead of
+          running off the bottom of the viewport. */}
       <nav
         aria-label="Chapters"
-        className="hidden text-sm lg:sticky lg:top-[4.5rem] lg:block lg:max-h-[calc(100vh-6rem)] lg:self-start lg:overflow-y-auto lg:pr-2"
+        className="hidden text-sm lg:sticky lg:top-36 lg:block lg:max-h-[calc(100vh-10rem)] lg:self-start lg:overflow-y-auto lg:pr-2"
       >
         <ChapterList {...props} />
       </nav>

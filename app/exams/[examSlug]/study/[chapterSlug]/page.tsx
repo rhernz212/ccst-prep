@@ -80,7 +80,15 @@ export default async function ChapterPage({
         {chapter.sections.map((section) => {
           const sectionDbId = dbRefs?.sectionIdByAnchor.get(section.anchorId);
           return (
-            <section key={section.anchorId} id={section.anchorId} className="scroll-mt-6">
+            /* scroll-mt has to clear whatever is stuck to the top, or an
+               anchor lands underneath it — both the in-page section links and
+               the Notes tab's deep links into a section. Below md that's just
+               the app header; from md the tab rail is stuck under it too. */
+            <section
+              key={section.anchorId}
+              id={section.anchorId}
+              className="scroll-mt-20 md:scroll-mt-36"
+            >
               <SectionRenderer html={section.html} />
               {dbRefs?.userId && sectionDbId && (
                 <ReadingProgressMarker chapterId={dbRefs.chapterId} sectionId={sectionDbId} />

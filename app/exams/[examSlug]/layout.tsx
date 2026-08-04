@@ -30,7 +30,9 @@ export default async function ExamLayout({
 
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="aura relative border-b border-border">
+      {/* No border-b: the sticky tab rail below carries it, so the two don't
+          stack into a double rule while the header is still on screen. */}
+      <header className="aura relative">
         <div className="mx-auto max-w-6xl px-4 pt-6 pb-4">
           <Link
             href="/"
@@ -47,13 +49,18 @@ export default async function ExamLayout({
             {exam.vendor} · {exam.questionCount} questions · {exam.timeLimitMinutes} minutes
           </p>
         </div>
-        <ExamTabNav
-          examSlug={examSlug}
-          reviewDueCount={reviewStatus?.dueCount ?? 0}
-          tools={examTools(exam)}
-          signedIn={user !== null}
-        />
       </header>
+
+      {/* Outside <header>, like the mobile bar but for a different reason: a
+          sticky element can only stick within its parent's box, so nested in
+          the header this would come unstuck as soon as the header scrolled
+          away — which on a forty-screen chapter is almost immediately. */}
+      <ExamTabNav
+        examSlug={examSlug}
+        reviewDueCount={reviewStatus?.dueCount ?? 0}
+        tools={examTools(exam)}
+        signedIn={user !== null}
+      />
 
       {/* pb-tabbar clears the fixed mobile tab bar; it collapses back to normal
           padding at md, where that bar is replaced by the desktop pill rail. */}
