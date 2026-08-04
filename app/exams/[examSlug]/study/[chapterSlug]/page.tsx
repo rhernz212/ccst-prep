@@ -6,6 +6,7 @@ import { chapterHue } from "@/lib/ui/chapter-hue";
 import { ChapterNav } from "@/components/study/ChapterNav";
 import { SectionRenderer } from "@/components/study/SectionRenderer";
 import { ReadingProgressMarker } from "@/components/study/ReadingProgressMarker";
+import { NotesBubble, type NoteTarget } from "@/components/study/NotesBubble";
 import { Button } from "@/components/ui/Button";
 
 export default async function ChapterPage({
@@ -22,6 +23,23 @@ export default async function ChapterPage({
   if (!chapter) notFound();
 
   const dbRefs = await getChapterDbRefs(examSlug, chapter.number);
+
+  // Only sections that made it into the DB can hold a note, since the note row
+  // references sections(id).
+  const noteTargets: NoteTarget[] = dbRefs
+    ? chapter.sections.flatMap((section) => {
+        const sectionId = dbRefs.sectionIdByAnchor.get(section.anchorId);
+        return sectionId
+          ? [{ anchorId: section.anchorId, sectionId, title: section.title }]
+          : [];
+      })
+    : [];
+
+  // "" is the chapter-level note's key — see CHAPTER_KEY in NotesBubble.
+  const initialNotes: Record<string, string> = {
+    ...Object.fromEntries(dbRefs?.noteByAnchor ?? []),
+    ...(dbRefs?.chapterNote ? { "": dbRefs.chapterNote } : {}),
+  };
 
   return (
     <div className="lg:grid lg:grid-cols-[240px_1fr] lg:gap-10">
@@ -82,6 +100,19 @@ export default async function ChapterPage({
           );
         })}
       </article>
+
+      {/* Signed-out readers get no note affordance at all — there's nowhere to
+          put the note, and offering one that silently discards what they wrote
+          is worse than not offering it. Position in the tree doesn't matter:
+          the bubble portals itself to <body>. */}
+      {dbRefs?.userId && (
+        <NotesBubble
+          chapterId={dbRefs.chapterId}
+          chapterNumber={chapter.number}
+          targets={noteTargets}
+          initialNotes={initialNotes}
+        />
+      )}
     </div>
   );
 }

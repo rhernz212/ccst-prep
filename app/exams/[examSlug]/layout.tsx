@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { getExamMeta } from "@/lib/content/exam-content";
 import { examTools } from "@/lib/content/exam-tools";
 import { getReviewQueueStatus } from "@/lib/review/get-review-queue-status";
+import { getCurrentUser } from "@/lib/supabase/get-user";
 import { ExamMobileTabBar, ExamTabNav } from "@/components/ui/ExamTabNav";
 import { Badge } from "@/components/ui/Badge";
 
@@ -21,7 +22,11 @@ export default async function ExamLayout({
   // Two cheap head-only counts, and only for signed-in users — see
   // getReviewQueueStatus. Lives in the layout so the badge shows on every
   // tab, not just Review.
-  const reviewStatus = await getReviewQueueStatus();
+  //
+  // getCurrentUser is cache()d for the render pass, so asking again here to
+  // gate the Notes tab costs nothing beyond the call getReviewQueueStatus
+  // already makes.
+  const [reviewStatus, user] = await Promise.all([getReviewQueueStatus(), getCurrentUser()]);
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -46,6 +51,7 @@ export default async function ExamLayout({
           examSlug={examSlug}
           reviewDueCount={reviewStatus?.dueCount ?? 0}
           tools={examTools(exam)}
+          signedIn={user !== null}
         />
       </header>
 
@@ -62,6 +68,7 @@ export default async function ExamLayout({
         examSlug={examSlug}
         reviewDueCount={reviewStatus?.dueCount ?? 0}
         tools={examTools(exam)}
+        signedIn={user !== null}
       />
     </div>
   );

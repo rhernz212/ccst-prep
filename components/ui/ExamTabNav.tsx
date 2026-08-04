@@ -7,6 +7,7 @@ import {
   Calculator,
   GraduationCap,
   ListChecks,
+  NotebookPen,
   RefreshCw,
   TerminalSquare,
   type LucideIcon,
@@ -16,17 +17,20 @@ import type { ExamTool } from "@/lib/content/types";
 interface Tab {
   slug: string;
   label: string;
-  /** Shortened for the mobile bar, where six labels have to fit across 375px. */
+  /** Shortened for the mobile bar, where up to seven labels have to fit across 375px. */
   shortLabel: string;
   icon: LucideIcon;
   /** Present only for exams that list this tool in meta.json. */
   tool?: ExamTool;
+  /** Tabs that only hold user-owned data, hidden entirely when signed out. */
+  requiresAuth?: boolean;
 }
 
 const TABS: Tab[] = [
   { slug: "study", label: "Study Material", shortLabel: "Study", icon: BookOpen },
   { slug: "quizzes", label: "Practice Quizzes", shortLabel: "Quizzes", icon: ListChecks },
   { slug: "review", label: "Review", shortLabel: "Review", icon: RefreshCw },
+  { slug: "notes", label: "Notes", shortLabel: "Notes", icon: NotebookPen, requiresAuth: true },
   { slug: "subnetting", label: "Subnetting", shortLabel: "Subnet", icon: Calculator, tool: "subnetting" },
   { slug: "cli", label: "CLI Practice", shortLabel: "CLI", icon: TerminalSquare, tool: "cli" },
   { slug: "exam", label: "Full Practice Exam", shortLabel: "Exam", icon: GraduationCap },
@@ -38,6 +42,7 @@ const GRID_COLS: Record<number, string> = {
   4: "grid-cols-4",
   5: "grid-cols-5",
   6: "grid-cols-6",
+  7: "grid-cols-7",
 };
 
 interface TabNavProps {
@@ -46,11 +51,16 @@ interface TabNavProps {
   reviewDueCount?: number;
   /** Tool tabs this exam offers, from meta.json. */
   tools?: readonly ExamTool[];
+  /** Gates auth-only tabs. Signed-out visitors never see Notes at all. */
+  signedIn?: boolean;
 }
 
-function visibleTabs(tools: readonly ExamTool[] | undefined): Tab[] {
-  if (!tools) return TABS;
-  return TABS.filter((tab) => tab.tool === undefined || tools.includes(tab.tool));
+function visibleTabs(tools: readonly ExamTool[] | undefined, signedIn: boolean): Tab[] {
+  return TABS.filter((tab) => {
+    if (tab.requiresAuth && !signedIn) return false;
+    if (tab.tool !== undefined && tools !== undefined && !tools.includes(tab.tool)) return false;
+    return true;
+  });
 }
 
 function DueBadge({ count, className = "" }: { count: number; className?: string }) {
@@ -77,13 +87,18 @@ function useIsActive(examSlug: string) {
  * Rendered inside the exam header. Its mobile counterpart deliberately is not
  * — see ExamMobileTabBar.
  */
-export function ExamTabNav({ examSlug, reviewDueCount = 0, tools }: TabNavProps) {
+export function ExamTabNav({
+  examSlug,
+  reviewDueCount = 0,
+  tools,
+  signedIn = false,
+}: TabNavProps) {
   const isActive = useIsActive(examSlug);
 
   return (
     <nav aria-label="Exam sections" className="mx-auto hidden max-w-6xl px-4 pb-3 md:block">
       <div className="inline-flex gap-1 rounded-xl border border-border bg-surface-sunken p-1">
-        {visibleTabs(tools).map((tab) => {
+        {visibleTabs(tools, signedIn).map((tab) => {
           const active = isActive(tab.slug);
           const Icon = tab.icon;
           return (
@@ -113,10 +128,13 @@ export function ExamTabNav({ examSlug, reviewDueCount = 0, tools }: TabNavProps)
 
 /**
  * Mobile: a fixed thumb-zone bar, replacing a horizontally-scrolled strip whose
- * last two tabs sat off-screen and undiscoverable. Six items is one over the
- * usual five-item guideline, so labels are shortened and the icons carry most
- * of the recognition — but the labels stay, because icon-only navigation is
- * both a recognition and an accessibility problem.
+ * last two tabs sat off-screen and undiscoverable. Seven items (signed in, with
+ * both tool tabs) is well over the usual five-item guideline, so labels are
+ * shortened and the icons carry most of the recognition — but the labels stay,
+ * because icon-only navigation is both a recognition and an accessibility
+ * problem. At 375px seven columns leave ~53px each, which fits the longest
+ * short label ("Quizzes"); an eighth tab would not, and should push this to an
+ * overflow "More" item rather than shrinking the type further.
  *
  * Must be rendered as a sibling of the exam header, never inside it. The
  * header carries `aura`, whose `isolation: isolate` opens a stacking context;
@@ -127,9 +145,14 @@ export function ExamTabNav({ examSlug, reviewDueCount = 0, tools }: TabNavProps)
  * `pb-tabbar` on the page wrapper reserves the space this occupies so the last
  * card isn't trapped underneath it.
  */
-export function ExamMobileTabBar({ examSlug, reviewDueCount = 0, tools }: TabNavProps) {
+export function ExamMobileTabBar({
+  examSlug,
+  reviewDueCount = 0,
+  tools,
+  signedIn = false,
+}: TabNavProps) {
   const isActive = useIsActive(examSlug);
-  const tabs = visibleTabs(tools);
+  const tabs = visibleTabs(tools, signedIn);
 
   return (
     <nav

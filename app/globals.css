@@ -489,6 +489,12 @@ p, li {
 @utility pb-tabbar {
   padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
 }
+/* The same clearance as an offset, for fixed elements that have to float
+   above the mobile tab bar rather than scroll under it. Kept in step with
+   pb-tabbar — if one changes, so does the other. */
+@utility bottom-tabbar {
+  bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+}
 
 /* Scroll-linked reveal. Authored so the *visible* state is the default and
    the animation only subtracts from it — otherwise every browser without

@@ -6,6 +6,10 @@ export interface ChapterDbRefs {
   chapterId: string;
   sectionIdByAnchor: Map<string, string>;
   readAnchorIds: Set<string>;
+  /** Existing note bodies for the current user, keyed by section anchorId. */
+  noteByAnchor: Map<string, string>;
+  /** The chapter-level note (section_id null), if the user has written one. */
+  chapterNote: string | null;
   userId: string | null;
 }
 
@@ -39,13 +43,20 @@ export async function getChapterDbRefs(
     .maybeSingle();
   if (!chapterRow) return null;
 
-  // Both of these only need chapterRow.id, so they issue together.
-  const [{ data: sectionRows }, { data: progressRows }] = await Promise.all([
+  // All three only need chapterRow.id, so they issue together.
+  const [{ data: sectionRows }, { data: progressRows }, { data: noteRows }] = await Promise.all([
     supabase.from("sections").select("id, anchor_id").eq("chapter_id", chapterRow.id),
     user
       ? supabase
           .from("chapter_progress")
           .select("section_id")
+          .eq("user_id", user.id)
+          .eq("chapter_id", chapterRow.id)
+      : Promise.resolve({ data: null }),
+    user
+      ? supabase
+          .from("chapter_notes")
+          .select("section_id, body")
           .eq("user_id", user.id)
           .eq("chapter_id", chapterRow.id)
       : Promise.resolve({ data: null }),
@@ -62,10 +73,21 @@ export async function getChapterDbRefs(
       .map(([anchorId]) => anchorId)
   );
 
+  const noteBySectionId = new Map(
+    (noteRows ?? []).map((n) => [n.section_id as string | null, n.body as string])
+  );
+  const noteByAnchor = new Map(
+    [...sectionIdByAnchor.entries()]
+      .filter(([, sectionId]) => noteBySectionId.has(sectionId))
+      .map(([anchorId, sectionId]) => [anchorId, noteBySectionId.get(sectionId)!] as const)
+  );
+
   return {
     chapterId: chapterRow.id,
     sectionIdByAnchor,
     readAnchorIds,
+    noteByAnchor,
+    chapterNote: noteBySectionId.get(null) ?? null,
     userId: user?.id ?? null,
   };
 }

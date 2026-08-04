@@ -1,6 +1,6 @@
 # Cert Prep
 
-A study/practice-exam site for IT certifications, currently covering Cisco's CCST Networking exam. Landing page → pick a certification → five tabs: Study Material, Practice Quizzes, Subnetting, CLI Practice, and a Full Practice Exam.
+A study/practice-exam site for IT certifications, currently covering Cisco's CCST Networking exam. Landing page → pick a certification → tabs for Study Material, Practice Quizzes, Review, Notes, Subnetting, CLI Practice, and a Full Practice Exam.
 
 ## Stack
 
@@ -59,7 +59,7 @@ To add a certification:
 
 ### Optional tool tabs
 
-Study, Practice Quizzes, Review, and Full Practice Exam are driven by ingested content, so every exam gets them. Subnetting and CLI Practice are standalone simulators that only suit exams testing those skills, so they're opt-in per exam via `tools` in `meta.json`:
+Study, Practice Quizzes, Review, Notes, and Full Practice Exam are driven by ingested content (or by the reader's own data), so every exam gets them — though Notes is hidden entirely from signed-out visitors, since there's nowhere to store what they'd write. Subnetting and CLI Practice are standalone simulators that only suit exams testing those skills, so they're opt-in per exam via `tools` in `meta.json`:
 
 ```json
 "tools": ["subnetting"]
