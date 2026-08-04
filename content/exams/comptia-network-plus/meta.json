@@ -1,0 +1,10 @@
+{
+  "slug": "comptia-network-plus",
+  "title": "CompTIA Network+",
+  "vendor": "CompTIA",
+  "examCode": "N10-008",
+  "timeLimitMinutes": 90,
+  "questionCount": 90,
+  "targetScore": 0.8,
+  "tools": ["subnetting"]
+}

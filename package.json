@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
-    "ingest:ccst": "tsx scripts/ingest/ingest-ccst-networking.ts",
+    "ingest": "tsx scripts/ingest/ingest.ts",
+    "ingest:ccst": "tsx scripts/ingest/ingest.ts --exam=ccst-networking",
     "optimize:images": "tsx scripts/ingest/optimize-content-images.ts",
     "seed:db": "tsx scripts/ingest/seed-db.ts"
   },

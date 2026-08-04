@@ -27,12 +27,32 @@ export function sanitizeChapterHtml(html: string): string {
       table: ["border"],
       th: ["scope"],
     },
+    // A union across every ingested book — publishers use disjoint class
+    // vocabularies, so adding a book's classes here can't affect another's
+    // output. Anything not listed is dropped, and the element falls back to
+    // the prose defaults in globals.css.
     allowedClasses: {
       "*": [
+        // Sybex (CCST Networking)
         "feature3", "figureLabel", "center",
         "upper-alpha", "square", "square1", "check",
         "chapterNumber", "chapterTitle",
         "top", "bottom", "hr",
+        // McGraw-Hill All-in-One (CompTIA Network+): paragraph flow,
+        "indent", "indentt", "noindent", "noindent1", "noindentt",
+        "noindentb", "noindent-top",
+        // headings and chapter opening,
+        "h2", "h2chap", "h3", "h3a", "h3a1", "h4", "h5", "hrc", "black", "size",
+        // figures and tables,
+        "fimage", "figcap", "hr-f", "timage", "tabcap",
+        // lists and bullets,
+        "bull", "bulln", "bullo", "bullt", "bullb",
+        "list", "listt", "listb", "listh", "roman1", "roman2",
+        // review questions,
+        "ques", "ques1", "quesh", "alpha", "s-alpha", "salphah",
+        // and sidebars/notes.
+        "sidebarn", "sidebar1", "note", "note1", "notei", "note-i", "inline",
+        "shang", "shang1", "shangt", "shangb", "s-head", "s-head1",
       ],
     },
     allowedSchemes: ["http", "https"],

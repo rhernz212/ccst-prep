@@ -52,7 +52,7 @@ function computeDomainTargets(domains: DomainInfo[], targetCount: number): Map<s
  * Pools are built from chapter membership (blueprint_objectives.chapter_numbers)
  * rather than each question's precomputed domain_id — a chapter can be
  * covered by more than one domain, so questions.domain_id is only set when
- * the mapping is unambiguous (see ingest-ccst-networking.ts), which left
+ * the mapping is unambiguous (see scripts/ingest/ingest.ts), which left
  * some domains with zero directly-tagged questions. Selecting by chapter
  * membership instead means every domain gets a real candidate pool.
  *

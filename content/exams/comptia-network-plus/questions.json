@@ -1,0 +1,6287 @@
+[
+  {
+    "chapterNumber": 1,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "Where does (did) a hub send data?",
+    "explanation": "Data comes into a hub through one wire and is then sent out through all the other wires. A hub sends data to all the systems connected to it.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Only to the receiving system",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Only to the sending system",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "To all the systems connected to the hub",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Only to the server",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 1,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "What uniquely identifies every NIC?",
+    "explanation": "The unique identifier on a network interface card is called the media access control (MAC) address.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "IP address",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Media access control address",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "ISO number",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Packet ID number",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 1,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "What Windows utility do you use to find the MAC address for a system?",
+    "explanation": "All versions of Windows use <code>ipconfig /all</code> from the command line to determine the MAC address.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "<code>ipconfig /all</code>",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "<code>ipcfg /all</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "<code>ping</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "<code>mac</code>",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 1,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "A MAC address is known as a(n) __________ address.",
+    "explanation": "The MAC address is a physical address.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "IP",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "logical",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "physical",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "OEM",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 1,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "A NIC sends data in discrete chunks called __________.",
+    "explanation": "Data is sent in discrete chunks called frames. Networks use frames to keep any one NIC from hogging the wire.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "segments",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "sections",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "frames",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "layers",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 1,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "The MAC address of which of the following begins a frame?",
+    "explanation": "The frame begins with the MAC address of the receiving NIC, followed by the MAC address of the sending NIC, followed, in turn, by type of encapsulated data, the data, and FCS.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Receiving system",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Sending system",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Network",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Router",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 1,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "A frame ends with a special bit called the frame check sequence (FCS). What does the FCS do?",
+    "explanation": "The data is followed by a special bit of checking information called the frame check sequence, which the receiving NIC uses to verify that the data arrived correctly.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Cycles data across the network",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Verifies that the MAC addresses are correct",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Verifies that the data arrived correctly",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Verifies that the IP address is correct",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 1,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "Which of the following is an example of a MAC address?",
+    "explanation": "A MAC address is a 48-bit value, and no two NICs ever share the same MAC address—ever. 00–50–56–A3–04–0C is a MAC address. Answer D (192.168.4.13) is an IP address.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "0–255",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "00–50–56–A3–04–0C",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "SBY3M7",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "192.168.4.13",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 1,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "Which layer of the OSI model controls the segmentation and reassembly of data?",
+    "explanation": "The Transport layer controls the segmentation and reassembly of data.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Application layer",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Presentation layer",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Session layer",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Transport layer",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 1,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "Which layer of the OSI model keeps track of a system’s connections to send the right response to the right computer?",
+    "explanation": "The Session layer keeps track of a system’s connections to ensure that it sends the right response to the right computer.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Application layer",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Presentation layer",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Session layer",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Transport layer",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "Which of the following topologies required termination?",
+    "explanation": "In a bus topology, all computers connected to the network via a main line. The cable had to be terminated at both ends to prevent signal reflection.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Star",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Bus",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Mesh",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Ring",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "Star-bus is an example of a _______________ topology.",
+    "explanation": "Star-bus is a hybrid topology because it uses a star physical topology and a bus signal topology.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "transitional",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "system",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "hybrid",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "rampant",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "Of the topologies listed, which one is the most fault-tolerant?",
+    "explanation": "Of the choices listed, only star topology has any fault tolerance.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Point-to-point",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Bus",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Star",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Ring",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "What term is used to describe the interconnectivity of network components?",
+    "explanation": "<em>Topology</em> is the term used to describe the interconnectivity of network components.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Segmentation",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Map",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Topology",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Protocol",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "Coaxial cables all have a(n) _______________ rating.",
+    "explanation": "All coaxial cables have an Ohm rating. RG-59 and RG-6 both are rated at 75 Ohms.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "resistance",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "watt",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "speed",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Ohm",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "Which of the following is a type of coaxial cable?",
+    "explanation": "RG-6 is a type of coaxial cable.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "RJ-45",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "RG-6",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "BNC",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Barrel",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "Which network topology connected nodes with a ring of cable?",
+    "explanation": "The aptly named ring topology connected nodes with a central ring of cable.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Star",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Bus",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Ring",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Mesh",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "Which network topology is most commonly seen only in wireless networks?",
+    "explanation": "Mesh is, for the most part, unique to wireless networks.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Star",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Bus",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Ring",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Mesh",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "Which of the following is a duplex fiber-optic connection?",
+    "explanation": "Of the options given, only the LC connector is designed for duplex fiber-optic.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "LC",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "RJ-45",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "ST",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "SC",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 2,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "What is the most common category of UTP used in new cabling installations?",
+    "explanation": "Cat 6 is the most common cabling category installed today, although Cat 6a and Cat 7 are gaining in popularity.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Cat 3",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Cat 5e",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Cat 6",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Cat 7",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "Ethernet hubs took an incoming packet and _______________ it out to the other connected ports.",
+    "explanation": "Hubs were nothing more than multiport repeaters.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "amplified",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "repeated",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "filtered",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "distorted",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "What is at the beginning of the Ethernet frame?",
+    "explanation": "At the front of the Ethernet frame is the preamble.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "MAC address",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Length",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Preamble",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "CRC",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "What type of bus did 10BASE-T use?",
+    "explanation": "10BASE-T used a star-bus topology.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Bus",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Ring",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Star bus",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Bus ring",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "What was the maximum distance that could separate a 10BASE-T node from its hub?",
+    "explanation": "The maximum distance between a 10BASE-T node and its hub was 100 meters.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "50 meters",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "100 meters",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "185 meters",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "200 meters",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "When used for Ethernet, unshielded twisted pair uses what type of connector?",
+    "explanation": "UTP cable uses an RJ-45 connector when used for Ethernet. RG-58 is the type of coaxial cable used with 10BASE-2. RJ-11 is the standard four-wire connector used for regular phone lines. RS-232 is a standard for serial connectors.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "RG-58",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "RJ-45",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "RJ-11",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "RS-232",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "What was the maximum number of nodes that could be connected to a 10BASE-T hub?",
+    "explanation": "A 10BASE-T hub could connect no more than 1024 nodes (computers).",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "1024",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "500",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "100",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "185",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "Which of the following is not true of crossover cables?",
+    "explanation": "One end of a crossover cable is wired according to the TIA/EIA 568B standard; the other is wired according to the TIA/EIA 568A standard. This is what crosses the wire pairs and enables two switches in early Ethernet to communicate.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "They are a type of twisted pair cabling.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "They reverse the sending and receiving wire pairs.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "They are used to connect switches.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Both ends of a crossover cable are wired according to the TIA/EIA 568B standard.",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "Which of the following connectors were used by 10BASE-FL cable? (Select two.)",
+    "explanation": "10BASE-FL used two types of fiber-optic connectors called SC and ST connectors.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "SC",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "RJ-45",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "RJ-11",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "ST",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "Which networking devices can use the Spanning Tree Protocol (STP)?",
+    "explanation": "The Spanning Tree Protocol is unique to switches.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Hubs",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Media converters",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "UTP cables",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Switches",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 3,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "What device directs packets based on MAC addresses?",
+    "explanation": "A switch uses MAC addresses to direct traffic only to the appropriate recipient.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Router",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Hub",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Repeater",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Switch",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 1,
+    "domainCode": "1",
+    "stem": "With 100BASE-T, what is the maximum distance between the switch and the node?",
+    "explanation": "The maximum distance is 100 meters.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "1000 meters",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "400 meters",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "100 meters",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "150 meters",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 2,
+    "domainCode": "1",
+    "stem": "What type of cable and connector does 100BASE-FX use?",
+    "explanation": "100BASE-FX uses multimode fiber with either ST or SC connectors.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Multimode fiber with ST or SC connectors",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "STP Cat 6 with RJ-45 connectors",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Single-mode fiber with MT-RJ connectors",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "UTP Cat 5e with RJ-45 connectors",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 3,
+    "domainCode": "1",
+    "stem": "Which of the following connector would you typically find with a 40 GbE installation?",
+    "explanation": "40 GbE installations over fiber typically use QSFP+ connectors.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "LC",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "SFP",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "QSFP+",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "XSFP+",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 4,
+    "domainCode": "1",
+    "stem": "What standard does IEEE 802.3ab describe?",
+    "explanation": "IEEE 802.3ab is the 1000BASE-T standard (also known as Gigabit Ethernet).",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "1000BASE-LX",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "1000BASE-T",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "100BASE-T",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "1000BASE-SX",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 5,
+    "domainCode": "1",
+    "stem": "What is the big physical difference between 1000BASE-SX and 100BASE-FX?",
+    "explanation": "While 1000BASE-SX looks similar to 100BASE-FX, the former commonly uses the LC connector; the latter frequently uses the SC connector.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "1000BASE-SX commonly uses the LC connector, whereas 100BASE-FX frequently uses the SC connector.",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "1000BASE-SX is single-mode, whereas 100BASE-FX is multimode.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "1000BASE-SX uses the ST connector exclusively.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "There is no difference.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 6,
+    "domainCode": "1",
+    "stem": "What is the maximum distance for 1000BASE-LX without repeaters?",
+    "explanation": "1000BASE-LX can go for 5000 meters (5 kilometers).",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "1 mile",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "2500 meters",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "20,000 feet",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "5000 meters",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 7,
+    "domainCode": "1",
+    "stem": "What is a big advantage to using fiber-optic cable?",
+    "explanation": "Because fiber uses glass and light, it is not affected by EMI.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Fiber is common glass; therefore, it’s less expensive.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Fiber is not affected by EMI.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Making custom cable lengths is easier with fiber.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "All that orange fiber looks impressive in the network closet.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 8,
+    "domainCode": "1",
+    "stem": "How many wire pairs does 1000BASE-T use?",
+    "explanation": "1000BASE-T uses all four pairs of wires.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "1",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "2",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "3",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "4",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 9,
+    "domainCode": "1",
+    "stem": "What is the standard connector for the 10 GbE fiber standard?",
+    "explanation": "There is no standard connector; the 10 GbE committee has left this up to the manufacturers.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "ST",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "SC",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "MT-RJ",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "There is no standard.",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 4,
+    "ordinal": 10,
+    "domainCode": "1",
+    "stem": "What is the maximum cable length of 10GBASE-T on Cat 6?",
+    "explanation": "With Cat 6 cable, 10GBASE-T is limited to 55 meters.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "55 meters",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "100 meters",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "20 meters",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "70 meters",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 5,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "Aside from outright breakage, what’s the primary worry with bending a fiber-optic cable too much?",
+    "explanation": "Bending a fiber-optic cable too much can cause light leakage and thus loss or degradation of signal.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Attenuation",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Bonding",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Light leakage",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Near-end crosstalk",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 5,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "Which of the following enables you to use multiple NICs in a computer to achieve a much better network bandwidth?",
+    "explanation": "Port aggregation (or bonding or link aggregation) is the process of using multiple NICs as a single connection, thus increasing bandwidth.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Linking",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Port aggregation",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "SLI",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Xing",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 5,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "How many pairs of wires are in a Cat 6-rated cable?",
+    "explanation": "The Cat 6 rating requires four pairs of wires.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "2",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "4",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "8",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "It doesn’t specify.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 5,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "A(n) _______________ organizes and protects the horizontal cabling in the telecommunications room.",
+    "explanation": "A patch panel organizes and protects the horizontal cabling in the telecommunications room.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "rack",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "patch panel",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "outlet",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "110 jack",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 5,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "Which of the following would never be seen in an equipment rack?",
+    "explanation": "All these devices may be found in equipment racks.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Patch panel",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "UPS",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "PC",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "All of the above may be seen in an equipment rack.",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 5,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "What are patch cables used for? (Select two.)",
+    "explanation": "Patch cables are used to connect the patch panel to the switch and the PCs to the outlet boxes.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "To connect different telecommunications rooms.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "To connect the patch panel to the switch.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "They are used as crossover cables.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "To connect PCs to outlet boxes.",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 5,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "Which of the following network technologies use UTP cabling in a star topology?",
+    "explanation": "1000BASE-T uses UTP cabling in a star topology.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Crosstalk",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Fiber optics",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "1000BASE-SX",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "1000BASE-T",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 5,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "Your first day on the job, you get a call from the owner complaining that her network connection is down. A quick check of the central switch verifies that it’s in good working order, as is the boss’s PC. As luck would have it, your supervisor calls at just that time and tells you not to worry; she’ll be by in a jiffy with her TDR to help root out the problem. What is she talking about?",
+    "explanation": "TDR stands for time-domain reflectometer, the generic term for a decent network tester that can determine locations of cable breaks, among other things.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Tune-domain resonator, her network tone generator",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Time-detuning resonator, her network tester",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Time-domain reflectometer, her network tester",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Time-detail resource, her network schematic",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 5,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "What two devices together enable you to pick a single cable out of a stack of cables? (Select two.)",
+    "explanation": "A tone generator and tone probe work together to enable you to pick a single cable out of a stack of cables.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Tone aggregator",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Tone binder",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Tone generator",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Tone probe",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 5,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "Rack-mounted equipment has a height measured in what units?",
+    "explanation": "Rack-mounted equipment uses a height measurement known as a unit (U).",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Mbps",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "MBps",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Inches",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "U",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 6,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "What is the result of converting 11110000.10111001.00001000.01100111 to dotted decimal notation?",
+    "explanation": "240.185.8.103 is the result of the conversion to dotted decimal notation.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "4.5.1.5",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "240.185.8.103",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "15.157.16.230",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "103.8.185.240",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 6,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "Eric sits down at a client’s Windows computer that’s having some network connectivity issues. He wants to start troubleshooting by viewing both the system’s IP address and MAC address. What command should he use?",
+    "explanation": "In Windows, the <code>ipconfig /all</code> command and switch will show both the IP address and the MAC address of a system.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "<code>ifconfig</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "<code>ip addr</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "<code>ipconfig</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "<code>ipconfig /all</code>",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 6,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "Which of the following describe IPv4? (Select three.)",
+    "explanation": "IPv4 uses decimal numbers, uses periods as separators, and has four octets.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Uses decimal, not hexadecimal numbers",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Uses periods, not colons, as separators",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Uses four octets",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Uses eight sets of characters",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 6,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "What is the result of converting 192.168.0.1 to binary?",
+    "explanation": "11000000.10101000.00000000.00000001 is the binary conversion of 192.168.0.1.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "11000000.10101000.00000000.00000001",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "11000000.10101000.00000000.10000000",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "11000000.10101000.00000000.1",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "11.10101.0.1",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 6,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "Which of the following are <em>not</em> valid IP addresses to assign to a Windows-based system? (Select two.)",
+    "explanation": "The special reserved IP address 127.0.0.1 is called the loopback address and is used for testing, not assigning to computers. The IP address 250.250.250.255 falls in the Class E range, which isn’t assigned to hosts.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "10.1.1.1/24",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "127.0.0.1/24",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "250.250.250.255/24",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "192.168.0.1/24",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 6,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "Phyllis has a service ticket for one of the latest Apple Macs that’s having network connectivity problems. What command could she use to quickly see the IP address and MAC address for that computer?",
+    "explanation": "Using the <code>ifconfig</code> command on a macOS system shows the system’s IP address and MAC address.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "<code>ifconfig</code>",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "<code>ip addr</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "<code>ipconfig</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "<code>ipconfig /all</code>",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 6,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "Which of the following is a valid Class C IP address?",
+    "explanation": "The address 192.168.0.254 falls within the range of Class C addresses because it starts with an octet from 192 through 223.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "50.50.50.50",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "100.100.100.100",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "192.168.0.254",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "250.250.250.250",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 6,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "What processes are used to take a single class of IP addresses and chop it up into multiple smaller groups? (Select two.)",
+    "explanation": "Classless Inter-Domain Routing (CIDR) and subnetting enable you to take a single class of IP addresses and chop it up into multiple smaller groups called subnets.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "CIDR",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "ping",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Subnetting",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Subnitting",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 6,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "Which statements about subnet masks are true? (Select two.)",
+    "explanation": "Every client on a network shares the same subnet mask. Subnet masks consist of a string of ones followed by a string of zeroes.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Every network client has a unique subnet mask.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Every client on a network shares the same subnet mask.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "A subnet mask consists of a string of zeroes followed by a string of ones.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "A subnet mask consists of a string of ones followed by a string of zeroes.",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 6,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "In which order are packets created and sent when a client requests an IP address from a DHCP server?",
+    "explanation": "DHCP Discover, DHCP Offer, DHCP Request, DHCP ACK (remember DORA) is the correct order.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "DHCP Discover, DHCP Offer, DHCP Request, DHCP ACK",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "DHCP Discover, DHCP Request, DHCP Offer, DHCP ACK",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "DHCP Request, DHCP Offer, DHCP Discover, DHCP ACK",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "DHCP Request, DHCP Offer, DHCP ACK, DHCP Discover",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "What is a router?",
+    "explanation": "A router is a piece of hardware that forwards packets based on IP address.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "A piece of hardware that forwards packets based on IP address",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "A device that separates your computers from the Internet",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "A piece of hardware that distributes a single Internet connection to multiple computers",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "A synonym for a firewall",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "Routers must use the same type of connection for all routes, such as Ethernet to Ethernet or DOCSIS to DOCSIS.",
+    "explanation": "False; a router can interconnect different Layer 2 technologies.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "True",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "False",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "What technology allows you to share a single public IP address with many computers?",
+    "explanation": "Port address translation, commonly known as PAT, enables you to share a single public IP address with many computers.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Static address translation",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Natural address translation",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Computed public address translation",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Port address translation",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "Given the following routing table:<p class=\"quesh\"><img alt=\"Images\" src=\"/content/comptia-network-plus/images/f0278-01.webp\" width=\"720\" height=\"68\" loading=\"lazy\" decoding=\"async\" /></p><p class=\"quesh\">where would a packet with the address 64.165.5.34 be sent?</p>",
+    "explanation": "It would be sent to the 64.165.5.0/24 network on interface WAN.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "To the default gateway on interface WAN.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "To the 10.11.12.0/24 network on interface LAN.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "To the 64.165.5.0/24 network on interface WAN.",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Nowhere; the routing table does not have a route for that address.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "Which of the following is an EGP?",
+    "explanation": "Border Gateway Protocol (BGP) is an exterior gateway protocol.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "BGP",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "IGP",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "EIGRP",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "IS-IS",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "What dynamic routing protocol uses link state advertisements to exchange information about networks?",
+    "explanation": "Open Shortest Path First (OSPF) uses link state advertisement (LSA) packets to exchange information about networks.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "BGP",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "OSPF",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "EIGRP",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "IS-IS",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "What is Area 0 called in OSPF?",
+    "explanation": "Area 0 is called the backbone area.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Local Area",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Primary Zone",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Trunk",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Backbone",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "Which of the following is not a name for a serial cable that you use to configure a router?",
+    "explanation": "The Yost cable, which was invented to standardize the serial console interface to connect to the router console port, is also known as a rollover or console cable.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Console cable",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Yost cable",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Rollover cable",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Null modem cable",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "When you are first setting up a new router, you should never plug it into an existing network.",
+    "explanation": "True; never plug a new router into an existing network.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "True",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "False",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 7,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "The traceroute utility is useful for which purpose?",
+    "explanation": "The traceroute utility is useful for discovering information about the routers between you and the destination address.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Configuring routers remotely",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Showing the physical location of the route between you and the destination",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Discovering information about the routers between you and the destination address",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Fixing the computer’s local routing table",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "What is the session information—IP address, port number, and Layer 4 protocol—held in memory called? (Select two.)",
+    "explanation": "The session information held in memory is called an endpoint or socket.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Endpoint",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Port",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Segment",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Session",
+        "isCorrect": false
+      },
+      {
+        "label": "E",
+        "body": "Socket",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "Which of the following are key benefits of Web-based mail? (Select two.)",
+    "explanation": "You can access a Web-based e-mail account from any browser on any machine connected to the Internet. These accounts are great for creating throw-away e-mail addresses.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "You can use a third-party application, like Microsoft Outlook, to download your e-mail.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "You can access your e-mail from anywhere in the world using a Web browser and an Internet connection.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "It is completely spam-free.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "It is great for creating throw-away accounts.",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "A TLS URL connection starts with which prefix?",
+    "explanation": "URLs that use a TLS connection start with https instead of http.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "http",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "www",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "ftp",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "https",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "Which statements about SSH and Telnet are true? (Select two.)",
+    "explanation": "SSH encrypts data and is more secure than Telnet. Also, SSH uses port 22, whereas Telnet uses port 23.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Windows comes with preinstalled SSH and Telnet clients.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "SSH is more secure than Telnet because it encrypts data.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Telnet is a command-line tool, whereas SSH is a GUI tool.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "SSH uses port 22, and Telnet uses port 23.",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "Why might you use the netstat utility?",
+    "explanation": "Use netstat to see the endpoints of your sessions.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "To see the route an IP packet takes across multiple routers",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "To see your IP address and configuration details",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "To see the endpoints of your sessions",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "To issue commands to a remote server",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "Which protocol enables synchronization of communication among connected computing devices?",
+    "explanation": "Network Time Protocol enables synchronization of communication.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "FTP",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "IMAP4",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "NTP",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "TFTP",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "Port 143 (IMAP4) is what kind of port?",
+    "explanation": "Ports 0–1023 are well-known ports.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Well-known",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Registered",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Ephemeral",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Reserved",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "What port does passive FTP use?",
+    "explanation": "Passive FTP only uses port 21 and a random port. Active FTP uses ports 20 and 21.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "20",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "21",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "23",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "25",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "Which of the following protocols are used to retrieve e-mail from servers? (Select two.)",
+    "explanation": "IMAP4 and POP3 are used to retrieve e-mail.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "IMAP4",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "ICMP",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "IGMP",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "POP3",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 8,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "Which statements about netstat switches (in Windows) are true? (Select three.)",
+    "explanation": "<code>–a</code> shows all used ports; <code>–n</code> shows port numbers and IP addresses; and <code>–o</code> shows the process ID.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "<code>–a</code> shows all used ports.",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "<code>–n</code> shows port numbers and IP addresses.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "<code>–o</code> shows the process ID.",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "<code>–s</code> shows the application name.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 9,
+    "ordinal": 1,
+    "domainCode": "1",
+    "stem": "Which DNS component performs a recursive lookup to determine an IP address?",
+    "explanation": "The resolver performs a recursive lookup to determine an IP address.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "FQDN",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "ICANN",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Name server",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Resolver",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 9,
+    "ordinal": 2,
+    "domainCode": "1",
+    "stem": "Which record type defines the primary name server in charge of a zone?",
+    "explanation": "The SOA record defines the primary name server in charge of a zone.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "A",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "AAAA",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "NS",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "SOA",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 9,
+    "ordinal": 3,
+    "domainCode": "1",
+    "stem": "What command do you run to see the DNS cache on a Windows system?",
+    "explanation": "To see the DNS cache on a Windows system, run the command <code>ipconfig /displaydns</code> at a command prompt.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "<code>ping /showdns</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "<code>ipconfig /showdns</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "<code>ipconfig /displaydns</code>",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "<code>ping /displaydns</code>",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 9,
+    "ordinal": 4,
+    "domainCode": "1",
+    "stem": "What’s the process through which records propagate among name servers?",
+    "explanation": "A zone transfer is the process through which records propagate among name servers.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "hosts file",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Recursive transfer",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Resolver cache",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Zone transfer",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 9,
+    "ordinal": 5,
+    "domainCode": "1",
+    "stem": "Which record type holds the IPv6 address for a host?",
+    "explanation": "AAAA records hold IPv6 addresses for hosts.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "A",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "AAAA",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "A6",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "SOA",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 9,
+    "ordinal": 6,
+    "domainCode": "1",
+    "stem": "Which record type acts like an alias, returning an FQDN rather than an IP address?",
+    "explanation": "A CNAME record acts like an alias, returning an FQDN rather than an IP address.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "A",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "CNAME",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "MX",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "SOA",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 9,
+    "ordinal": 7,
+    "domainCode": "1",
+    "stem": "Which type of DNS record is used by mail servers to determine where to send e-mail?",
+    "explanation": "The MX record is used by mail servers to determine where to send e-mail.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "A record",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "CNAME record",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "MX record",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "SMTP record",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 9,
+    "ordinal": 8,
+    "domainCode": "1",
+    "stem": "Running which command enables you to clear the DNS cache?",
+    "explanation": "Running the command <code>ipconfig /flushdns</code> clears the DNS cache.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "<code>ipconfig</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "<code>ipconfig /all</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "<code>ipconfig /dns</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "<code>ipconfig /flushdns</code>",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 9,
+    "ordinal": 9,
+    "domainCode": "1",
+    "stem": "Running which command enables you to query the zone of a DNS server?",
+    "explanation": "The tool to use for querying DNS server zones is <code>nslookup</code>.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "<code>ipconfig</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "<code>nslookup</code>",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "<code>ping</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "<code>xdns</code>",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 9,
+    "ordinal": 10,
+    "domainCode": "1",
+    "stem": "Where does a DNS server store the IP addresses and FQDNs for the computers within a domain?",
+    "explanation": "A DNS server stores the IP addresses and FQDNs for the computers within a domain in the forward lookup zone (and reverse lookup zone as well).",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Forward lookup zone",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Canonical zone",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "MX record",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "SMTP record",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 10,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "Any encryption that uses the same key for encryption and decryption is called?",
+    "explanation": "Symmetric-key encryption uses the same key.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Encoded key",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Symmetric key",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Single key",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Synthetic key",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 10,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "A(n) _______________ cipher encrypts the plaintext one bit at a time.",
+    "explanation": "A stream cipher encrypts one bit at a time.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "block",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "forwarding",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "stream",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "asymmetric",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 10,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "In a PKI encryption method, which key encrypts the data?",
+    "explanation": "You send someone a public key that he or she, in turn, encrypts. The private key decrypts it.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Public",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Private",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Both",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Depends on who sends the data",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 10,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "The process of verifying with a high degree of confidence that the sender is who the receiver thinks he or she should be is called _______________.",
+    "explanation": "This is the definition of nonrepudiation.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "PKI",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "authentication",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "locking",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "nonrepudiation",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 10,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "A hash function is by definition a _______________.",
+    "explanation": "Hash functions must be one-way. They should be complex, but complexity is not a requirement.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "complex function",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "PKI function",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "one-way function",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "systematic function",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 10,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "Which of the following is a hash function?",
+    "explanation": "Of the choices listed, only SHA-256 is a hash function.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "SHA-256",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "RC4",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "AES",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "BMX",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 10,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "In order to have a PKI you must have a(n) _______________.",
+    "explanation": "A public-key infrastructure (PKI) must have a root authority.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Web server",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Web of trust",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "root authority",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "unsigned certificate",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 10,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "Which type of access control requires a label to define its sensitivity?",
+    "explanation": "Mandatory access control must use a label to define sensitivity.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "MAC",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "DAC",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "RBAC",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "VAC",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 10,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "If you see some traffic running on UDP ports 1812 and 1813, what AAA standard is running?",
+    "explanation": "RADIUS uses UDP ports 1812 and 1813.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "PPP",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "RADIUS",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "MS-CHAP",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "TACACS+",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 10,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "Which authentication standard is highly time sensitive?",
+    "explanation": "All Kerberos tickets are timestamped.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "PAP",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "RADIUS",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "802.1X",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Kerberos",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 11,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "A static VLAN assigns VLANs to _______________.",
+    "explanation": "Static VLANs assign VLANs to physical ports.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "IP addresses",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "MAC addresses",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "ports",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "trunks",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 11,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "Which of the following is the trunking protocol used in today’s VLANs?",
+    "explanation": "The 802.1Q standard is almost universal for VLAN trunking.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "802.1Q",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "802.1X",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "802.1t",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "802.1z",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 11,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "Eduardo accesses a managed switch from his desktop computer on the far side of the campus. What type of access management enables this connection?",
+    "explanation": "In-band management enables access over a LAN to a managed switch.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "In-band management",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "LAN-band management",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Out-of-band management",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "WAN-band management",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 11,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "When the network is very busy, VoIP calls start to sound badly clipped. What solution might improve the quality of the VoIP calls?",
+    "explanation": "Traffic shaping will provide extra bandwidth to the VoIP applications, improving sound quality.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "802.1z",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Traffic shaping",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "DNS",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Content switching",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 11,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "What are the benefits of caching on a Web proxy? (Select two.)",
+    "explanation": "Cached Web pages can be sent to clients quickly. The contents can also be checked for viruses.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Response time",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Virus detection",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Tracking",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Authentication",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 11,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "802.1X is a great example of _______________.",
+    "explanation": "802.1X is port-based authentication.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "encryption",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "content switching",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "port-based authentication",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "VLAN trunking",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 11,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "Rashan’s company has multiple servers from which remote users download files. What should Rashan implement on his servers to make them appear as a single server so that they receive similar amounts of requests?",
+    "explanation": "Load balancing spreads client requests evenly across all the servers.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Load balancing",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Port authentication",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Port mirroring",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Trunking",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 11,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "Which of the following statements best applies to an IDS?",
+    "explanation": "An IDS inspects a copy of all traffic in a network and reports intrusions.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "An IDS inspects a copy of all traffic in a network and can respond to detected intrusions with actions.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "An IDS inspects all traffic as it enters a network and can respond to detected intrusions with actions.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "An IDS inspects a copy of all traffic in a network and reports intrusions.",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "An IDS inspects all traffic as it enters a network and reports intrusions.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 11,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "Which IEEE protocol enables port bonding?",
+    "explanation": "The IEEE Link Aggregation Control Protocol (LACP) enables port bonding. (The Cisco-proprietary Port Aggregation Protocol—PAgP—accomplishes this as well.)",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "802.1Q",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "LACP",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "PAgP",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "ZACP",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 11,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "Allison wants to add a layer of protection to her network. She wants to actively monitor all network traffic and act immediately to stop any attacks. What should she install?",
+    "explanation": "An intrusion protection system (IPS) sits squarely in the flow of traffic monitoring the network, and can act immediately to stop any attacks.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Firewall",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "IDS",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "IPS",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "NIDS",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 12,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "Which of the following is a valid IPv6 address?",
+    "explanation": "B is invalid because it has two sets of double colons. C is using IPv4 numbers. D is using periods instead of colons.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "2001:bead:beef::1",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "2001:30f5::3d62::04ffe",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "192.168.1.4:ff45:129g:48fd:1",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "2001.0470.b33e.23f4.27de.d34a.aed2.1827",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 12,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "What is the main benefit of IPv6 aggregation?",
+    "explanation": "Aggregation reduces the size and complexity of routing tables.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Aggregation enables users to combine multiple IPv6 addresses to increase their bandwidth and overall Internet speed exponentially.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Aggregation is backward-compatible and can be directly applied to IPv4 networks.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Aggregation reduces the size and complexity of routing tables, allowing routers to work more efficiently.",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "In aggregation, signals are increased with each router the packet travels through, allowing for greater distances over wireless networks.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 12,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "What kind of DNS records do IPv6 addresses use?",
+    "explanation": "The DNS system uses AAAA for IPv6 records.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "A",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "SIX",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "AAAA",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "NSSIX",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 12,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "Is NAT needed with IPv6?",
+    "explanation": "Network address translation (NAT) is no longer needed because of the massive size of the IPv6 address space.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "No, because NAT has been replaced with a new version called NAT6.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "No, the address space is so large that rationing routable addresses is unnecessary.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Yes, because it is the only way to protect against hackers.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Yes, because of the limited nature of IPv6 addressing.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 12,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "What does a client need to access IPv6 content on the Internet?",
+    "explanation": "A client needs a global unicast address to access the IPv6 Internet.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "A link-local address.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "A multicast address.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "A global unicast address.",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "The IPv6 Internet is currently unreachable.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 12,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "A newly installed host uses what NDP control message type to find available routers on the network?",
+    "explanation": "Hosts use router solicitation messages to discover available routers.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Network advertisement",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Network solicitation",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Router advertisement",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Router solicitation",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 12,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "Downstream routers may, in theory, do what if their upstream router suddenly changes the IPv6 prefix it delegates to them?",
+    "explanation": "Clients should be able to adopt the new prefix by renumbering.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Fall back to IPv4 in order to be able to route traffic.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Send an all-nodes router advertisement so that clients can renumber.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Use link aggregation to merge the two prefixes.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Send a router redirect to tell their own downstream routers about the new prefix.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 12,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "What service do tunnel brokers provide?",
+    "explanation": "Tunnel brokers provide a way to jump the gap between users’ computers on an IPv4 infrastructure and the IPv6 Internet.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "A way for users on IPv4 infrastructures to jump the gap between their computers and the IPv6 Internet routers",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "No useful service",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Access to IPv6 DNS records",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "A second connection for multihoming",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 12,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "What is the /48 prefix of the address 2001:0480:b6f3:0001::0001?",
+    "explanation": "The /48 prefix consists of only the first three groups of the address.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "2001:480:b6f3:1",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "2001:480:b6f3",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "2001:480:b6f3:1:0000::1",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "2001:480:b6f3:1:0000:0000:0000:1",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 12,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "Which of the following is the valid fully reduced version of the address 2001:0489:000f:0000:0000:1f00:0000:000d?",
+    "explanation": "Leading zeroes can be dropped and only one group of contiguous zeroes can be represented by a double colon.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "2001:489:f::1f:0:d",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "2001:489:f::1f00::d",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "2001:0489:000f::1f00:0000:000d",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "2001:489:f::1f00:0:d",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 13,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "You have just had DSL installed at your house. Although the Internet connection is fast, your phones no longer work. What is the problem?",
+    "explanation": "The problem is the installer did not install the POTS filters on the jacks with phones attached.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "The installer failed to install the POTS filters on the phones.",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Nothing; the phones can’t function at the same time as the Internet.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "The house phone lines can’t handle the bandwidth of both the phone and DSL.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "The DSL modem is missing the filter and is causing line interference.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 13,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "What protocol do cable modems use?",
+    "explanation": "Cable modems use DOCSIS, Data Over Cable Service Interface Specification.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "ACMSIS",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "CMAS",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "DOCSIS",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "CCSIP",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 13,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "What is SONET used for?",
+    "explanation": "SONET is used for long-distance, high-speed, fiber-optic transmission.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Short-distance, high-speed, fiber-optic transmission",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Long-distance, high-speed, fiber-optic transmission",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Long-distance, low-speed, copper cable transmission",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Short-distance, low-speed, copper cable transmission",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 13,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "Janina needs to connect two office LANs in two different cities to function as a single network. She opts to use virtual private networking to connect the two LANs over the public Internet. What kind of VPN connection will she employ?",
+    "explanation": "A site-to-site VPN connects LANs over the Internet.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Client-to-site",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Host-to-host",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Point-to-point",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Site-to-site",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 13,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "Which VPN technology enables direct connections between satellite locations?",
+    "explanation": "A dynamic multipoint VPN (DMVPN) enables direct VPN connections between multiple locations.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "PPTP VPN",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "IPsec VPN",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "SSL VPN",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "DMVPN",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 13,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "Which of the following is a protocol commonly used with today’s VPNs?",
+    "explanation": "Most VPNs use native IPsec today.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "PPTP",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "L2TP",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "IPsec",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "PPPoE",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 13,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "Which last-mile technology enables bidirectional throughput of up to 1 Gbps?",
+    "explanation": "Of the listed last-mile connections, only fiber offers bidirectional throughput options of up to 1 Gbps.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Cable",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "DSL",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Fiber",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "4G",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 13,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "Aaron wants to connect his office to the Internet, but it’s an historic building, so he can’t run wires. Which option would give him the most throughput?",
+    "explanation": "Of the listed last-mile connections, only satellite provides a wireless option. (4G or 5G would work as well or better, but those aren’t listed options.)",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Cable",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "DSL",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Fiber",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Satellite",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 13,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "Which technology enables a private optical network within a MAN?",
+    "explanation": "Use metro Ethernet to create a private network within a metropolitan area using optical fiber.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "DSL",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "DOCSIS",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Metro Ethernet",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "VPN",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 13,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "Which architecture enables fiber-to-the-home to connect the neighborhood switch to the premises?",
+    "explanation": "Fiber-to-the-home relies on passive optical network (PON) architecture to connect a neighborhood switch to a final destination.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "DOCSIS",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "HSPA+",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "PON",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "PPPoE",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 14,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "What is the progressive loss of radio signal passing through different media called?",
+    "explanation": "Attenuation is the term describing the progressive loss of radio signal passing through different media.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Attenuation",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "EAP",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "RFI",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "SNR",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 14,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "Which technology enables use of a WAP without directly connecting the WAP to an AC power outlet?",
+    "explanation": "Power over Ethernet (PoE) enables a wireless access point (WAP) to use electricity from a PoE switch rather than connect to an AC power outlet directly.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "AES",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "PoE",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Powered Wi-Fi",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "TKIP",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 14,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "Which of the following is known as a basic service set in infrastructure mode?",
+    "explanation": "A single wireless access point (WAP) is a basic service set. Wi-Fi Protected Access (WPA) is a data encryption scheme. A RADIUS server provides authentication via a username and password. Temporal Key Integrity Protocol (TKIP) is used by the WPA encryption scheme to encrypt the data.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "A WAP",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "A WPA",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "A RADIUS server",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "A TKIP",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 14,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "What feature enabled 802.11n networks to minimize dead spots?",
+    "explanation": "Transit beamforming enabled an 802.11n WAP to minimize dead spots by using multiple antennas.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Channel bonding",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "FIFO",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "MIMO",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Transit beamforming",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 14,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "When setting up WPA2-PSK on his wireless network, Edsel has the option to choose TKIP or AES. Which should he implement?",
+    "explanation": "Although WPA2 supports both the Temporal Key Integrity Protocol (TKIP) and Advanced Encryption Standard (AES), TKIP is deprecated and AES is far more secure.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Only AES",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Only TKIP",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Both AES and TKIP",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Neither. He should implement RADIUS.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 14,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "To achieve maximum Wi-Fi coverage in a room, where should you place the WAP?",
+    "explanation": "To achieve maximum coverage, place the WAP in the center of the room.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Place the WAP on the north side of the room.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Place the WAP in the center of the room.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Place the WAP near a convenient electrical outlet.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "It doesn’t matter where you place the WAP.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 14,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "What hardware enables wireless PCs to connect to resources on a wired network segment in infrastructure mode? (Select two.)",
+    "explanation": "A wireless access point or wireless bridge enables you to connect wireless PCs to a wired network segment.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "An access point",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "A router",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "A hub",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "A wireless bridge",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 14,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "What do you call a wireless network in infrastructure mode with more than one access point?",
+    "explanation": "A wireless network in infrastructure mode with more than one access point is called an EBSS, or extended basic service set.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "BSS",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "EBSS",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "WBSS",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "ExNet",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 14,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "What type of server supports EAP-encrypted passwords in accordance with the 802.1X standard?",
+    "explanation": "A RADIUS server provides authentication through a username and password encrypted with Extensible Authentication Protocol (EAP).",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "WAP server",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "WEP server",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "RADIUS server",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "NAS server",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 14,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "Which of the following is the most secure method of wireless encryption?",
+    "explanation": "WPA3 offers the highest security here. WPA2 is more secure than WPA or WEP because it uses CCMP-AES, a 128-bit cipher that is harder to crack than the 128-bit TKIP wrapper used by WPA. It would rank second here.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "WEP",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "WPA",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "WPA2",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "WPA3",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 15,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "Which of the following best describes the practice of increasing the capacity of a service or application deployed in a private cloud by adding extra instances in a public cloud?",
+    "explanation": "While increasing an application’s capacity by adding instances is also called elasticity, allowing a private/community cloud application that needs more resources than are available to grow into public-cloud resources is called cloud bursting.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Cloud bursting",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Elasticity",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Flexibility",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Orchestration",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 15,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "What enables two VMs hosted on the same physical machine to communicate without leaving the machine itself?",
+    "explanation": "Hypervisors come with virtual switching capability to enable the VMs to communicate.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Virtual firewall",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Virtual LAN",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Virtual PBX",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Virtual switch",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 15,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "________________ involves building up longer sequences of automated steps.",
+    "explanation": "Orchestration is a higher level of automation that builds up longer sequences of tasks that better map to what the organization or employees need to accomplish.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Composition",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Containerization",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Orchestration",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Virtualization",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 15,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "In SDN, the ___________ plane is responsible for setting up network devices to use the correct network controller.",
+    "explanation": "In software-defined networking, the infrastructure plane includes the network devices themselves. The management plane is responsible for pointing these devices to the controller.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "application",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "control",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "infrastructure",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "management",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 15,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "Which of the following is not a potential advantage of a virtual machine over a physical machine?",
+    "explanation": "A virtual machine managed like a physical machine has the same backup needs.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Minimize downtime",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Consolidate multiple physical machines",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Automatic backups",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Allocate resources more efficiently",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 15,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "Janelle wants to start a new photo-sharing service for real pictures of Bigfoot, but she doesn’t own any servers. How can she quickly create a new server to run her service?",
+    "explanation": "Using the public cloud will enable Janelle to quickly create the servers she needs.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Public cloud",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Private cloud",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Community cloud",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Hybrid cloud",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 15,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "After the unforeseen failure of her Bigfoot-picture-sharing service, bgFootr—which got hacked when she failed to stay on top of her security updates—Janelle has a great new idea for a new service to report Loch Ness Monster sightings. What service would help her set up a server without having to play system administrator?",
+    "explanation": "By switching to a PaaS, Janelle can concentrate on creating her service and leave the lower-level administration up to the PaaS provider.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Software as a service",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Infrastructure as a service",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Platform as a service",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Desktop as a service",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 15,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "John has two groups of virtual machines that each need to be on their own subnet. Which of the following should he use to subnet each group of VMs without moving or recabling hardware?",
+    "explanation": "A virtual router performs all the same Layer 3 tasks that its physical cousins do.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Virtual NIC",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Virtual switch",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Virtual router",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Virtual firewall",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 15,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "The simplest way to interconnect local and cloud resources is to establish a __________.",
+    "explanation": "While a private direct connection is also a way to interconnect resources, it isn’t as simple as a site-to-site VPN tunnel.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Platform as a service",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "private direct connection",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "site-to-site VPN",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "software-defined network",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 15,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "BigTracks is a successful Bigfoot-tracking company using an internal service to manage all of its automated Bigfoot monitoring stations. A Bigfoot migration has caused a massive increase in the amount of audio and video sent back from BigTracks’ stations. In order to add short-term capacity, BigTracks can create new servers in the public cloud. What model of cloud computing does this describe?",
+    "explanation": "BigTracks is creating a hybrid cloud by connecting its internal private cloud to a public cloud to quickly expand capacity.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Public cloud",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Private cloud",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Community cloud",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Hybrid cloud",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 16,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "Which of the following data center implementations connects access layer to distribution layer to core layer?",
+    "explanation": "The three-tiered architecture connects three layers—access, distribution, and core—in the classic data center.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "North-south traffic flow",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Spine-and-leaf architecture",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Three-tiered architecture",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Top-of-rack switching",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 16,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "Which SAN feature provides high availability through more than one connection between the server and the SAN?",
+    "explanation": "Most storage area network (SAN) solutions use multipathing—more than one connection or path between the server and SAN—for high availability.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Fibre Channel",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "iSCSI",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Multipathing",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Multiplaning",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 16,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "Blackwell Held, LLC, leases space in the Wapi Lava Corporation’s data center. Which term describes this type of scenario?",
+    "explanation": "Leasing space for your equipment in someone else’s space is an example of co-location.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Branch office",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Co-location",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Leased-line",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "On-premises",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 16,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "Which of the following protocols provides load balancing in a spine-and-leaf data center?",
+    "explanation": "Equal-Cost Multipath (ECPM) is one protocol used in spine-and-leaf architecture that provides load balancing.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "ECPM",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "HSRP",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "STP",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "VRRP",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 16,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "Joan’s data center has two ISPs, one fiber and one cable. What aspect of security does this represent?",
+    "explanation": "Having multiple Internet service providers (ISPs) for a data center provides redundancy.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Active-active",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Clustering",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Multipathing",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Redundancy",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 16,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "Which open standard protocol enables redundant routers to appear as a single router for high availability?",
+    "explanation": "Virtual Router Redundancy Protocol (VRRP) groups multiple routers into a single router for high availability. The Cisco-proprietary Hot Standby Router Protocol (HSRP) accomplishes the same thing, but it’s not an open standard.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "HSRP",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "RRPX",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "VRRP",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "XRRP",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 16,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "Brenda wants to add a second ISP to her small data center for high availability. What should she consider?",
+    "explanation": "Path diversity in selecting a second ISP—making sure both ISPs don’t share the same lines—enhances high availability.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Fiber",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Multipath",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Multitenancy",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Path diversity",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 16,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "Which of the following documentation includes dimensions and locations of rooms plus the physical objects—racks, raised floors, AC units, and so on—in the space?",
+    "explanation": "A floor plan includes room dimensions and the details of objects in those rooms.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Floor plan",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Logical network diagram",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Rack diagram",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "System diagram",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 16,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "Which document contains details about all the hardware and software installed in a data center and provides the foundation for future upgrades?",
+    "explanation": "A baseline configuration document contains details about all the installed hardware and software in a data center, and provides the foundation for future upgrades.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Baseline configuration",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Logical network diagram",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Performance baseline",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "System diagram",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 16,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "Which of the following is a review of an organization’s compliance with applicable laws, rules, and regulations?",
+    "explanation": "An audit, performed at least annually by a qualified third-party organization, will show an organization’s compliance with applicable laws, rules, and regulations.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Audit",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Baseline configuration",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Performance baseline",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Site survey",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 17,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "Devices using which of the following protocols form a mesh network using the 908- and 916-MHz band?",
+    "explanation": "Devices using the Z-Wave protocol form a mesh network using the 908- and 916-MHz band.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "802.11 Wi-Fi",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Bluetooth",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Zigbee",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Z-Wave",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 17,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "Connected Bluetooth devices create what kind of network?",
+    "explanation": "Connected Bluetooth devices create a personal area network (PAN).",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "CAN",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "LAN",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "MAN",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "PAN",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 17,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "RTP runs on which ports?",
+    "explanation": "The Real-time Transport Protocol (RTP) uses undefined UDP ports, though many companies use the IETF-recommended ports of 6970–6999.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "ICMP ports 5004, 5005",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "UDP ports 5004, 5005",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "TCP ports 5004, 5005",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Undefined UDP ports",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 17,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "Of the following, which would most likely have an industrial control system implementation?",
+    "explanation": "Of the choices offered, a bottling company is the one most likely to have an industrial control system (ICS) implemented.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "An apartment complex",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "A coffee shop",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "A city park",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "A bottling company",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 17,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "H.323 uses which TCP port number?",
+    "explanation": "H.323 uses TCP port 1720.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "5004",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "5060",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "2427",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "1720",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 17,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "RTP runs on top of which protocol?",
+    "explanation": "RTP runs on top of the Session Initiation Protocol (SIP).",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "UC server",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "SIP",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "MGCP",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "H.323",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 17,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "Which of the following devices would most likely be a UC gateway?",
+    "explanation": "A unified communication (UC) gateway is most likely a router.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "VoIP telephone",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Desktop running Windows server",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Managed switch",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Router",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 17,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "What is a medianet’s primary tool to ensure bandwidth for VTC?",
+    "explanation": "Quality of service (QoS) enables medianets to ensure bandwidth for video teleconferencing.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "MPLS",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "RTU",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "QoS",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "ISDN",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 17,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "The central component of any ICS is what?",
+    "explanation": "The centerpiece of any industrial control system (ICS) is the ICS server.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Sensors",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "PLCs",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "ICS server",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "HMI",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 17,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "Which of the following differentiates a PLC from a DCS controller?",
+    "explanation": "A programmable logic controller (PLC) traditionally uses ordered steps to control a machine.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Sequential control",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Sensors",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Operator",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Actuator",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 18,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "Which item should be found in a security policy?",
+    "explanation": "An acceptable use policy (AUP) is a typical item found in a security policy.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Acceptable use policy",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Emergency exit plan",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Service-level agreement",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Instruction on how to fill out a change request form",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 18,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "Through what mechanism is a change to the IT structure initiated?",
+    "explanation": "Users submit a change request to the change management team to effect a change to an IT structure.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Users make a change to their environment, then report the result to the change management team.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "A user submits a request for funding a change to upper management, receives approval, and then submits a requisition to the change management team to source and purchase new equipment.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Users submit a change request to the change management team.",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "The change management team issues a proposed change to users in the organization, then evaluates the responses.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 18,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "Users need training from the IT department to understand which of the following?",
+    "explanation": "Typical user training includes how to secure workstations with screen-locking and password-security techniques.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "How to troubleshoot lost network connections",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "How to secure workstations with screen-locking and password-security techniques",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "How to send e-mail to the change management team",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "How to check their network connection",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 18,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "When is a memorandum of understanding used?",
+    "explanation": "A memorandum of understanding (MOU) is used when a legal contract is not appropriate.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "As part of a legal contract",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "As part of a statement of work (SOW)",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "When a service-level agreement (SLA) expires",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "When a legal contract is not appropriate",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 18,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "The best way to know the vulnerabilities of an IT infrastructure is to run what?",
+    "explanation": "Run a vulnerability scanner to find weaknesses in an IT infrastructure.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "A system-wide antivirus scanner",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Cable certifier",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Critical asset scanner",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Vulnerability scanner",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 18,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "What is succession planning?",
+    "explanation": "Identifying personnel who can take over certain positions in response to an incident is essential in succession planning.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Identifying personnel who can take over certain positions in response to an incident",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "The career path by which employees of an organization can grow through the ranks",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "The selection of failover servers in the event of a catastrophic server failure",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "The selection of failover routers in the event of a catastrophic router failure",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 18,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "During and after a change to the IT infrastructure, what must be done?",
+    "explanation": "When changing an IT infrastructure, always document the changes.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Downtime must be scheduled.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "New equipment must be installed.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Operating systems must be patched.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "The changes must be documented.",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 18,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "What is the job of a first responder?",
+    "explanation": "A first responder reacts to the notification of a computer crime.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Investigate data on a computer suspected to contain crime evidence.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "React to the notification of a computer crime.",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Power off computers suspected of being used in criminal activity.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Shut down computers and remove mass storage drives.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 18,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "Which of these describes the maximum time the organization can be without a critical system?",
+    "explanation": "The recovery time objective (RTO) defines the maximum time it should take to restore a critical system after failure.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Recovery point objective (RPO)",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Mean time between failure (MTBF)",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Recovery time objective (RTO)",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Mean time to repair (MTTR)",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 18,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "Which deployment model uses employee-owned mobile devices for corporate use?",
+    "explanation": "In a bring your own device (BYOD) model, employers allow employees to bring mobile devices into the workplace for corporate use.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "BYOD",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "COBO",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "COPE",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "CYOD",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 19,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "Which term most closely describes collecting all of the network clients or servers that need the same security policies?",
+    "explanation": "While this is also an example of hardening, it is more specifically an example of segmentation.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Hardening",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Segmentation",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Spoofing",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Posturing",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 19,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "Which of the following is a tool to prevent ARP cache poisoning?",
+    "explanation": "Cisco Dynamic ARP Inspection (DAI) is designed to help prevent ARP cache poisoning.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "DHCP",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "DAI",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Edge firewall",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "DNS snooping",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 19,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "A computer compromised with malware to support a botnet is called a _______________.",
+    "explanation": "All of the compromised systems on a botnet are called zombies.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Zombie",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Reflection",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "DDoS",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Locked node",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 19,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "A DoS attacker using __________ would focus on sending the smallest amount of traffic possible.",
+    "explanation": "The goal of amplification is to keep the targeted server as busy as possible.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Reflection",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Inflection",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Emanation",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Amplification",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 19,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "A user’s machine is locked to a screen telling her she must call a number to unlock her system. What kind of attack is this?",
+    "explanation": "Ransomware attacks can be brutal, demanding money to unlock <em>your</em> content.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "DDoS",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Logic bomb",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Ransomware",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Session hijacking",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 19,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "An attack where someone tries to hack a password using every possible password permutation is called what?",
+    "explanation": "Brute force uses every possible permutation and is often used in password cracking.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Man-in-the-middle",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Spoofing",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Rainbow table",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Brute force",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 19,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "Which Windows utility displays open ports on a host?",
+    "explanation": "Only <code>netstat</code> shows all open ports on a Windows system.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "<code>netstat</code>",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "<code>ping</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "<code>ipconfig</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "<code>nbtstat</code>",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 19,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "Which of the following protocols are notorious for cleartext passwords? (Select two.)",
+    "explanation": "Both Telnet and POP3 use cleartext passwords.",
+    "isMultiSelect": true,
+    "choices": [
+      {
+        "label": "A",
+        "body": "SSH",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Telnet",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "HTTPS",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "POP3",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 19,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "The NSA’s TEMPEST security standards are used to combat which risk?",
+    "explanation": "TEMPEST is designed to reduce RF emanation using enclosures, shielding, and even paint.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "RF emanation",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Spoofing",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "DDoS",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Malware",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 19,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "Bob is told by his administrator to update his anti-malware program before he runs it. What kind of anti-malware is he most likely using?",
+    "explanation": "The fact that he has to update the software first suggests it is host-based.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Host-based",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Network-based",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Cloud-based",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "FTP-based",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 20,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "Which PDU does an SNMP manager use to query agents?",
+    "explanation": "SNMP managers use Get protocol data units (PDUs) to query agents.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Get",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Response",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Set",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Trap",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 20,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "In an SNMP managed network, which software does a managed device run?",
+    "explanation": "Managed devices run agent software.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Agent",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "NMS",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "SNMP manager",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "MIB",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 20,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "How does an SNMP managed system categorize data that can be queried?",
+    "explanation": "SNMP managed systems use management information bases to categorize data to be queried.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "QoS",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "MIBs",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "PDUs",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "UDP",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 20,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "An SNMP manager uses which port when used with TLS?",
+    "explanation": "An SNMP manager uses port 10162 with Transport Layer Security (TLS).",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "161",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "162",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "10161",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "10162",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 20,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "Jason is concerned about the communication between two workstations and wants to capture and analyze that traffic to see if anything illicit is going on. Which tool would best serve his needs?",
+    "explanation": "Jason would use packet flow monitoring software to monitor the flow between two devices.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Interface monitor",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Packet flow monitor",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Packet sniffer",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Performance monitor",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 20,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "Where does a packet sniffer put information it collects?",
+    "explanation": "Packet sniffers put information in capture files.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Answer file",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Capture file",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Pocket file",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Sniffer file",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 20,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "An analysis of a network shows a lot of traffic on one machine on port 161. What kind of machine is it?",
+    "explanation": "Managed devices use port 161.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Managed device",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "SNMP manager",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "PDU",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "MIB",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 20,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "What should you create when a network is running normally?",
+    "explanation": "Create a baseline so you can compare network performance later on.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Answer file",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Capture file",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "MIB",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Baseline",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 20,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "Bart has a choice of tools to view his managed network, but he primarily wants to see graphs of various types of data, such as the overall traffic and the current capacities of the file servers. Which tool offers him the best option?",
+    "explanation": "Cacti is a great graphing tool.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Cacti",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "<code>snmpwalk</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "NetFlow",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Wireshark",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 20,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "What tool enables you to compare current network performance with correctly functioning network performance?",
+    "explanation": "A performance monitor enables you to compare current network performance with a baseline.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Baseline monitor",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Packet flow monitor",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Packet sniffer",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Performance monitor",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 21,
+    "ordinal": 1,
+    "domainCode": null,
+    "stem": "When should you use a cable tester to troubleshoot a network cable?",
+    "explanation": "Cable testers can only show that you have a broken or poorly wired cable, not if the cable is up to proper specification.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "When you have a host experiencing a very slow connection",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "When you have an intermittent connection problem",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "When you have a dead connection and you suspect a broken cable",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "When you are trying to find the correct cable up in the plenum",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 21,
+    "ordinal": 2,
+    "domainCode": null,
+    "stem": "Why would a network technician use a tone probe and tone generator?",
+    "explanation": "Techs use tone probes and tone generators to locate individual cables.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "To locate a particular cable",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "To test the dial tone on a PBX system",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "To run a long-duration ping test",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "To provide safety when working in crawl spaces",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 21,
+    "ordinal": 3,
+    "domainCode": null,
+    "stem": "What does <code>nslookup</code> do?",
+    "explanation": "The <code>nslookup</code> command queries DNS and returns the IP address of the supplied host name (and a whole lot of other details).",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Retrieves the name space for the network",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Queries DNS for the IP address of the supplied host name",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "body": "Performs a reverse IP lookup",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Lists the current running network services on localhost",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 21,
+    "ordinal": 4,
+    "domainCode": null,
+    "stem": "What is Wireshark?",
+    "explanation": "Wireshark can sniff and analyze all the network traffic that enters the computer’s NIC.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Protocol analyzer",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Packet sniffer",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Packet analyzer",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "All of the above",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 21,
+    "ordinal": 5,
+    "domainCode": null,
+    "stem": "What will the command <code>route print</code> return on a Windows system?",
+    "explanation": "The <code>route print</code> command returns the local system’s routing tables (for IPv4 and IPv6).",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "The results of the last tracert",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "The gateway’s router tables",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "The routes taken by a concurrent connection",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "The current system’s route tables",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "chapterNumber": 21,
+    "ordinal": 6,
+    "domainCode": null,
+    "stem": "When trying to establish symptoms over the phone, what kind of questions should you ask of a novice or confused user?",
+    "explanation": "With a novice or confused user, ask open-ended questions so the user can explain the problem in his or her own words.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "You should ask open-ended questions and let the user explain the problem in his or her own words.",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "You should ask detailed, close-ended questions to try and narrow down the possible causes.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Leading questions are your best choice for pointing the user in the right direction.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "None; ask the user to bring the machine in because it is useless to troubleshoot over the phone.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 21,
+    "ordinal": 7,
+    "domainCode": null,
+    "stem": "While you are asking the user problem-isolating questions, what else should you be doing?",
+    "explanation": "Ask yourself if anything could have happened on your side of the network.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Asking yourself if there is anything on your side of the network that could be causing the problem",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "body": "Nothing; just keep asking the user questions",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Using an accusatory tone with the user",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "Playing solitaire",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 21,
+    "ordinal": 8,
+    "domainCode": null,
+    "stem": "Which command shows you detailed IP information, including DNS server addresses and MAC addresses?",
+    "explanation": "<code>ipconfig /all</code> displays detailed IP configuration information.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "<code>ipconfig</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "<code>ipconfig -a</code>",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "<code>ipconfig /all</code>",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "<code>ipconfig /dns</code>",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 21,
+    "ordinal": 9,
+    "domainCode": null,
+    "stem": "What is the last step in the troubleshooting process?",
+    "explanation": "Documenting the solution is the last and, in many ways, the most important step in the troubleshooting process.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "Implementing the solution",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Testing the solution",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "Documenting the solution",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "body": "Closing the help ticket",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "chapterNumber": 21,
+    "ordinal": 10,
+    "domainCode": null,
+    "stem": "One of your users calls you with a complaint that he can’t reach the site <a href=\"http://www.google.com\">www.google.com</a>. You try and access the site and discover you can’t connect either but you can ping the site with its IP address. What is the most probable culprit?",
+    "explanation": "In this case, the DNS system is probably at fault. By pinging the site with its IP address, you have established that the site is up and your LAN and gateway are functioning properly.",
+    "isMultiSelect": false,
+    "choices": [
+      {
+        "label": "A",
+        "body": "The workgroup switch is down.",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "body": "Google is down.",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "body": "The gateway is down.",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "body": "The DNS server is down.",
+        "isCorrect": true
+      }
+    ]
+  }
+]
