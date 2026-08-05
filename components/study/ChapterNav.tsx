@@ -1,6 +1,8 @@
 import Link from "next/link";
-import { Check, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import type { Chapter } from "@/lib/content/types";
+import { ChapterProgressCount } from "./ChapterProgressCount";
+import { SectionReadMark } from "./SectionReadMark";
 
 interface ChapterNavProps {
   examSlug: string;
@@ -35,32 +37,37 @@ function ChapterList({ examSlug, chapters, currentChapterSlug, readAnchorIds }: 
               <span className="min-w-0">{chapter.title}</span>
             </Link>
             {isCurrent && (
-              <ul className="mt-1 mb-2 ml-4 space-y-0.5 border-l-2 border-brand-200 pl-3 dark:border-brand-500/30">
-                {chapter.sections.map((section) => {
-                  const isRead = readAnchorIds?.has(section.anchorId);
-                  return (
+              <div className="mt-1 mb-2 ml-4">
+                {/* Only for signed-in readers: readAnchorIds is undefined when
+                    there's nobody to track, and a permanent "0 of 19 read"
+                    is a scoreboard for a game they aren't playing. */}
+                {readAnchorIds && (
+                  <div className="mb-1.5 pl-3">
+                    <ChapterProgressCount
+                      chapterSlug={chapter.slug}
+                      initialCount={readAnchorIds.size}
+                      total={chapter.sections.length}
+                    />
+                  </div>
+                )}
+                <ul className="space-y-0.5 border-l-2 border-brand-200 pl-3 dark:border-brand-500/30">
+                  {chapter.sections.map((section) => (
                     <li key={section.anchorId}>
                       <a
                         href={`#${section.anchorId}`}
                         className="flex items-start gap-1.5 rounded-md py-1 text-muted-foreground transition-colors hover:text-foreground"
                       >
-                        {isRead ? (
-                          <Check
-                            className="mt-0.5 h-3.5 w-3.5 shrink-0 text-success-600 dark:text-success-400"
-                            aria-label="Read"
-                          />
-                        ) : (
-                          <span
-                            aria-hidden="true"
-                            className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-border-strong"
-                          />
-                        )}
+                        <SectionReadMark
+                          chapterSlug={chapter.slug}
+                          anchorId={section.anchorId}
+                          initiallyRead={readAnchorIds?.has(section.anchorId) ?? false}
+                        />
                         <span className="min-w-0">{section.title}</span>
                       </a>
                     </li>
-                  );
-                })}
-              </ul>
+                  ))}
+                </ul>
+              </div>
             )}
           </li>
         );

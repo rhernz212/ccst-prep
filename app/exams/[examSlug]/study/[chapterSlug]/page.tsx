@@ -6,6 +6,7 @@ import { chapterHue } from "@/lib/ui/chapter-hue";
 import { ChapterNav } from "@/components/study/ChapterNav";
 import { SectionRenderer } from "@/components/study/SectionRenderer";
 import { ReadingProgressMarker } from "@/components/study/ReadingProgressMarker";
+import { ChapterProgressPublisher } from "@/components/study/ChapterProgressPublisher";
 import { NotesBubble, type NoteTarget } from "@/components/study/NotesBubble";
 import { Button } from "@/components/ui/Button";
 
@@ -43,11 +44,24 @@ export default async function ChapterPage({
 
   return (
     <div className="lg:grid lg:grid-cols-[240px_1fr] lg:gap-10">
+      {/* Tells the exam layout's sticky chrome which chapter is on screen, so
+          it can draw progress on a rule that's already there. Signed-out
+          readers have nothing to track, so it doesn't mount for them. */}
+      {dbRefs?.userId && (
+        <ChapterProgressPublisher
+          chapterSlug={chapter.slug}
+          initialCount={dbRefs.readAnchorIds.size}
+          total={chapter.sections.length}
+        />
+      )}
       <ChapterNav
         examSlug={examSlug}
         chapters={chapters}
         currentChapterSlug={chapterSlug}
-        readAnchorIds={dbRefs?.readAnchorIds}
+        // Undefined rather than the empty set when signed out — getChapterDbRefs
+        // returns one either way, and ChapterNav reads the distinction as
+        // "nobody is tracking progress" to decide whether to show a tally.
+        readAnchorIds={dbRefs?.userId ? dbRefs.readAnchorIds : undefined}
       />
       {/* min-w-0: figures now carry intrinsic width attributes (up to 1400px),
           and a grid track sized `1fr` takes its minimum from content, so
@@ -91,7 +105,13 @@ export default async function ChapterPage({
             >
               <SectionRenderer html={section.html} />
               {dbRefs?.userId && sectionDbId && (
-                <ReadingProgressMarker chapterId={dbRefs.chapterId} sectionId={sectionDbId} />
+                <ReadingProgressMarker
+                  chapterId={dbRefs.chapterId}
+                  sectionId={sectionDbId}
+                  chapterSlug={chapter.slug}
+                  anchorId={section.anchorId}
+                  initiallyRead={dbRefs.readAnchorIds.has(section.anchorId)}
+                />
               )}
               {section.isReviewQuestions && (
                 <div className="not-prose mt-6 rounded-2xl border border-brand-200 bg-linear-to-br from-brand-50 to-surface p-5 text-center dark:border-brand-500/30 dark:from-brand-500/10 dark:to-surface">

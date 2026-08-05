@@ -13,6 +13,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import type { ExamTool } from "@/lib/content/types";
+import { ChapterProgressFill } from "@/components/study/ChapterProgressFill";
 
 interface Tab {
   slug: string;
@@ -103,7 +104,8 @@ export function ExamTabNav({
   const isActive = useIsActive(examSlug);
 
   return (
-    <div className="glass sticky top-14 z-30 hidden border-b border-border md:block">
+    // `relative` so the chapter progress fill can sit on the bottom border.
+    <div className="glass sticky top-14 z-30 relative hidden border-b border-border md:block">
       <nav aria-label="Exam sections" className="mx-auto max-w-6xl px-4 py-2.5">
         <div className="inline-flex gap-1 rounded-xl border border-border bg-surface-sunken p-1">
           {visibleTabs(tools, signedIn).map((tab) => {
@@ -136,6 +138,7 @@ export function ExamTabNav({
           })}
         </div>
       </nav>
+      <ChapterProgressFill edge="bottom" />
     </div>
   );
 }
@@ -205,6 +208,7 @@ export function ExamMobileTabBar({
           );
         })}
       </div>
+      <ChapterProgressFill edge="top" />
     </nav>
   );
 }
