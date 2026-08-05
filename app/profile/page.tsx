@@ -1,8 +1,18 @@
 import { redirect } from "next/navigation";
 import type { Metadata } from "next";
-import { CalendarClock, Clock, Flame, LogOut, NotebookPen, RefreshCw } from "lucide-react";
+import {
+  ArrowRight,
+  CalendarClock,
+  Clock,
+  Flame,
+  Flower2,
+  LogOut,
+  NotebookPen,
+  RefreshCw,
+} from "lucide-react";
 import { signOut } from "@/app/(auth)/actions";
 import { getProfileData } from "@/lib/profile/get-profile-data";
+import { isOwner } from "@/lib/owner";
 import { Card } from "@/components/ui/Card";
 import { CertCard } from "@/components/profile/CertCard";
 import { DisplayNameForm } from "@/components/profile/DisplayNameForm";
@@ -49,7 +59,9 @@ function Metric({
 }
 
 export default async function ProfilePage() {
-  const profile = await getProfileData();
+  // getCurrentUser is cache()d for the render pass, so the owner check rides
+  // along on the call getProfileData already makes.
+  const [profile, owner] = await Promise.all([getProfileData(), isOwner()]);
   if (!profile) redirect(`/sign-in?redirect=${encodeURIComponent("/profile")}`);
 
   const { activity, certs } = profile;
@@ -132,6 +144,33 @@ export default async function ProfilePage() {
           </p>
         </Card>
       </section>
+
+      {/* The garden is the same study record as the heatmap above it, drawn
+          for fun rather than for information — so it sits directly under it
+          and links out rather than taking space on this page. */}
+      {owner && (
+        <section className="mt-4">
+          <Card interactive href="/garden" className="flex items-center gap-4 p-5">
+            <span
+              className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-linear-to-br from-success-400 to-success-600 text-white shadow-raised"
+              aria-hidden="true"
+            >
+              <Flower2 className="h-5 w-5" />
+            </span>
+            <div className="min-w-0">
+              <div className="font-display text-lg font-semibold text-foreground">Your garden</div>
+              <p className="mt-0.5 text-sm text-muted-foreground">
+                A plant for every day you&apos;ve studied — sunflowers for practice exams,
+                moonflowers for the late nights.
+              </p>
+            </div>
+            <ArrowRight
+              className="ml-auto hidden h-4 w-4 shrink-0 text-muted-foreground sm:block"
+              aria-hidden="true"
+            />
+          </Card>
+        </section>
+      )}
 
       <section className="mt-10">
         <h2 className="text-fluid-xl font-semibold text-foreground">Your certifications</h2>

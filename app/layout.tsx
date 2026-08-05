@@ -6,11 +6,18 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Wordmark } from "@/components/ui/Logo";
 import "./globals.css";
 
+// Theme, plus the reader's lantern tint — both have to land before first
+// paint or the page flashes the wrong palette. The 21/6 window is the same
+// one components/study/ReaderTint.tsx uses for its auto mode; they have to
+// agree, or auto would come on at load and switch straight back off.
 const noFlashScript = `
   try {
     const t = localStorage.theme;
     if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches))
       document.documentElement.classList.add('dark');
+    const r = localStorage.readerTint, h = new Date().getHours();
+    if (r === 'on' || (r === 'auto' && (h >= 21 || h < 6)))
+      document.documentElement.dataset.readerTint = 'sepia';
   } catch {}
 `;
 

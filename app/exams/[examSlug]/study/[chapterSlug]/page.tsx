@@ -2,8 +2,10 @@ import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { getExamMeta, listChapters } from "@/lib/content/exam-content";
 import { getChapterDbRefs } from "@/lib/progress/get-chapter-db-refs";
+import { isOwner } from "@/lib/owner";
 import { chapterHue } from "@/lib/ui/chapter-hue";
 import { ChapterNav } from "@/components/study/ChapterNav";
+import { ReaderTint } from "@/components/study/ReaderTint";
 import { SectionRenderer } from "@/components/study/SectionRenderer";
 import { ReadingProgressMarker } from "@/components/study/ReadingProgressMarker";
 import { ChapterProgressPublisher } from "@/components/study/ChapterProgressPublisher";
@@ -23,7 +25,12 @@ export default async function ChapterPage({
   const chapter = chapters.find((c) => c.slug === chapterSlug);
   if (!chapter) notFound();
 
-  const dbRefs = await getChapterDbRefs(examSlug, chapter.number);
+  // getCurrentUser is cache()d for the render pass, so the owner check costs
+  // nothing on top of the lookup getChapterDbRefs already does.
+  const [dbRefs, owner] = await Promise.all([
+    getChapterDbRefs(examSlug, chapter.number),
+    isOwner(),
+  ]);
 
   // Only sections that made it into the DB can hold a note, since the note row
   // references sections(id).
@@ -68,7 +75,7 @@ export default async function ChapterPage({
           without this the column stretches to the widest image and drags the
           whole page into horizontal scroll. */}
       <article className="prose prose-slate dark:prose-invert prose-img:rounded-xl prose-img:border prose-img:border-border prose-headings:tracking-tight min-w-0 max-w-none">
-        <div className="not-prose mb-6 flex items-center gap-3.5">
+        <div className="not-prose mb-6 flex flex-wrap items-center gap-x-3.5 gap-y-3">
           <span
             className="grid h-12 w-12 shrink-0 place-items-center rounded-xl text-lg font-bold text-white shadow-raised"
             style={{
@@ -89,6 +96,15 @@ export default async function ChapterPage({
               {chapter.title}
             </h2>
           </div>
+          {/* Sits with the chapter title rather than floating over the text:
+              the bottom corners are already spoken for by the notes bubble and
+              the mobile tab bar, and a reading control belongs with the thing
+              being read. */}
+          {owner && (
+            <div className="ml-auto">
+              <ReaderTint />
+            </div>
+          )}
         </div>
         <SectionRenderer html={chapter.introHtml} />
         {chapter.sections.map((section) => {

@@ -81,6 +81,15 @@ npm run optimize:images
 
 Pass `--source "<path to extracted epub OPS folder>"` if the content references an image that was never copied into `public/`.
 
+## Owner-only extras
+
+Two features exist only for the account named by `OWNER_EMAIL` (see `lib/owner.ts`, which defaults to the site owner's address):
+
+- **The study garden** at `/garden` — one plant for every day you've studied, grown entirely from the timestamps the app already writes. What a day grows depends on what you did with it: ferns for reading, daisies for quizzes, tulips for reviews, sunflowers for practice exams, a rose for ten-plus things in one day, and a moonflower for anything studied after 11pm or before 5am. How much you did that day sets how far it opens, and plants inside a run of seven days or more are lit. Nothing is stored, so there's no migration and no new write on the reading path — `lib/domain/garden/garden.ts` is pure and unit-tested, `lib/garden/get-garden.ts` feeds it.
+- **Lantern mode** in the chapter reader — a warm, low-glare tint for late-night sessions, with an auto setting that switches itself on after 9pm. It's a third palette rather than a third theme (`:root[data-reader-tint="sepia"]` in `app/globals.css`), so it composes with light *and* dark mode instead of overriding either, and it's applied before first paint by the root layout's inline script.
+
+Everything gated this way degrades to the feature simply not being there — `/garden` 404s and the reader control isn't rendered.
+
 ## Tests
 
 Pure domain logic (subnetting calculator, CLI command simulator, exam question selection/scoring) has unit tests:

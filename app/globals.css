@@ -225,6 +225,43 @@
   color-scheme: dark;
 }
 
+/* Lantern mode — the late-night reading tint (components/study/ReaderTint.tsx).
+   A third palette rather than a third theme: it overrides the same tokens
+   both themes are built from, so it composes with either.
+
+   Specificity is what decides this, not source order: `:root[data-…]` and
+   `.dark[data-…]` are both (0,2,0) and outrank `.dark` at (0,1,0), so the
+   lantern always wins over the base palette while the dark *variant*
+   utilities keep matching the surfaces they're painted on. */
+:root[data-reader-tint="sepia"] {
+  --background: oklch(94% 0.03 82);
+  --surface: oklch(96.5% 0.024 84);
+  --surface-hover: oklch(92% 0.032 82);
+  --surface-sunken: oklch(90.5% 0.035 80);
+  /* Warm near-black rather than true black: on paper-toned ground, a neutral
+     foreground is the part that still reads as a screen. */
+  --foreground: oklch(30% 0.035 55);
+  --muted-foreground: oklch(47% 0.03 58);
+  --border: oklch(86% 0.035 78);
+  --border-strong: oklch(77% 0.045 74);
+  --lit-edge: oklch(100% 0 0 / 0.7);
+  color-scheme: light;
+}
+
+/* Dark + lantern: still dark, but lit by something with a filament in it. */
+.dark[data-reader-tint="sepia"] {
+  --background: oklch(17% 0.022 62);
+  --surface: oklch(21% 0.026 62);
+  --surface-hover: oklch(26% 0.03 62);
+  --surface-sunken: oklch(14% 0.02 62);
+  --foreground: oklch(90% 0.03 78);
+  --muted-foreground: oklch(70% 0.035 72);
+  --border: oklch(29% 0.03 62);
+  --border-strong: oklch(37% 0.035 62);
+  --lit-edge: oklch(100% 0 0 / 0.07);
+  color-scheme: dark;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
@@ -256,6 +293,12 @@ body {
   background: var(--background);
   color: var(--foreground);
   text-rendering: optimizeLegibility;
+  /* Only the page ground cross-fades when the palette changes — enough that
+     switching the lantern (or the theme) on doesn't snap, without putting a
+     transition on every bordered element in the document. */
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
 }
 
 /* Faint engineering grid across the whole canvas — graph paper, and a
@@ -620,6 +663,16 @@ p, li {
   content: "\2713  ";
   color: var(--color-success-600);
   font-weight: bold;
+}
+
+/* The book's figures are diagrams on white, and left untouched they're the
+   one thing on a lantern-lit page still burning at full brightness. Warmed to
+   match the paper, and knocked back further on a dark ground. */
+[data-reader-tint="sepia"] .prose :is(img, video) {
+  filter: sepia(0.26) saturate(0.88) brightness(0.97);
+}
+.dark[data-reader-tint="sepia"] .prose :is(img, video) {
+  filter: sepia(0.3) saturate(0.8) brightness(0.82);
 }
 
 .dark .prose .feature3 {
