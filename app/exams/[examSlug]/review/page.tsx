@@ -30,10 +30,16 @@ export default async function ReviewPage({
   const { data: examRow } = await supabase.from("exams").select("id").eq("slug", examSlug).maybeSingle();
   if (!examRow) notFound();
 
+  // Scoped to this exam through the question it schedules. Without the join
+  // the queue was global: someone studying two certifications could fill all
+  // 20 slots with the other exam's cards, and since the questions query below
+  // *is* exam-filtered, the runner would then be handed an empty list while
+  // the "you're caught up" branch had already been skipped.
   const { data: dueRows } = await supabase
     .from("question_review_state")
-    .select("question_id")
+    .select("question_id, questions!inner(exam_id)")
     .eq("user_id", user.id)
+    .eq("questions.exam_id", examRow.id)
     .lte("due_at", new Date().toISOString())
     .order("due_at")
     .limit(DUE_QUEUE_LIMIT);
@@ -41,7 +47,7 @@ export default async function ReviewPage({
   const dueIds = (dueRows ?? []).map((r) => r.question_id);
 
   if (dueIds.length === 0) {
-    const status = await getReviewQueueStatus();
+    const status = await getReviewQueueStatus(examSlug);
     // Nothing scheduled at all means review has never been started, which is
     // a different situation from having worked through everything that's due.
     const neverStarted = (status?.scheduledCount ?? 0) === 0;

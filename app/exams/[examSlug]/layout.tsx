@@ -6,6 +6,7 @@ import { examTools } from "@/lib/content/exam-tools";
 import { getReviewQueueStatus } from "@/lib/review/get-review-queue-status";
 import { getCurrentUser } from "@/lib/supabase/get-user";
 import { ExamMobileTabBar, ExamTabNav } from "@/components/ui/ExamTabNav";
+import { SearchPalette } from "@/components/search/SearchPalette";
 import { Badge } from "@/components/ui/Badge";
 
 export default async function ExamLayout({
@@ -26,7 +27,10 @@ export default async function ExamLayout({
   // getCurrentUser is cache()d for the render pass, so asking again here to
   // gate the Notes tab costs nothing beyond the call getReviewQueueStatus
   // already makes.
-  const [reviewStatus, user] = await Promise.all([getReviewQueueStatus(), getCurrentUser()]);
+  const [reviewStatus, user] = await Promise.all([
+    getReviewQueueStatus(examSlug),
+    getCurrentUser(),
+  ]);
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -44,6 +48,12 @@ export default async function ExamLayout({
           <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2">
             <h1 className="text-fluid-2xl font-bold text-foreground">{exam.title}</h1>
             <Badge variant="brand">{exam.examCode}</Badge>
+            {/* In the exam header rather than the app header: what's
+                searchable is this certification's chapters, and the tab rail
+                below is already at its limit on a phone. */}
+            <span className="ml-auto">
+              <SearchPalette examSlug={examSlug} />
+            </span>
           </div>
           <p className="mt-1 text-sm text-muted-foreground">
             {exam.vendor} · {exam.questionCount} questions · {exam.timeLimitMinutes} minutes

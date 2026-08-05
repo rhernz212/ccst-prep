@@ -346,6 +346,17 @@ p, li {
   border-radius: var(--radius-sm);
 }
 
+/* Opt-out, for the rare control whose focus is never in question — currently
+   just the search palette's input, which is auto-focused on open and is the
+   only field in its dialog, so the ring only outlined the obvious.
+
+   Deliberately not an `@utility`: the rule above is unlayered, and unlayered
+   CSS beats anything in Tailwind's utilities layer whatever its specificity,
+   so a generated utility would silently lose to it. */
+.no-focus-ring:focus-visible {
+  outline: none;
+}
+
 ::selection {
   background: var(--color-brand-200);
   color: var(--color-brand-950);

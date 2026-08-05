@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { QuizQuestion, QuizResult } from "@/lib/quiz/types";
 import { QuestionCard } from "@/components/quiz/QuestionCard";
 import { ReviewSummary } from "./ReviewSummary";
@@ -20,13 +20,71 @@ export function ReviewRunner({
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<QuizResult | null>(null);
 
+  // Questions already sent to the server. Every path that submits consults
+  // this first, so a question can only ever advance its spaced-repetition
+  // schedule once — a card graded twice would jump two intervals ahead off
+  // one recall attempt, which is worse than losing the session.
+  const sentRef = useRef(new Set<string>());
+  const answersRef = useRef(answers);
+  useEffect(() => {
+    answersRef.current = answers;
+  }, [answers]);
+
   const current = questions[index];
   const isLast = index === questions.length - 1;
   const answeredCount = Object.values(answers).filter((ids) => ids.length > 0).length;
 
+  /**
+   * Sends the answers that haven't been recorded yet, on the way out.
+   *
+   * The queue used to hold all twenty answers in React state and post them
+   * only on "Finish review", so closing the tab at question nineteen
+   * scheduled nothing at all — the exact session most worth keeping, since
+   * every one of those cards was due. keepalive lets the request outlive the
+   * page it was fired from.
+   */
+  const flushUnsent = useCallback(() => {
+    const unsent = questions
+      .filter((q) => !sentRef.current.has(q.id) && (answersRef.current[q.id] ?? []).length > 0)
+      .map((q) => ({ questionId: q.id, selectedChoiceIds: answersRef.current[q.id] }));
+
+    if (unsent.length === 0) return;
+    for (const answer of unsent) sentRef.current.add(answer.questionId);
+
+    void fetch("/api/review-attempts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ answers: unsent }),
+      keepalive: true,
+    }).catch(() => {});
+  }, [questions]);
+
+  useEffect(() => {
+    const onPageHide = () => flushUnsent();
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "hidden") flushUnsent();
+    };
+    window.addEventListener("pagehide", onPageHide);
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
+    return () => {
+      window.removeEventListener("pagehide", onPageHide);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+      flushUnsent();
+    };
+  }, [flushUnsent]);
+
   async function handleSubmit() {
     setSubmitting(true);
     setError(null);
+
+    // Every question is sent so the summary can grade the whole session, but
+    // only the ones an early flush hasn't already recorded are allowed to
+    // move their schedule. Unanswered questions count as sent here: skipping
+    // a card is a failed recall, and the schedule should hear about it.
+    const scheduleFor = questions.filter((q) => !sentRef.current.has(q.id)).map((q) => q.id);
+    for (const id of scheduleFor) sentRef.current.add(id);
+
     try {
       const res = await fetch("/api/review-attempts", {
         method: "POST",
@@ -36,6 +94,7 @@ export function ReviewRunner({
             questionId: q.id,
             selectedChoiceIds: answers[q.id] ?? [],
           })),
+          scheduleFor,
         }),
       });
       if (!res.ok) {
@@ -45,6 +104,9 @@ export function ReviewRunner({
       const data: QuizResult = await res.json();
       setResult(data);
     } catch (err) {
+      // Put them back in the unsent pile, or the retry button would submit
+      // with an empty scheduleFor and silently schedule nothing.
+      for (const id of scheduleFor) sentRef.current.delete(id);
       setError(err instanceof Error ? err.message : "Something went wrong");
     } finally {
       setSubmitting(false);

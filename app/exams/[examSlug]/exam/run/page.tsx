@@ -34,7 +34,9 @@ export default async function ExamRunPage({
 
   const { data: rawAttemptQuestions } = await supabase
     .from("exam_attempt_questions")
-    .select("order_index, questions(id, stem, is_multi_select, question_choices(id, label, body, order_index))")
+    .select(
+      "order_index, selected_choice_ids, questions(id, stem, is_multi_select, question_choices(id, label, body, order_index))"
+    )
     .eq("attempt_id", attemptId)
     .order("order_index");
 
@@ -43,6 +45,7 @@ export default async function ExamRunPage({
   // PostgREST actually returns at runtime.
   interface AttemptQuestionRow {
     order_index: number;
+    selected_choice_ids: string[] | null;
     questions: {
       id: string;
       stem: string;
@@ -66,6 +69,16 @@ export default async function ExamRunPage({
 
   if (questions.length === 0) notFound();
 
+  // Whatever was already answered, so reopening a half-finished attempt picks
+  // up where it stopped rather than presenting fifty blank questions with the
+  // clock still running.
+  const initialAnswers: Record<string, string[]> = {};
+  for (const aq of attemptQuestions) {
+    if (aq.questions && aq.selected_choice_ids?.length) {
+      initialAnswers[aq.questions.id] = aq.selected_choice_ids;
+    }
+  }
+
   return (
     <ExamRunner
       examSlug={examSlug}
@@ -73,6 +86,7 @@ export default async function ExamRunPage({
       startedAt={attempt.started_at}
       timeLimitMinutes={attempt.time_limit_minutes}
       questions={questions}
+      initialAnswers={initialAnswers}
     />
   );
 }

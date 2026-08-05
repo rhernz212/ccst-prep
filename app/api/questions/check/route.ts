@@ -37,7 +37,9 @@ export async function POST(request: Request) {
 
   const result = await gradeAnswers(supabase, [{ questionId, selectedChoiceIds }]);
   if ("error" in result) {
-    return NextResponse.json({ error: result.error }, { status: 500 });
+    // 400 for an id that doesn't exist, 500 for a database failure — the
+    // grader distinguishes them so this route doesn't have to guess.
+    return NextResponse.json({ error: result.error }, { status: result.status });
   }
 
   const graded: GradedAnswer | undefined = result.graded[0];

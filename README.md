@@ -81,6 +81,20 @@ npm run optimize:images
 
 Pass `--source "<path to extracted epub OPS folder>"` if the content references an image that was never copied into `public/`.
 
+## Search
+
+Every chapter is full-text searchable from the ⌘K / Ctrl-K palette in the exam header (`/` works too), and a hit links straight to the section's anchor rather than the top of the chapter.
+
+The index is two generated columns on `sections` — plain text with the markup stripped, and a weighted `tsvector` with the section title ranked above its body — so existing content becomes searchable the moment the migration runs, with no re-ingest and no way for the index to drift from the HTML it describes. Ranking and snippet extraction can't be expressed through PostgREST, so both live in a `search_sections` SQL function that `app/api/search/route.ts` wraps.
+
+Snippet highlights come back delimited with `[[HL]]…[[/HL]]` rather than `<mark>`: the excerpt is book prose that has already had its markup stripped, and the client splits on those markers to render real elements instead of re-parsing content as HTML at the last step.
+
+## The review log
+
+`question_review_state` holds only where a card is *now*. `review_events` (added in `20260805090000_review_events.sql`) appends what actually happened on every answer — source, correctness, days since the last sighting, and the scheduler state either side of it.
+
+Nothing reads it yet. It exists because a fitted scheduler like FSRS is trained on review histories, and none of that can be reconstructed from a current interval — so every day without the log is data that can't be recovered later. It's written from `recordReviewResults`, the one place that knows both the state before an answer and the state after.
+
 ## Owner-only extras
 
 Two features exist only for the account named by `OWNER_EMAIL` (see `lib/owner.ts`, which defaults to the site owner's address):

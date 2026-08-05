@@ -6,6 +6,16 @@ import type { QuizResult, SubmittedAnswer } from "@/lib/quiz/types";
 
 interface RequestBody {
   answers?: SubmittedAnswer[];
+  /**
+   * Which of `answers` should advance their spaced-repetition schedule.
+   * Omitted means all of them.
+   *
+   * This exists because the runner flushes answers early when the tab is
+   * hidden, then still needs every question graded at the end to render the
+   * summary. Grading is a pure read and can be repeated; rescheduling can't —
+   * a card graded twice would jump two intervals ahead off one recall.
+   */
+  scheduleFor?: string[];
 }
 
 export async function POST(request: Request) {
@@ -27,14 +37,18 @@ export async function POST(request: Request) {
 
   const gradeResult = await gradeAnswers(supabase, answers);
   if ("error" in gradeResult) {
-    return NextResponse.json({ error: gradeResult.error }, { status: 500 });
+    return NextResponse.json({ error: gradeResult.error }, { status: gradeResult.status });
   }
   const { graded, score } = gradeResult;
 
+  const scheduleFor = Array.isArray(body?.scheduleFor) ? new Set(body.scheduleFor) : null;
   await recordReviewResults(
     supabase,
     user.id,
-    graded.map((g) => ({ questionId: g.questionId, isCorrect: g.isCorrect }))
+    graded
+      .filter((g) => scheduleFor === null || scheduleFor.has(g.questionId))
+      .map((g) => ({ questionId: g.questionId, isCorrect: g.isCorrect })),
+    "review"
   );
 
   const result: QuizResult = {

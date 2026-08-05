@@ -126,7 +126,8 @@ export async function POST(request: Request, ctx: { params: Promise<{ attemptId:
   await recordReviewResults(
     supabase,
     user.id,
-    graded.map((g) => ({ questionId: g.questionId, isCorrect: g.isCorrect }))
+    graded.map((g) => ({ questionId: g.questionId, isCorrect: g.isCorrect })),
+    "exam"
   );
 
   return NextResponse.json({

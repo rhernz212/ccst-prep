@@ -8,24 +8,36 @@ import { NextIcon, RunnerNav, RunnerProgress } from "@/components/quiz/RunnerChr
 import { ExamTimer } from "./ExamTimer";
 import { Button } from "@/components/ui/Button";
 
+/** Long enough to coalesce a burst of clicks on a multi-select, short enough
+ *  that stepping to the next question has already saved the last one. */
+const AUTOSAVE_DEBOUNCE_MS = 500;
+
 export function ExamRunner({
   examSlug,
   attemptId,
   startedAt,
   timeLimitMinutes,
   questions,
+  initialAnswers = {},
 }: {
   examSlug: string;
   attemptId: string;
   startedAt: string;
   timeLimitMinutes: number;
   questions: ExamQuestion[];
+  /** Answers already saved for this attempt, so a resumed exam starts where
+   *  it left off rather than blank. */
+  initialAnswers?: Record<string, string[]>;
 }) {
   const router = useRouter();
   const [index, setIndex] = useState(0);
-  const [answers, setAnswers] = useState<Record<string, string[]>>({});
+  const [answers, setAnswers] = useState<Record<string, string[]>>(initialAnswers);
   const [submitting, setSubmitting] = useState(false);
   const submittedRef = useRef(false);
+  // Answers picked but not yet written, keyed by question. A map rather than
+  // a queue so re-answering the same question replaces its pending write.
+  const pendingSavesRef = useRef(new Map<string, string[]>());
+  const saveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // ExamTimer's effect depends on `onExpire`'s identity, so finalize must
   // stay referentially stable across answer changes (otherwise every
@@ -58,6 +70,65 @@ export function ExamRunner({
       router.push(`/exams/${examSlug}/exam/${attemptId}/results`);
     }
   }, [attemptId, questions, examSlug, router]);
+
+  /**
+   * Records one answer as it's picked.
+   *
+   * Debounced per question so working through a six-option multi-select is
+   * one write rather than six, and fire-and-forget: a failed autosave must
+   * never interrupt someone mid-exam, because finalize still sends every
+   * answer at the end and is the real backstop. The point of this is only
+   * that the attempt survives the tab closing.
+   */
+  const flushPending = useCallback(() => {
+    const pending = pendingSavesRef.current;
+    if (pending.size === 0 || submittedRef.current) return;
+
+    const entries = [...pending.entries()];
+    pending.clear();
+
+    for (const [questionId, selectedChoiceIds] of entries) {
+      // keepalive is the whole trick: it lets the request outlive the page,
+      // so the answer you were on when you closed the tab still lands.
+      void fetch(`/api/exam-attempts/${attemptId}/answers`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ questionId, selectedChoiceIds }),
+        keepalive: true,
+      }).catch(() => {});
+    }
+  }, [attemptId]);
+
+  function handleAnswerChange(questionId: string, ids: string[]) {
+    setAnswers((prev) => ({ ...prev, [questionId]: ids }));
+    pendingSavesRef.current.set(questionId, ids);
+
+    // Debounced so working through a six-option multi-select is one write
+    // rather than six. Fire-and-forget: a failed autosave must never
+    // interrupt someone mid-exam, and finalize still sends every answer at
+    // the end. This only has to make the attempt survive the tab closing.
+    if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
+    saveTimerRef.current = setTimeout(flushPending, AUTOSAVE_DEBOUNCE_MS);
+  }
+
+  // pagehide rather than beforeunload: it fires on mobile tab-switching and
+  // app backgrounding, which is where an exam actually gets abandoned.
+  // Unmount flushes too, since navigating away mid-exam is the same loss.
+  useEffect(() => {
+    const onPageHide = () => flushPending();
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "hidden") flushPending();
+    };
+    window.addEventListener("pagehide", onPageHide);
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
+    return () => {
+      window.removeEventListener("pagehide", onPageHide);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+      if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
+      flushPending();
+    };
+  }, [flushPending]);
 
   function handleSubmitClick() {
     const answeredCount = Object.values(answers).filter((a) => a.length > 0).length;
@@ -120,7 +191,7 @@ export function ExamRunner({
           choices={current.choices}
           isMultiSelect={current.isMultiSelect}
           selectedIds={answers[current.id] ?? []}
-          onChange={(ids) => setAnswers((prev) => ({ ...prev, [current.id]: ids }))}
+          onChange={(ids) => handleAnswerChange(current.id, ids)}
         />
       </div>
 

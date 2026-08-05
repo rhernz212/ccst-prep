@@ -25,7 +25,7 @@ export async function POST(request: Request) {
 
   const gradeResult = await gradeAnswers(supabase, answers);
   if ("error" in gradeResult) {
-    return NextResponse.json({ error: gradeResult.error }, { status: 500 });
+    return NextResponse.json({ error: gradeResult.error }, { status: gradeResult.status });
   }
   const { graded, score } = gradeResult;
 
@@ -62,7 +62,8 @@ export async function POST(request: Request) {
     await recordReviewResults(
       supabase,
       user.id,
-      graded.map((g) => ({ questionId: g.questionId, isCorrect: g.isCorrect }))
+      graded.map((g) => ({ questionId: g.questionId, isCorrect: g.isCorrect })),
+      "quiz"
     );
   }
 
