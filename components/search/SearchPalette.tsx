@@ -146,18 +146,21 @@ export function SearchPalette({ examSlug }: { examSlug: string }) {
 
   return (
     <>
-      {/* Text-only. The label carries the affordance on its own, so it stays
-          visible at every width — with the icon gone, hiding it below sm
-          would leave an unlabelled box. */}
+      {/* Icon plus label, and no keyboard hint — ⌘K and "/" still open the
+          palette, they're just not advertised on the button.
+
+          The label drops below sm so the button collapses to its icon and
+          stays on the title's row; kept as a full label it wrapped onto its
+          own line and split the heading from the line beneath it. aria-label
+          rather than an sr-only span, so the icon-only state is still named. */}
       <button
         type="button"
         onClick={openPalette}
-        className="group inline-flex h-9 items-center gap-2 rounded-lg border border-border bg-surface px-3 text-sm text-muted-foreground transition-[background-color,border-color,color] duration-200 hover:border-brand-300 hover:text-foreground dark:hover:border-brand-500/70"
+        aria-label="Search chapters"
+        className="group inline-flex h-9 items-center gap-2 rounded-lg border border-border bg-surface px-2.5 text-sm text-muted-foreground transition-[background-color,border-color,color] duration-200 hover:border-brand-300 hover:text-foreground sm:px-3 dark:hover:border-brand-500/70"
       >
-        Search chapters
-        <kbd className="ml-1 hidden rounded border border-border bg-surface-hover px-1.5 py-0.5 font-mono text-[0.6875rem] text-muted-foreground md:inline">
-          ⌘K
-        </kbd>
+        <Search className="h-4 w-4" aria-hidden="true" />
+        <span className="hidden sm:inline">Search chapters</span>
       </button>
 
       {mounted &&
