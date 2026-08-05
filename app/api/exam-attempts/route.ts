@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
-import { selectExamQuestions, type DomainInfo, type QuestionForSelection } from "@/lib/domain/exam/questionSelector";
+import {
+  selectExamQuestions,
+  type DomainInfo,
+  type QuestionExposure,
+  type QuestionForSelection,
+} from "@/lib/domain/exam/questionSelector";
 
 export async function POST(request: Request) {
   const supabase = await createClient();
@@ -64,7 +69,49 @@ export async function POST(request: Request) {
     );
   }
 
-  const selection = selectExamQuestions(domains, questionPool, exam.question_count);
+  // How many of this user's past attempts on this exam included each
+  // question, and when the most recent one was — scoped through the join to
+  // exam_attempts rather than a separate exposure table, since the selection
+  // an attempt started with already records exactly this.
+  //
+  // Counted from every attempt regardless of status: the questions were
+  // shown the moment the attempt started, whether or not it was ever
+  // finished, so an abandoned attempt still counts as exposure. Deliberately
+  // scoped to past *exams* only, not quizzes or reviews — a full mock sitting
+  // repeated with mostly the same questions is the specific failure this
+  // exists to prevent (real question banks in this space are small enough
+  // that three sittings can start to converge on "what you've memorized"
+  // rather than "what you know"); a chapter quiz redraws its whole chapter
+  // every time by design and isn't the same problem.
+  const { data: exposureRows } = await supabase
+    .from("exam_attempt_questions")
+    .select("question_id, exam_attempts!inner(started_at)")
+    .eq("exam_attempts.user_id", user.id)
+    .eq("exam_attempts.exam_id", exam.id);
+
+  interface ExposureRow {
+    question_id: string;
+    exam_attempts: { started_at: string } | null;
+  }
+  const exposure = new Map<string, QuestionExposure>();
+  for (const row of (exposureRows ?? []) as unknown as ExposureRow[]) {
+    const startedAtMs = row.exam_attempts ? new Date(row.exam_attempts.started_at).getTime() : 0;
+    const existing = exposure.get(row.question_id);
+    if (existing) {
+      existing.timesSeen += 1;
+      existing.lastSeenAtMs = Math.max(existing.lastSeenAtMs, startedAtMs);
+    } else {
+      exposure.set(row.question_id, { timesSeen: 1, lastSeenAtMs: startedAtMs });
+    }
+  }
+
+  const selection = selectExamQuestions(
+    domains,
+    questionPool,
+    exam.question_count,
+    Math.random,
+    exposure
+  );
 
   const { data: attempt, error: attemptError } = await supabase
     .from("exam_attempts")

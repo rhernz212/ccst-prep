@@ -81,6 +81,14 @@ npm run optimize:images
 
 Pass `--source "<path to extracted epub OPS folder>"` if the content references an image that was never copied into `public/`.
 
+## Repeat suppression on the practice exam
+
+The paid practice-exam products in this space have a known, unfixed flaw: candidates who retake a mock exam more than a couple of times start scoring their memory of the item bank instead of their knowledge of the material, and the rising score stops meaning anything.
+
+`selectExamQuestions` (`lib/domain/exam/questionSelector.ts`) fixes this by ranking each domain's candidate pool by exposure before drawing from it — never-seen questions first, then whichever was seen longest ago, with random order preserved among ties. It's a preference, not a hard rule: a domain whose unseen pool runs dry still gets filled, just with its least-recently-shown repeats rather than a fresh shuffle that could hand back the same question twice in a row. `app/api/exam-attempts/route.ts` builds the exposure map from `exam_attempt_questions` joined to the user's past attempts on that exam — attempts of any status, since the questions were shown the moment the attempt started, whether or not it was ever finished.
+
+Deliberately scoped to past *exams* only, not quizzes or reviews: a full mock sitting repeated with mostly the same questions is the specific problem this solves, and a chapter quiz redraws its whole chapter every time by design, so it isn't the same failure mode. This buys real headroom against a smallish question bank, but it's a mitigation, not a substitute for growing the bank itself.
+
 ## Search
 
 Every chapter is full-text searchable from the ⌘K / Ctrl-K palette in the exam header (`/` works too), and a hit links straight to the section's anchor rather than the top of the chapter.
